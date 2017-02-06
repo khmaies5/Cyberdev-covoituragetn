@@ -14,16 +14,52 @@ import java.util.Objects;
  */
 public class Reservation {
     private int id ;
-    private Date date_reservation ;
+    private String date_reservation ;
     private String etat_reservation ;
     private double montant ;
     private String Type_payement;
     private int id_user ;
+    private User creator ;
+    private int nbr_place;
+    private Annonce annonce ;
+    
 
     public Reservation() {
     }
 
-    public Reservation(Date date_reservation, String etat_reservation, double montant, String Type_payement, int id_user) {
+    public Reservation(String etat_reservation, double montant, String Type_payement, User creator, int nbr_place, Annonce annonce) {
+        this.etat_reservation = etat_reservation;
+        this.montant = montant;
+        this.Type_payement = Type_payement;
+        this.creator = creator;
+        this.nbr_place = nbr_place;
+        this.annonce = annonce;
+    }
+
+    public Reservation(String date_reservation, String etat_reservation, double montant, String Type_payement, User creator) {
+        this.date_reservation = date_reservation;
+        this.etat_reservation = etat_reservation;
+        this.montant = montant;
+        this.Type_payement = Type_payement;
+        this.creator = creator;
+    }
+
+    public Reservation(String etat_reservation) {
+        this.etat_reservation = etat_reservation;
+    }
+
+    public Reservation(String date_reservation, String etat_reservation, double montant, String Type_payement, User creator, int nbr_place, Annonce annonce) {
+        this.date_reservation = date_reservation;
+        this.etat_reservation = etat_reservation;
+        this.montant = montant;
+        this.Type_payement = Type_payement;
+        this.creator = creator;
+        this.nbr_place = nbr_place;
+        this.annonce = annonce;
+    }
+    
+
+    public Reservation(String date_reservation, String etat_reservation, double montant, String Type_payement, int id_user) {
         this.date_reservation = date_reservation;
         this.etat_reservation = etat_reservation;
         this.montant = montant;
@@ -31,20 +67,41 @@ public class Reservation {
         this.id_user = id_user;
     }
 
-    public Reservation(int id, Date date_reservation, String etat_reservation, double montant, String Type_payement, int id_user) {
+    public Reservation(int id, String date_reservation, String etat_reservation, double montant, String Type_payement, User creator) {
+        this.id = id;
+        this.date_reservation = date_reservation;
+        this.etat_reservation = etat_reservation;
+        this.montant = montant;
+        this.Type_payement = Type_payement;
+        this.creator = creator;
+    }
+
+    public Reservation(int id, String date_reservation, String etat_reservation, double montant, String Type_payement, User creator, int nbr_place, Annonce annonce) {
+        this.id = id;
+        this.date_reservation = date_reservation;
+        this.etat_reservation = etat_reservation;
+        this.montant = montant;
+        this.Type_payement = Type_payement;
+        this.creator = creator;
+        this.nbr_place = nbr_place;
+        this.annonce = annonce;
+    }
+
+    public Reservation(int id, String date_reservation, String etat_reservation, double montant, String Type_payement, int id_user) {
         this.id = id;
         this.date_reservation = date_reservation;
         this.etat_reservation = etat_reservation;
         this.montant = montant;
         this.Type_payement = Type_payement;
         this.id_user = id_user;
+        
     }
 
     public int getId() {
         return id;
     }
 
-    public Date getDate_reservation() {
+    public String getDate_reservation() {
         return date_reservation;
     }
 
@@ -68,7 +125,7 @@ public class Reservation {
         this.id = id;
     }
 
-    public void setDate_reservation(Date date_reservation) {
+    public void setDate_reservation(String date_reservation) {
         this.date_reservation = date_reservation;
     }
 
@@ -86,6 +143,30 @@ public class Reservation {
 
     public void setId_user(int id_user) {
         this.id_user = id_user;
+    }
+
+    public User getCreator() {
+        return creator;
+    }
+
+    public void setCreator(User creator) {
+        this.creator = creator;
+    }
+
+    public int getNbr_place() {
+        return nbr_place;
+    }
+
+    public Annonce getAnnonce() {
+        return annonce;
+    }
+
+    public void setNbr_place(int nbr_place) {
+        this.nbr_place = nbr_place;
+    }
+
+    public void setAnnonce(Annonce annonce) {
+        this.annonce = annonce;
     }
 
     @Override

@@ -29,7 +29,7 @@ public class UserService implements IUserService {
 
     @Override
     public void add(User user) {
-        String req = "insert into t_user (nom,prenom) values (?,?)";
+        String req = "insert into user (nom,prenom) values (?,?)";
         try {
             ps = connection.prepareStatement(req);
             ps.setString(1, user.getNom());
@@ -42,7 +42,7 @@ public class UserService implements IUserService {
 
     @Override
     public void delete(Integer idUser) {
-        String req = "delete from t_user where id =?";
+        String req = "delete from user where id =?";
         try {
             ps = connection.prepareStatement(req);
             ps.setInt(1, idUser);
@@ -54,7 +54,7 @@ public class UserService implements IUserService {
 
     @Override
     public User findById(Integer idUser) {
-        String req = "select * from t_user where id = ?";
+        String req = "select * from user where id = ?";
         User user = null;
         try {
             ps = connection.prepareStatement(req);
@@ -71,7 +71,7 @@ public class UserService implements IUserService {
 
     @Override
     public List<User> getAll() {
-        String req = "select * from t_user";
+        String req = "select * from user";
         List<User> users = new ArrayList<>();
         try {
             ps = connection.prepareStatement(req);

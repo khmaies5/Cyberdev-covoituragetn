@@ -16,6 +16,8 @@ public class Demande {
     private int id_annonce ;
     private int id_user ;
     private String etat ;
+    Annonce annonce ;
+    User user ;
 
     public Demande() {
     }
@@ -24,6 +26,41 @@ public class Demande {
         this.id_annonce = id_annonce;
         this.id_user = id_user;
         this.etat = etat;
+    }
+
+    public Demande(String etat, Annonce annonce, User user) {
+        this.etat = etat;
+        this.annonce = annonce;
+        this.user = user;
+    }
+
+    public Demande(int id_annonce, int id_user, String etat, Annonce annonce, User user) {
+        this.id_annonce = id_annonce;
+        this.id_user = id_user;
+        this.etat = etat;
+        this.annonce = annonce;
+        this.user = user;
+    }
+
+    public Demande(int id_demande, String etat, Annonce annonce, User user) {
+        this.id_demande = id_demande;
+        this.etat = etat;
+        this.annonce = annonce;
+        this.user = user;
+    }
+
+    public Demande(String etat) {
+        this.etat = etat;
+    }
+    
+
+    public Demande(int id_demande, int id_annonce, int id_user, String etat, Annonce annonce, User user) {
+        this.id_demande = id_demande;
+        this.id_annonce = id_annonce;
+        this.id_user = id_user;
+        this.etat = etat;
+        this.annonce = annonce;
+        this.user = user;
     }
 
     public Demande(int id_demande, int id_annonce, int id_user, String etat) {
@@ -63,6 +100,22 @@ public class Demande {
 
     public void setEtat(String etat) {
         this.etat = etat;
+    }
+
+    public void setAnnonce(Annonce annonce) {
+        this.annonce = annonce;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
+    }
+
+    public Annonce getAnnonce() {
+        return annonce;
+    }
+
+    public User getUser() {
+        return user;
     }
 
     @Override

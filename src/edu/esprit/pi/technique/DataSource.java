@@ -14,7 +14,7 @@ import java.sql.DriverManager;
  */
 public class DataSource {
 
-    private String url = "jdbc:mysql://localhost:3306/companydb";
+    private String url = "jdbc:mysql://localhost:3306/covoiturage";
     private String login = "root";
     private String password = "";
     private Connection connection;
