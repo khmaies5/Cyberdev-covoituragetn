@@ -9,8 +9,11 @@ package edu.esprit.pi.gui;
 import com.jfoenix.controls.JFXDrawer;
 import com.jfoenix.controls.JFXHamburger;
 import com.jfoenix.transitions.hamburger.HamburgerBackArrowBasicTransition;
+import com.lynden.gmapsfx.GoogleMapView;
+import com.lynden.gmapsfx.MapComponentInitializedListener;
 import java.io.IOException;
 import java.net.URL;
+import java.util.Locale;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -44,8 +47,8 @@ public class AnnoncesController implements Initializable {
     @FXML
     private AnchorPane root;
     
-    @FXML
-    private WebView mapview;
+    
+    
 
     public static AnchorPane rootP;
     
@@ -63,6 +66,8 @@ public class AnnoncesController implements Initializable {
             Logger.getLogger(AnnoncesController.class.getName()).log(Level.SEVERE, null, ex);
         }
         
+        
+        
         HamburgerBackArrowBasicTransition transition = new HamburgerBackArrowBasicTransition(hamburger);
         transition.setRate(-1);
         hamburger.addEventHandler(MouseEvent.MOUSE_PRESSED,(e)->{
@@ -78,5 +83,7 @@ public class AnnoncesController implements Initializable {
         
         
     }    
+
+    
     
 }
