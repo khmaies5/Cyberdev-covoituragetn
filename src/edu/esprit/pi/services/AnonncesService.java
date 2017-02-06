@@ -18,28 +18,11 @@ import java.util.Date;
 import java.util.List;
 
 
-import edu.esprit.pi.iservices.IService;
-import edu.esprit.pi.models.Annonce;
-import edu.esprit.pi.models.User;
-import edu.esprit.pi.technique.DataSource;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.util.ArrayList;
-import java.util.List;
-
 /**
  *
  * @author khmai
  */
-<<<<<<< HEAD
 public class AnonncesService implements IAnnonceService{
-=======
-public class AnonncesService implements IService<Annonce, Integer> {
-    
-    
-    
->>>>>>> b1d512d142404fc3a1ef87f3c29aff96c9260e7c
     private Connection connection;
     private PreparedStatement ps;
 
@@ -92,11 +75,7 @@ public class AnonncesService implements IService<Annonce, Integer> {
             ps.setInt(1, idAnnonce);
             ResultSet resultSet = ps.executeQuery();
             if (resultSet.next()) {
-<<<<<<< HEAD
                 annonces = new Annonce(resultSet.getInt(1), resultSet.getString(2), resultSet.getString(3), resultSet.getString(4), resultSet.getString(5), resultSet.getInt(7), resultSet.getFloat(7), resultSet.getString(8), new User(resultSet.getInt(9))); // new User(resultSet.getInt(3))
-=======
-                annonces = new Annonce(resultSet.getInt(1), resultSet.getString(2), resultSet.getString(3), resultSet.getString(4), resultSet.getString(5), resultSet.getInt(6), resultSet.getFloat(7), resultSet.getString(8), new User(resultSet.getInt(9))); // new User(resultSet.getInt(3))
->>>>>>> b1d512d142404fc3a1ef87f3c29aff96c9260e7c
             }
         } catch (Exception e) {
             e.printStackTrace();
@@ -120,7 +99,6 @@ public class AnonncesService implements IService<Annonce, Integer> {
         }
         return annonces;
     }
-<<<<<<< HEAD
 
     @Override
     public List<Annonce> rechercherannonceselontrajet(String depart, String arrivee, String date) {
@@ -146,7 +124,5 @@ public class AnonncesService implements IService<Annonce, Integer> {
   
  
 
-=======
->>>>>>> b1d512d142404fc3a1ef87f3c29aff96c9260e7c
     
 }
