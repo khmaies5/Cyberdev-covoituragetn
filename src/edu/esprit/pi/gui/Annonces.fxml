@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.web.*?>
+<?import com.jfoenix.controls.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import com.jfoenix.controls.JFXDrawer?>
+<?import com.jfoenix.controls.JFXHamburger?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8" fx:controller="edu.esprit.pi.gui.AnnoncesController">
+    
+    
+    <children>
+      <JFXHamburger fx:id="hamburger" />
+      <JFXDrawer fx:id="drawer" defaultDrawerSize="200.0" prefHeight="368.0" prefWidth="108.0" />
+      <WebView fx:id="mapview" prefHeight="400.0" prefWidth="600.0" />
+    </children>
+    
+</AnchorPane>
