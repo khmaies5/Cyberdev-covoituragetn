@@ -5,9 +5,10 @@
  */
 package edu.esprit.pi.technique;
 
+//import java.sql.Connection;
+//import java.sql.DriverManager;
 import java.sql.Connection;
 import java.sql.DriverManager;
-
 /**
  *
  * @author khmai

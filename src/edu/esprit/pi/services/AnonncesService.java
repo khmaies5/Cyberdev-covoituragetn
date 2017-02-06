@@ -34,10 +34,11 @@ public class AnonncesService implements IAnnonceService{
 
     @Override
     public void add(Annonce annonces) {
- String req = "insert into annonce (id_annonce,trip_date,lieu_depart,lieu_arrive,type_annonce,nbr_personne,prix,critere,id_user) values (?,?,?,?,?,?,?,?,?)";
+ String req = "insert into annonce (id_annonce,trip_date,lieu_depart,lieu_arrive,type,nbr_personne,prix,critere,id_user) values (?,?,?,?,?,?,?,?,?)";
         try {
             ps = connection.prepareStatement(req);
             ps.setInt(1, annonces.getId_annonce());
+           
             ps.setString(2, annonces.getTrip_date());
             ps.setString(3, annonces.getLieu_depart());
             ps.setString(4, annonces.getLieu_arrive());
