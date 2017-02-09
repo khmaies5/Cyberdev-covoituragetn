@@ -32,11 +32,11 @@ public class SidePanelContentController implements Initializable {
         System.out.println(btn.getText());
         switch(btn.getText())
         {
-            case "Color 1":AnnoncesController.rootP.setStyle("-fx-background-color:#00FF00");
+            case "Color 1":AjouterAnnoncesController.rootP.setStyle("-fx-background-color:#00FF00");
                 break;
-            case "Color 2":AnnoncesController.rootP.setStyle("-fx-background-color:#0000FF");
+            case "Color 2":AjouterAnnoncesController.rootP.setStyle("-fx-background-color:#0000FF");
                 break;
-            case "Color 3":AnnoncesController.rootP.setStyle("-fx-background-color:#FF0000");
+            case "Color 3":AjouterAnnoncesController.rootP.setStyle("-fx-background-color:#FF0000");
                 break;
         }
     }

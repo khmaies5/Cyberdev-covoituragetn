@@ -5,7 +5,7 @@
  */
 package edu.esprit.pi.tests;
 
-import static com.sun.org.apache.xalan.internal.lib.ExsltDatetime.date;
+
 import edu.esprit.pi.iservices.IAnnonceService;
 import edu.esprit.pi.iservices.IDemandeService;
 import edu.esprit.pi.iservices.IReservationService;

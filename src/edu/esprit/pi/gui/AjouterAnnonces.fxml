@@ -1,19 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import com.jfoenix.validation.*?>
-<?import com.lynden.gmapsfx.*?>
-<?import javafx.scene.web.*?>
-<?import com.jfoenix.controls.*?>
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXDatePicker?>
 <?import com.jfoenix.controls.JFXDrawer?>
 <?import com.jfoenix.controls.JFXHamburger?>
+<?import com.jfoenix.controls.JFXSlider?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import com.lynden.gmapsfx.GoogleMapView?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Tooltip?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane id="AnchorPane" cacheShape="false" prefHeight="600.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.esprit.pi.gui.AnnoncesController">
+<AnchorPane id="AnchorPane" cacheShape="false" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1080.0" prefWidth="1920.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.esprit.pi.gui.AjouterAnnoncesController">
     
     
     <children>
@@ -26,15 +24,15 @@
          <tooltip>
             <Tooltip text="where you are going &#10;example : Esprit Incubator, tunis" textAlignment="CENTER" />
          </tooltip></JFXTextField>
-      
-      <JFXTextField fx:id="numberTextField" labelFloat="true" layoutX="578.0" layoutY="53.0" promptText="Nbr Personnes" />
-      <JFXTextField fx:id="prixTextField" labelFloat="true" layoutX="494.0" layoutY="96.0" promptText="Prix / Personne" />
 
       <JFXDrawer fx:id="drawer" defaultDrawerSize="200.0" prefHeight="600.0" prefWidth="116.0" />
       <JFXHamburger fx:id="hamburger" prefHeight="30.0" prefWidth="45.0" />
       <JFXButton fx:id="submitAnnonceButton" buttonType="RAISED" layoutX="635.0" layoutY="210.0" onAction="#submitAnnonceButtonAction" text="OK" />
-      <JFXDatePicker fx:id="dateAnnoncePicker" layoutX="341.0" layoutY="152.0" showWeekNumbers="true" />
-      <JFXDatePicker fx:id="timeAnnoncePicker" layoutX="341.0" layoutY="152.0" showTime="true" />
+      <JFXDatePicker fx:id="dateAnnoncePicker" layoutX="341.0" layoutY="152.0" promptText="select trip date" showWeekNumbers="true" />
+      <JFXDatePicker fx:id="timeAnnoncePicker" layoutX="341.0" layoutY="195.0" promptText="select trip time" showTime="true" />
+      <JFXSlider fx:id="numberSlider" layoutX="593.0" layoutY="60.0" majorTickUnit="1.0" max="4.0" minorTickCount="0" showTickLabels="true" showTickMarks="true" snapToTicks="true" />
+      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="607.0" layoutY="30.0" text="Nbr Personnes" />
+      <JFXSlider fx:id="prixSlider" layoutX="500.0" layoutY="111.0" minorTickCount="1" prefHeight="45.0" prefWidth="169.0" showTickLabels="true" showTickMarks="true" />
 
       
     </children>

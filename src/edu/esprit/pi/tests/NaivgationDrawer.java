@@ -1,4 +1,4 @@
-package edu.esprit.pi.gui;
+package edu.esprit.pi.tests;
 
 
 import javafx.application.Application;
@@ -11,7 +11,7 @@ public class NaivgationDrawer extends Application {
     
     @Override
     public void start(Stage stage) throws Exception {
-        Parent root = FXMLLoader.load(getClass().getResource("Annonces.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("../gui/AjouterAnnonces.fxml"));
         
         Scene scene = new Scene(root);
         

@@ -8,6 +8,14 @@ package edu.esprit.pi.models;
 
 import java.util.Date;
 
+
+
+
+
+
+
+
+
 /**
  *
  * @author khmai
@@ -15,7 +23,7 @@ import java.util.Date;
 public class Annonce {
     private int idAnnonce;
     private Date tripDate;
-   private Date tripTime;
+   private Date annonceDate;
     private String lieuDepart;
     private String lieuArriver;
     private String typeAnnonce;
@@ -28,10 +36,10 @@ public class Annonce {
         this.idAnnonce = idAnnonce;
     }
 
-    public Annonce(int idAnnonce, Date tripDate, Date tripTime, String lieuDepart, String lieuArriver, String typeAnnonce, int nbrPersonne, float prix, String critere, User creator) {
+    public Annonce(int idAnnonce, Date tripDate, Date annonceDate, String lieuDepart, String lieuArriver, String typeAnnonce, int nbrPersonne, float prix, String critere, User creator) {
         this.idAnnonce = idAnnonce;
         this.tripDate = tripDate;
-        this.tripTime = tripTime;
+        this.annonceDate = annonceDate;
         this.lieuDepart = lieuDepart;
         this.lieuArriver = lieuArriver;
         this.typeAnnonce = typeAnnonce;
@@ -40,15 +48,19 @@ public class Annonce {
         this.critere = critere;
         this.creator = creator;
     }
-    
-    
-
-    
 
     @Override
     public String toString() {
-        return "Annonce{" + "idAnnonce=" + idAnnonce + ", tripDate=" + tripDate + ", tripTime=" + tripTime + ", lieuDepart=" + lieuDepart + ", lieuArriver=" + lieuArriver + ", typeAnnonce=" + typeAnnonce + ", nbrPersonne=" + nbrPersonne + ", prix=" + prix + ", critere=" + critere + ", creator=" + creator + '}';
+        return "Annonce{" + "idAnnonce=" + idAnnonce + ", tripDate=" + tripDate + ", annonceDate=" + annonceDate + ", lieuDepart=" + lieuDepart + ", lieuArriver=" + lieuArriver + ", typeAnnonce=" + typeAnnonce + ", nbrPersonne=" + nbrPersonne + ", prix=" + prix + ", critere=" + critere + ", creator=" + creator + '}';
     }
+
+   
+    
+    
+
+    
+
+   
 
    
 
@@ -67,13 +79,15 @@ public class Annonce {
         return true;
     }
 
-    public Date getTripTime() {
-        return tripTime;
+    public Date getAnnonceDate() {
+        return annonceDate;
     }
 
-    public void setTripTime(Date tripTime) {
-        this.tripTime = tripTime;
+    public void setAnnonceDate(Date annonceDate) {
+        this.annonceDate = annonceDate;
     }
+
+  
 
     public Date getTripDate() {
         return tripDate;

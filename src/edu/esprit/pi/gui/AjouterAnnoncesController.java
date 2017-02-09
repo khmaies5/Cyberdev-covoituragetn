@@ -2,13 +2,21 @@
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
+ *//*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
  */
 
 package edu.esprit.pi.gui;
 
+import com.jfoenix.controls.JFXDatePicker;
 import com.jfoenix.controls.JFXDrawer;
 import com.jfoenix.controls.JFXHamburger;
+import com.jfoenix.controls.JFXSlider;
+import com.jfoenix.controls.JFXTextField;
 import com.jfoenix.transitions.hamburger.HamburgerBackArrowBasicTransition;
+import com.jfoenix.validation.RequiredFieldValidator;
 import com.lynden.gmapsfx.GoogleMapView;
 import com.lynden.gmapsfx.MapComponentInitializedListener;
 import com.lynden.gmapsfx.javascript.object.DirectionsPane;
@@ -30,8 +38,24 @@ import com.lynden.gmapsfx.service.directions.TravelModes;
 import com.lynden.gmapsfx.service.geocoding.GeocoderStatus;
 import com.lynden.gmapsfx.service.geocoding.GeocodingResult;
 import com.lynden.gmapsfx.service.geocoding.GeocodingService;
+import edu.esprit.pi.iservices.IService;
+import edu.esprit.pi.models.Annonce;
+import edu.esprit.pi.models.User;
+import edu.esprit.pi.services.AnonncesService;
 import java.io.IOException;
 import java.net.URL;
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.time.Clock;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.LocalTime;
+import java.time.chrono.Chronology;
+import java.time.format.DateTimeFormatter;
+import java.util.Calendar;
+
+import java.util.Date;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -45,6 +69,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
+import javafx.scene.control.DatePicker;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
@@ -60,7 +85,7 @@ import javafx.scene.web.WebView;
 
 
 
-public class AnnoncesController implements Initializable, MapComponentInitializedListener, DirectionsServiceCallback {
+public class AjouterAnnoncesController implements Initializable, MapComponentInitializedListener, DirectionsServiceCallback {
     
    
     
@@ -88,6 +113,16 @@ public class AnnoncesController implements Initializable, MapComponentInitialize
     private JFXHamburger hamburger;
     
     @FXML
+    private JFXDatePicker dateAnnoncePicker;
+
+    @FXML
+    private JFXDatePicker timeAnnoncePicker;
+    
+    
+    @FXML
+    private DatePicker test;
+    
+    @FXML
     private AnchorPane root;
     
     @FXML
@@ -97,10 +132,22 @@ public class AnnoncesController implements Initializable, MapComponentInitialize
     private GoogleMapView mapView;
     
     @FXML
-    private TextField fromTextField;
+    private JFXTextField fromTextField;
     
      @FXML
-    private TextField toTextField;
+    private JFXTextField toTextField;
+     
+     @FXML
+    JFXTextField prixTextField;
+     
+      @FXML
+    JFXTextField numberTextField;
+      
+       @FXML
+    private JFXSlider numberSlider;
+       
+    @FXML
+    private JFXSlider prixSlider;
 
     public static AnchorPane rootP;
     
@@ -114,9 +161,50 @@ public class AnnoncesController implements Initializable, MapComponentInitialize
     
     @FXML
     private void submitAnnonceButtonAction(ActionEvent event) {
+        
+        String s = dateAnnoncePicker.getValue().toString()+" "+timeAnnoncePicker.getTime().toString();
+        String from = fromTextField.getText();
+        String to = toTextField.getText();
+        float prix = (float)  prixSlider.getValue() ;
+        int number =(int) numberSlider.getValue();
+
+    
+        Date d = null;
+        
+        try {
+             d = new SimpleDateFormat("yyyy-MM-dd hh:mm").parse(s);
+            
+        } catch (ParseException ex) {
+            Logger.getLogger(AjouterAnnoncesController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        Annonce ann = new Annonce(6, d,null, from, to,"test", number, prix, "test", new User(4));
+       
+         IService service = new AnonncesService();
+        service.add(ann);
+        
                System.out.println("to text field action "+event.toString());
+               
+               System.out.println("date and time "+ d);
  
     }
+    
+  /*  public Date dateTime(Date date, Date time) {
+
+    Calendar aDate = Calendar.getInstance();
+    aDate.setTime(date);
+
+    Calendar aTime = Calendar.getInstance();
+    aTime.setTime(time);
+
+    Calendar aDateTime = Calendar.getInstance();
+    aDateTime.set(Calendar.DAY_OF_MONTH, aDate.get(Calendar.DAY_OF_MONTH));
+    aDateTime.set(Calendar.MONTH, aDate.get(Calendar.MONTH));
+    aDateTime.set(Calendar.YEAR, aDate.get(Calendar.YEAR));
+    aDateTime.set(Calendar.HOUR, aTime.get(Calendar.HOUR));
+    aDateTime.set(Calendar.MINUTE, aTime.get(Calendar.MINUTE));
+
+    return aDateTime.getTime();
+}   */
     
     public void setDirection(){
         DirectionsRequest request = new DirectionsRequest(from.get(), to.get(), TravelModes.DRIVING);
@@ -133,12 +221,19 @@ public class AnnoncesController implements Initializable, MapComponentInitialize
     @Override
     public void initialize(URL url, ResourceBundle rb) {
          rootP = root;
-        
+        RequiredFieldValidator validator = new RequiredFieldValidator();
+        validator.setMessage("ce champ est obligatoire");
+        toTextField.getValidators().add(validator);
+        fromTextField.getValidators().add(validator);
+       
+        dateAnnoncePicker.setValue(LocalDate.now());
+        timeAnnoncePicker.setTime(LocalTime.now());
+
         try {
             VBox box = FXMLLoader.load(getClass().getResource("SidePanelContent.fxml"));
             drawer.setSidePane(box);
         } catch (IOException ex) {
-            Logger.getLogger(AnnoncesController.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(AjouterAnnoncesController.class.getName()).log(Level.SEVERE, null, ex);
         }
         
       mapView.addMapInializedListener(this);
@@ -157,10 +252,27 @@ public class AnnoncesController implements Initializable, MapComponentInitialize
         else
         {
             System.out.println("Textfield out focus");
+            if(toTextField.getText()!= ""){
             setDirection();
+            }
+            toTextField.validate();
         }
     }
 });
+      fromTextField.focusedProperty().addListener(new ChangeListener<Boolean>()
+{
+    @Override
+    public void changed(ObservableValue<? extends Boolean> arg0, Boolean oldPropertyValue, Boolean newPropertyValue)
+    {
+        if (!newPropertyValue)
+        {
+            fromTextField.validate();
+        }
+    }
+});
+         
+           
+      
         
         HamburgerBackArrowBasicTransition transition = new HamburgerBackArrowBasicTransition(hamburger);
         transition.setRate(-1);

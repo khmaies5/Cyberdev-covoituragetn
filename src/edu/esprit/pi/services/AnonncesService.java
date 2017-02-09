@@ -14,6 +14,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 
@@ -34,22 +35,27 @@ public class AnonncesService implements IAnnonceService{
 
     @Override
     public void add(Annonce annonces) {
- String req = "insert into annonce (id_annonce,trip_date,trip_time,lieu_depart,lieu_arrive,type,nbr_personne,prix,critere,id_user) values (?,?,?,?,?,?,?,?,?,?)";
+ String req = "insert into annonce (id_annonce,trip_date,lieu_depart,lieu_arrive,type,nbr_personne,prix,critere,id_user) values (?,?,?,?,?,?,?,?,?)";
         try {
             ps = connection.prepareStatement(req);
             ps.setInt(1, annonces.getIdAnnonce());
            
-            ps.setDate(2, (java.sql.Date) annonces.getTripDate());
-            ps.setDate(3, (java.sql.Date) annonces.getTripTime());
-            ps.setString(4, annonces.getLieuDepart());
-            ps.setString(5, annonces.getLieuArriver());
-            ps.setString(6, annonces.getTypeAnnonce());
-            ps.setInt(7, annonces.getNbrPersonne());
-            ps.setFloat(8, annonces.getPrix());
-            ps.setString(9, annonces.getCritere());
+           // ps.setDate(2, (java.sql.Date) annonces.getTripDate());
+            
+            
+            ps.setTimestamp(2, new java.sql.Timestamp(annonces.getTripDate().getTime()));
+            //ps.setTimestamp(3, null);
+            
+            //ps.setDate(3, (java.sql.Date) annonces.getTripTime());
+            ps.setString(3, annonces.getLieuDepart());
+            ps.setString(4, annonces.getLieuArriver());
+            ps.setString(5, annonces.getTypeAnnonce());
+            ps.setInt(6, annonces.getNbrPersonne());
+            ps.setFloat(7, annonces.getPrix());
+            ps.setString(8, annonces.getCritere());
             
 
-            ps.setInt(10, annonces.getCreator().getId());
+            ps.setInt(9, annonces.getCreator().getId());
             ps.executeUpdate();
         } catch (Exception e) {
             e.printStackTrace();
