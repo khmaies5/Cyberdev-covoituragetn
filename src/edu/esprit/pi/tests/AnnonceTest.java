@@ -40,7 +40,10 @@ public class AnnonceTest {
          
          IService service = new AnonncesService();
        // service.add(ann);
-        System.out.println(service.getAll());
+       // System.out.println(service.getAll());
+        
+       // System.out.println(service.findById(2));
+         service.delete(2);
          
          
      }

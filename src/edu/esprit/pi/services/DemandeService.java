@@ -37,7 +37,7 @@ private Connection connection;
  String req = "insert into demande (id_annonce,id_user,etat_approbation) values (?,?,?)";
         try {
             ps = connection.prepareStatement(req);
-            ps.setInt(1,t.getAnnonce().getId_annonce());
+            ps.setInt(1,t.getAnnonce().getIdAnnonce());
            ps.setInt(2, t.getUser().getId());
             ps.setString(3, t.getEtat());
            

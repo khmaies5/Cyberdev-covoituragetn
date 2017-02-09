@@ -34,21 +34,22 @@ public class AnonncesService implements IAnnonceService{
 
     @Override
     public void add(Annonce annonces) {
- String req = "insert into annonce (id_annonce,trip_date,lieu_depart,lieu_arrive,type,nbr_personne,prix,critere,id_user) values (?,?,?,?,?,?,?,?,?)";
+ String req = "insert into annonce (id_annonce,trip_date,trip_time,lieu_depart,lieu_arrive,type,nbr_personne,prix,critere,id_user) values (?,?,?,?,?,?,?,?,?,?)";
         try {
             ps = connection.prepareStatement(req);
-            ps.setInt(1, annonces.getId_annonce());
+            ps.setInt(1, annonces.getIdAnnonce());
            
-            ps.setString(2, annonces.getTrip_date());
-            ps.setString(3, annonces.getLieu_depart());
-            ps.setString(4, annonces.getLieu_arrive());
-            ps.setString(5, annonces.getType_annonce());
-            ps.setInt(6, annonces.getNbr_personne());
-            ps.setFloat(7, annonces.getPrix());
-            ps.setString(8, annonces.getCritere());
+            ps.setDate(2, (java.sql.Date) annonces.getTripDate());
+            ps.setDate(3, (java.sql.Date) annonces.getTripTime());
+            ps.setString(4, annonces.getLieuDepart());
+            ps.setString(5, annonces.getLieuArriver());
+            ps.setString(6, annonces.getTypeAnnonce());
+            ps.setInt(7, annonces.getNbrPersonne());
+            ps.setFloat(8, annonces.getPrix());
+            ps.setString(9, annonces.getCritere());
             
 
-            ps.setInt(9, annonces.getCreator().getId());
+            ps.setInt(10, annonces.getCreator().getId());
             ps.executeUpdate();
         } catch (Exception e) {
             e.printStackTrace();
@@ -76,7 +77,7 @@ public class AnonncesService implements IAnnonceService{
             ps.setInt(1, idAnnonce);
             ResultSet resultSet = ps.executeQuery();
             if (resultSet.next()) {
-                annonces = new Annonce(resultSet.getInt(1), resultSet.getString(2), resultSet.getString(3), resultSet.getString(4), resultSet.getString(5), resultSet.getInt(7), resultSet.getFloat(7), resultSet.getString(8), new User(resultSet.getInt(9))); // new User(resultSet.getInt(3))
+                annonces = new Annonce(resultSet.getInt(1), resultSet.getDate(2),resultSet.getDate(3), resultSet.getString(4), resultSet.getString(5), resultSet.getString(6), resultSet.getInt(7), resultSet.getFloat(8), resultSet.getString(9), new User(resultSet.getInt(10))); // new User(resultSet.getInt(3))
             }
         } catch (Exception e) {
             e.printStackTrace();
@@ -92,7 +93,7 @@ public class AnonncesService implements IAnnonceService{
             ps = connection.prepareStatement(req);
             ResultSet resultSet = ps.executeQuery();
             while (resultSet.next()) {
-                Annonce annonce = new Annonce(resultSet.getInt(1), resultSet.getString(2), resultSet.getString(3), resultSet.getString(4), resultSet.getString(5), resultSet.getInt(6), resultSet.getFloat(7), resultSet.getString(8), new User(resultSet.getInt(9)));
+                Annonce annonce = new Annonce(resultSet.getInt(1), resultSet.getDate(2),resultSet.getDate(3), resultSet.getString(4), resultSet.getString(5), resultSet.getString(6), resultSet.getInt(7), resultSet.getFloat(8), resultSet.getString(9), new User(resultSet.getInt(10)));
                 annonces.add(annonce);
             }
         } catch (Exception e) {
@@ -112,7 +113,7 @@ public class AnonncesService implements IAnnonceService{
             ps.setString(3,date);
             ResultSet resultSet = ps.executeQuery();
             while (resultSet.next()) {
-                Annonce annonce = new Annonce(resultSet.getInt(1), resultSet.getString(2), resultSet.getString(3), resultSet.getString(4), resultSet.getString(5), resultSet.getInt(6), resultSet.getFloat(7), resultSet.getString(8), new User(resultSet.getInt(9)));
+                Annonce annonce = new Annonce(resultSet.getInt(1), resultSet.getDate(2),resultSet.getDate(3), resultSet.getString(4), resultSet.getString(5), resultSet.getString(6), resultSet.getInt(7), resultSet.getFloat(8), resultSet.getString(9), new User(resultSet.getInt(10)));
                 annonces.add(annonce);
             }
         } catch (Exception e) {

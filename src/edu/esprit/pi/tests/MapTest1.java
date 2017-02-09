@@ -200,11 +200,13 @@ public class MapTest1 extends Application implements MapComponentInitializedList
         
         DirectionsWaypoint[] dw = new DirectionsWaypoint[1];
         dw[0] = new DirectionsWaypoint("Ras Jebel, Bizerte");
+                System.out.println("location testing "+dw[0].getJSObject());
+
         //dw[1] = new DirectionsWaypoint("Juiz de Fora - MG");
         
         DirectionsRequest dr = new DirectionsRequest(
                 "Esprit Prépa, Cebalat",
-                "Géant Tunis City, Cebalat",
+                "Géant Tunis",
                 TravelModes.DRIVING,
                 dw);
         ds.getRoute(dr, this, renderer);

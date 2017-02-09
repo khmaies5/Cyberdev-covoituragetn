@@ -47,7 +47,7 @@ public class ReservationService implements IReservationService{
             ps.setString(4, t.getType_payement());
             ps.setInt(5, t.getCreator().getId());
             ps.setInt(6, t.getNbr_place());
-            ps.setInt(7, t.getAnnonce().getId_annonce());
+            ps.setInt(7, t.getAnnonce().getIdAnnonce());
             
             
             ps.executeUpdate();

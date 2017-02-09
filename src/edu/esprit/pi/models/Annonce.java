@@ -6,42 +6,51 @@
 
 package edu.esprit.pi.models;
 
+import java.util.Date;
+
 /**
  *
  * @author khmai
  */
 public class Annonce {
-    private int id_annonce;
-    private String trip_date;
-   
-    private String lieu_depart;
-    private String lieu_arrive;
-    private String type_annonce;
-    private int nbr_personne;
+    private int idAnnonce;
+    private Date tripDate;
+   private Date tripTime;
+    private String lieuDepart;
+    private String lieuArriver;
+    private String typeAnnonce;
+    private int nbrPersonne;
     private float prix;
     private String critere;
     private User creator;
 
-    public Annonce(int id_annonce) {
-        this.id_annonce = id_annonce;
+    public Annonce(int idAnnonce) {
+        this.idAnnonce = idAnnonce;
     }
 
-    public Annonce(int id_annonce, String trip_date, String lieu_depart, String lieu_arrive, String type_annonce, int nbr_personne, float prix, String critere, User creator) {
-        this.id_annonce = id_annonce;
-        this.trip_date = trip_date;
-        this.lieu_depart = lieu_depart;
-        this.lieu_arrive = lieu_arrive;
-        this.type_annonce = type_annonce;
-        this.nbr_personne = nbr_personne;
+    public Annonce(int idAnnonce, Date tripDate, Date tripTime, String lieuDepart, String lieuArriver, String typeAnnonce, int nbrPersonne, float prix, String critere, User creator) {
+        this.idAnnonce = idAnnonce;
+        this.tripDate = tripDate;
+        this.tripTime = tripTime;
+        this.lieuDepart = lieuDepart;
+        this.lieuArriver = lieuArriver;
+        this.typeAnnonce = typeAnnonce;
+        this.nbrPersonne = nbrPersonne;
         this.prix = prix;
         this.critere = critere;
         this.creator = creator;
     }
+    
+    
+
+    
 
     @Override
     public String toString() {
-        return "Annonce{" + "id_annonce=" + id_annonce + ", trip_date=" + trip_date + ", lieu_depart=" + lieu_depart + ", lieu_arrive=" + lieu_arrive + ", type_annonce=" + type_annonce + ", nbr_personne=" + nbr_personne + ", prix=" + prix + ", critere=" + critere + ", creator=" + creator + '}';
+        return "Annonce{" + "idAnnonce=" + idAnnonce + ", tripDate=" + tripDate + ", tripTime=" + tripTime + ", lieuDepart=" + lieuDepart + ", lieuArriver=" + lieuArriver + ", typeAnnonce=" + typeAnnonce + ", nbrPersonne=" + nbrPersonne + ", prix=" + prix + ", critere=" + critere + ", creator=" + creator + '}';
     }
+
+   
 
     @Override
     public boolean equals(Object obj) {
@@ -52,12 +61,32 @@ public class Annonce {
             return false;
         }
         final Annonce other = (Annonce) obj;
-        if (this.id_annonce != other.id_annonce) {
+        if (this.idAnnonce != other.idAnnonce) {
             return false;
         }
         return true;
     }
 
+    public Date getTripTime() {
+        return tripTime;
+    }
+
+    public void setTripTime(Date tripTime) {
+        this.tripTime = tripTime;
+    }
+
+    public Date getTripDate() {
+        return tripDate;
+    }
+
+    public void setTripDate(Date tripDate) {
+        this.tripDate = tripDate;
+    }
+
+    
+    
+    
+    
     public User getCreator() {
         return creator;
     }
@@ -74,64 +103,53 @@ public class Annonce {
     @Override
     public int hashCode() {
         int hash = 5;
-        hash = 53 * hash + this.id_annonce;
+        hash = 53 * hash + this.idAnnonce;
         return hash;
     }
 
-  
-
-    public int getId_annonce() {
-        return id_annonce;
+    public int getIdAnnonce() {
+        return idAnnonce;
     }
 
-    public void setId_annonce(int id_annonce) {
-        this.id_annonce = id_annonce;
+    public void setIdAnnonce(int idAnnonce) {
+        this.idAnnonce = idAnnonce;
     }
 
    
 
-    public String getTrip_date() {
-        return trip_date;
+    public String getLieuDepart() {
+        return lieuDepart;
     }
 
-    public void setTrip_date(String trip_date) {
-        this.trip_date = trip_date;
+    public void setLieuDepart(String lieuDepart) {
+        this.lieuDepart = lieuDepart;
+    }
+
+    public String getLieuArriver() {
+        return lieuArriver;
+    }
+
+    public void setLieuArriver(String lieuArriver) {
+        this.lieuArriver = lieuArriver;
+    }
+
+    public String getTypeAnnonce() {
+        return typeAnnonce;
+    }
+
+    public void setTypeAnnonce(String typeAnnonce) {
+        this.typeAnnonce = typeAnnonce;
+    }
+
+    public int getNbrPersonne() {
+        return nbrPersonne;
+    }
+
+    public void setNbrPersonne(int nbrPersonne) {
+        this.nbrPersonne = nbrPersonne;
     }
 
   
-
-    public String getLieu_depart() {
-        return lieu_depart;
-    }
-
-    public void setLieu_depart(String lieu_depart) {
-        this.lieu_depart = lieu_depart;
-    }
-
-    public String getLieu_arrive() {
-        return lieu_arrive;
-    }
-
-    public void setLieu_arrive(String lieu_arrive) {
-        this.lieu_arrive = lieu_arrive;
-    }
-
-    public String getType_annonce() {
-        return type_annonce;
-    }
-
-    public void setType_annonce(String type_annonce) {
-        this.type_annonce = type_annonce;
-    }
-
-    public int getNbr_personne() {
-        return nbr_personne;
-    }
-
-    public void setNbr_personne(int nbr_personne) {
-        this.nbr_personne = nbr_personne;
-    }
-
     public float getPrix() {
         return prix;
     }

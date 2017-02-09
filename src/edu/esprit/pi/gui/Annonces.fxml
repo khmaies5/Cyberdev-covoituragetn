@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import com.jfoenix.validation.*?>
 <?import com.lynden.gmapsfx.*?>
 <?import javafx.scene.web.*?>
 <?import com.jfoenix.controls.*?>
@@ -12,13 +13,29 @@
 <?import com.jfoenix.controls.JFXHamburger?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane id="AnchorPane" prefHeight="600.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.esprit.pi.gui.AnnoncesController">
+<AnchorPane id="AnchorPane" cacheShape="false" prefHeight="600.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.esprit.pi.gui.AnnoncesController">
     
     
     <children>
+      <GoogleMapView fx:id="mapView" layoutX="153.0" layoutY="241.0" prefHeight="351.0" prefWidth="594.0" AnchorPane.bottomAnchor="8.0" AnchorPane.leftAnchor="153.0" AnchorPane.rightAnchor="153.0" AnchorPane.topAnchor="241.0" />
+      <JFXTextField fx:id="fromTextField" labelFloat="true" layoutX="153.0" layoutY="53.0" promptText="From">
+         <tooltip>
+            <Tooltip text="from where you will start&#10;exemple : Restaurant Tijani Ezzont, P1, Grombalia, Nabeul" textAlignment="CENTER" />
+         </tooltip></JFXTextField>
+      <JFXTextField fx:id="toTextField" labelFloat="true" layoutX="238.0" layoutY="96.0" onMouseExited="#toTextFieldAction" promptText="To">
+         <tooltip>
+            <Tooltip text="where you are going &#10;example : Esprit Incubator, tunis" textAlignment="CENTER" />
+         </tooltip></JFXTextField>
+      
+      <JFXTextField fx:id="numberTextField" labelFloat="true" layoutX="578.0" layoutY="53.0" promptText="Nbr Personnes" />
+      <JFXTextField fx:id="prixTextField" labelFloat="true" layoutX="494.0" layoutY="96.0" promptText="Prix / Personne" />
+
       <JFXDrawer fx:id="drawer" defaultDrawerSize="200.0" prefHeight="600.0" prefWidth="116.0" />
-      <JFXHamburger fx:id="hamburger" />
-      <GoogleMapView prefHeight="600.0" prefWidth="900.0" />
+      <JFXHamburger fx:id="hamburger" prefHeight="30.0" prefWidth="45.0" />
+      <JFXButton fx:id="submitAnnonceButton" buttonType="RAISED" layoutX="635.0" layoutY="210.0" onAction="#submitAnnonceButtonAction" text="OK" />
+      <JFXDatePicker fx:id="dateAnnoncePicker" layoutX="341.0" layoutY="152.0" showWeekNumbers="true" />
+      <JFXDatePicker fx:id="timeAnnoncePicker" layoutX="341.0" layoutY="152.0" showTime="true" />
+
       
     </children>
     
