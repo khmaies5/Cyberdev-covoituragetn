@@ -1,5 +1,6 @@
 package edu.esprit.pi.gui;
 
+import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXDrawer;
 import com.jfoenix.controls.JFXHamburger;
 import com.jfoenix.transitions.hamburger.HamburgerBackArrowBasicTransition;
@@ -28,19 +29,15 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
-import javafx.scene.layout.VBox;
-import com.jfoenix.controls.JFXButton;
-import com.jfoenix.controls.JFXDrawer;
-import com.jfoenix.controls.JFXHamburger;
-import com.lynden.gmapsfx.GoogleMapView;
-import javafx.scene.control.Label;
-import javafx.scene.image.ImageView;
 import javafx.scene.layout.Pane;
+import javafx.scene.layout.VBox;
 
-public class AnnoncesListController implements Initializable, MapComponentInitializedListener, DirectionsServiceCallback {
+public class InterfaceAnnonceController implements Initializable, MapComponentInitializedListener, DirectionsServiceCallback {
 
     protected DirectionsService directionsService;
     protected DirectionsPane directionsPane;
@@ -48,15 +45,8 @@ public class AnnoncesListController implements Initializable, MapComponentInitia
     protected StringProperty from = new SimpleStringProperty();
     protected StringProperty to = new SimpleStringProperty();
 
-   
     @FXML
     private AnchorPane root;
-
-    @FXML
-    private JFXDrawer drawer;
-
-    @FXML
-    private JFXHamburger hamburger;
 
     @FXML
     private Pane annoncePane;
@@ -98,10 +88,16 @@ public class AnnoncesListController implements Initializable, MapComponentInitia
     private ImageView citere4Label;
 
     @FXML
-    private JFXButton ajouterOfferButton;
+    private Label drivaerNameLabel;
 
     @FXML
-    private JFXButton ajouterDemandeButton;
+    private Label experianceNameLabel;
+
+    @FXML
+    private JFXDrawer drawer;
+
+    @FXML
+    private JFXHamburger hamburger;
 
     @FXML
     private void toTextFieldAction(ActionEvent event) {
@@ -125,10 +121,10 @@ public class AnnoncesListController implements Initializable, MapComponentInitia
             VBox box = FXMLLoader.load(getClass().getResource("SidePanelContent.fxml"));
             drawer.setSidePane(box);
         } catch (IOException ex) {
-            Logger.getLogger(AnnoncesListController.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(InterfaceAnnonceController.class.getName()).log(Level.SEVERE, null, ex);
         }
          mapView.addMapInializedListener(this);
-       // to.bindBidirectional(toTextField.textProperty());
+        //to.bindBidirectional(toTextField.textProperty());
         //from.bindBidirectional(fromTextField.textProperty());
         
         

@@ -1,17 +1,84 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import com.jfoenix.controls.JFXButton?>
 <?import com.jfoenix.controls.JFXDrawer?>
 <?import com.jfoenix.controls.JFXHamburger?>
+<?import com.lynden.gmapsfx.GoogleMapView?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" fx:id="root" prefHeight="360.0" prefWidth="504.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.esprit.pi.gui.AnnoncesList">
+<AnchorPane id="AnchorPane" fx:id="root" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1080.0" prefWidth="1920.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.esprit.pi.gui.AnnoncesListController">
     <children>
-      <BorderPane prefHeight="362.0" prefWidth="504.0">
-         <left>
-            <JFXDrawer fx:id="drawer" defaultDrawerSize="200.0" prefHeight="368.0" prefWidth="108.0" BorderPane.alignment="CENTER" />
-         </left>
-      </BorderPane>
+      <JFXDrawer fx:id="drawer" defaultDrawerSize="200.0" prefHeight="1080.0" prefWidth="192.0" />
       <JFXHamburger fx:id="hamburger" />
+      <Pane fx:id="annoncePane" layoutX="285.0" layoutY="139.0" prefHeight="613.0" prefWidth="1350.0" style="-fx-background-color: #ffffff;">
+         <padding>
+            <Insets bottom="10.0" left="100.0" right="100.0" top="20.0" />
+         </padding>
+         <effect>
+            <DropShadow blurType="GAUSSIAN" />
+         </effect>
+         <children>
+            <GoogleMapView fx:id="mapView" prefHeight="348.0" prefWidth="1350.0">
+               <effect>
+                  <DropShadow blurType="ONE_PASS_BOX" />
+               </effect>
+            </GoogleMapView>
+            <Label fx:id="fromToLabel" layoutX="70.0" layoutY="278.0" prefHeight="43.0" prefWidth="308.0" text="Tunis -&gt; Sfax" textFill="#e4e4e4">
+               <font>
+                  <Font name="SFNS Display Bold" size="47.0" />
+               </font>
+            </Label>
+            <JFXButton fx:id="reserverButton" alignment="CENTER" buttonType="RAISED" layoutX="603.0" layoutY="530.0" lineSpacing="1.0" prefHeight="54.0" prefWidth="144.0" ripplerFill="WHITE" style="-fx-background-color: #2196f3;" text="Reserver" textAlignment="CENTER" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="13.0" />
+               </font>
+            </JFXButton>
+            <Label fx:id="distanceLabel" layoutX="29.0" layoutY="387.0" prefHeight="43.0" prefWidth="308.0" text="Distance : 40km">
+               <font>
+                  <Font name="SFNS Display Bold" size="32.0" />
+               </font>
+            </Label>
+            <Label fx:id="prixLabel" layoutX="29.0" layoutY="452.0" prefHeight="43.0" prefWidth="308.0" text="Prix/Personne : 10dt">
+               <font>
+                  <Font name="SFNS Display Bold" size="32.0" />
+               </font>
+            </Label>
+            <Label fx:id="dateDepartLabel" layoutX="521.0" layoutY="387.0" prefHeight="43.0" prefWidth="389.0" text="Date Depart : 10-05-2017">
+               <font>
+                  <Font name="SFNS Display Bold" size="32.0" />
+               </font>
+            </Label>
+            <Label fx:id="tempDepartLabel" layoutX="521.0" layoutY="452.0" prefHeight="43.0" prefWidth="389.0" text="Temps Depart : 10:00">
+               <font>
+                  <Font name="SFNS Display Bold" size="32.0" />
+               </font>
+            </Label>
+            <Label fx:id="tempDepartLabel1" layoutX="961.0" layoutY="387.0" prefHeight="43.0" prefWidth="389.0" text="Place Disponible : 2">
+               <font>
+                  <Font name="SFNS Display Bold" size="32.0" />
+               </font>
+            </Label>
+            <ImageView fx:id="citere1Label" fitHeight="26.0" fitWidth="26.0" layoutX="961.0" layoutY="447.0" pickOnBounds="true" preserveRatio="true" />
+            <ImageView fx:id="citere2Label" fitHeight="26.0" fitWidth="26.0" layoutX="1019.0" layoutY="447.0" pickOnBounds="true" preserveRatio="true" />
+            <ImageView fx:id="citere3Label" fitHeight="26.0" fitWidth="26.0" layoutX="1048.0" layoutY="447.0" pickOnBounds="true" preserveRatio="true" />
+            <ImageView fx:id="citere4Label" fitHeight="26.0" fitWidth="26.0" layoutX="1106.0" layoutY="447.0" pickOnBounds="true" preserveRatio="true" />
+         </children>
+      </Pane>
+      <JFXButton fx:id="ajouterOfferButton" alignment="CENTER" buttonType="RAISED" layoutX="537.0" layoutY="50.0" lineSpacing="1.0" prefHeight="54.0" prefWidth="144.0" ripplerFill="WHITE" style="-fx-background-color: #2196f3;" text="Ajouter Offer" textAlignment="CENTER" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font>
+      </JFXButton>
+      <JFXButton fx:id="ajouterDemandeButton" alignment="CENTER" buttonType="RAISED" layoutX="1144.0" layoutY="50.0" lineSpacing="1.0" prefHeight="54.0" prefWidth="144.0" ripplerFill="WHITE" style="-fx-background-color: #2196f3;" text="Ajouter Demande" textAlignment="CENTER" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font>
+      </JFXButton>
     </children>
 </AnchorPane>
