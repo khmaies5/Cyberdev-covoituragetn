@@ -11,7 +11,7 @@ public class NaivgationDrawer extends Application {
     
     @Override
     public void start(Stage stage) throws Exception {
-        Parent root = FXMLLoader.load(getClass().getResource("../gui/AjouterAnnonces.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("../gui/CreerGroupe.fxml"));
         
         Scene scene = new Scene(root);
         
@@ -22,6 +22,7 @@ public class NaivgationDrawer extends Application {
 
     public static void main(String[] args) {
         launch(args);
+       
     }
     
 }
