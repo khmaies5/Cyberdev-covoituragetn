@@ -15,8 +15,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.List;
-//import javafx.collections.ObservableList;
-//import javafx.event.ActionEvent;
+
 import javafx.fxml.FXML;
 
 import javafx.scene.control.Button;
@@ -29,14 +28,7 @@ import javafx.scene.control.TextField;
  */
 public class AlerteService implements IAlerteService {
     
-//   @FXML 
-// private Button btn_ajouterAlerte  ;
-//      @FXML 
-// private TextField txt_LDepart  ;
-//         @FXML 
-// private TextField txt_LArrivee  ;
-//            @FXML 
-// private DatePicker DP_Date  ;
+
             
     private Connection connection;
     private PreparedStatement ps;
