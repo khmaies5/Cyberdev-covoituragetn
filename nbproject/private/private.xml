@@ -3,14 +3,28 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/Sarra/Desktop/Covoiturage/Cyberdev-covoituragetn2/src/edu/esprit/pi/services/GroupeService.java</file>
-            <file>file:/C:/Users/Sarra/Desktop/Covoiturage/Cyberdev-covoituragetn2/src/edu/esprit/pi/technique/DataSource.java</file>
-            <file>file:/C:/Users/Sarra/Desktop/Covoiturage/Cyberdev-covoituragetn2/src/edu/esprit/pi/iservices/ISujetService.java</file>
-            <file>file:/C:/Users/Sarra/Desktop/Covoiturage/Cyberdev-covoituragetn2/src/edu/esprit/pi/services/ReponseService.java</file>
-            <file>file:/C:/Users/Sarra/Desktop/Covoiturage/Cyberdev-covoituragetn2/src/edu/esprit/pi/gui/AjouterAnnoncesController.java</file>
-            <file>file:/C:/Users/Sarra/Desktop/Covoiturage/Cyberdev-covoituragetn2/src/edu/esprit/pi/gui/AjouterAnnonces.fxml</file>
-            <file>file:/C:/Users/Sarra/Desktop/Covoiturage/Cyberdev-covoituragetn2/src/edu/esprit/pi/services/SujetService.java</file>
-            <file>file:/C:/Users/Sarra/Desktop/Covoiturage/Cyberdev-covoituragetn2/src/edu/esprit/pi/services/UserService.java</file>
+            <file>file:/C:/Users/Nacef%20Fethi/Desktop/3A/PI/covoiturage/Cyberdev-covoituragetn/src/edu/esprit/pi/gui/AjouterAnnoncesController.java</file>
+            <file>file:/C:/Users/Nacef%20Fethi/Desktop/3A/PI/covoiturage/Cyberdev-covoituragetn/src/edu/esprit/pi/models/Alerte.java</file>
+            <file>file:/C:/Users/Nacef%20Fethi/Desktop/3A/PI/covoiturage/Cyberdev-covoituragetn/src/edu/esprit/pi/iservices/IUserService.java</file>
+            <file>file:/C:/Users/Nacef%20Fethi/Desktop/3A/PI/covoiturage/Cyberdev-covoituragetn/src/edu/esprit/pi/iservices/IUserFavorisService.java</file>
+            <file>file:/C:/Users/Nacef%20Fethi/Desktop/3A/PI/covoiturage/Cyberdev-covoituragetn/src/edu/esprit/pi/iservices/IAlerteService.java</file>
+            <file>file:/C:/Users/Nacef%20Fethi/Desktop/3A/PI/covoiturage/Cyberdev-covoituragetn/src/edu/esprit/pi/models/PublicationFavorite.java</file>
+            <file>file:/C:/Users/Nacef%20Fethi/Desktop/3A/PI/covoiturage/Cyberdev-covoituragetn/src/edu/esprit/pi/gui/AnnoncesListController.java</file>
+            <file>file:/C:/Users/Nacef%20Fethi/Desktop/3A/PI/covoiturage/Cyberdev-covoituragetn/src/edu/esprit/pi/models/Groupe.java</file>
+            <file>file:/C:/Users/Nacef%20Fethi/Desktop/3A/PI/covoiturage/Cyberdev-covoituragetn/src/edu/esprit/pi/iservices/IPublicationFavoritesService.java</file>
+            <file>file:/C:/Users/Nacef%20Fethi/Desktop/3A/PI/covoiturage/Cyberdev-covoituragetn/src/edu/esprit/pi/services/AnonncesService.java</file>
+            <file>file:/C:/Users/Nacef%20Fethi/Desktop/3A/PI/covoiturage/Cyberdev-covoituragetn/src/edu/esprit/pi/services/GroupeService.java</file>
+            <file>file:/C:/Users/Nacef%20Fethi/Desktop/3A/PI/covoiturage/Cyberdev-covoituragetn/src/edu/esprit/pi/iservices/IService.java</file>
+            <file>file:/C:/Users/Nacef%20Fethi/Desktop/3A/PI/covoiturage/Cyberdev-covoituragetn/src/edu/esprit/pi/services/UserFavorisService.java</file>
+            <file>file:/C:/Users/Nacef%20Fethi/Desktop/3A/PI/covoiturage/Cyberdev-covoituragetn/src/edu/esprit/pi/gui/InterfaceAnnonceController.java</file>
+            <file>file:/C:/Users/Nacef%20Fethi/Desktop/3A/PI/covoiturage/Cyberdev-covoituragetn/src/edu/esprit/pi/models/User.java</file>
+            <file>file:/C:/Users/Nacef%20Fethi/Desktop/3A/PI/covoiturage/Cyberdev-covoituragetn/src/edu/esprit/pi/services/PublicationFavoritesService.java</file>
+            <file>file:/C:/Users/Nacef%20Fethi/Desktop/3A/PI/covoiturage/Cyberdev-covoituragetn/src/edu/esprit/pi/services/UserService.java</file>
+            <file>file:/C:/Users/Nacef%20Fethi/Desktop/3A/PI/covoiturage/Cyberdev-covoituragetn/src/edu/esprit/pi/services/AlerteService.java</file>
+            <file>file:/C:/Users/Nacef%20Fethi/Desktop/3A/PI/covoiturage/Cyberdev-covoituragetn/src/edu/esprit/pi/iservices/IAnnonceService.java</file>
+            <file>file:/C:/Users/Nacef%20Fethi/Desktop/3A/PI/covoiturage/Cyberdev-covoituragetn/src/edu/esprit/pi/services/SujetService.java</file>
+            <file>file:/C:/Users/Nacef%20Fethi/Desktop/3A/PI/covoiturage/Cyberdev-covoituragetn/src/edu/esprit/pi/models/UserFavoris.java</file>
+            <file>file:/C:/Users/Nacef%20Fethi/Desktop/3A/PI/covoiturage/Cyberdev-covoituragetn/src/edu/esprit/pi/models/Annonce.java</file>
         </group>
     </open-files>
 </project-private>

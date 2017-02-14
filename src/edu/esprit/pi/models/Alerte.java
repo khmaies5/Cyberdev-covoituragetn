@@ -33,6 +33,13 @@ public class Alerte {
         this.heure = heure;
         this.creator = creator;
     }
+        public Alerte(String lieuDepart, String lieuArrivee, Date date, int heure) {
+        this.lieuDepart = lieuDepart;
+        this.lieuArrivee = lieuArrivee;
+        this.date = date;
+        this.heure = heure;
+    }
+
 
     public Alerte(int id, String lieuDepart, String lieuArrivee, Date date, int heure, User creator) {
         this.id = id;

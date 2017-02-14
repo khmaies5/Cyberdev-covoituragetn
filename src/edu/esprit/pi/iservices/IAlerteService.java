@@ -20,4 +20,5 @@ public interface IAlerteService {
       Alerte findById(Integer idAlerte);
     void  update (Alerte alerte);
     List<Alerte> getAll(Integer idUser);
+     List<Alerte> rechercher(String recherche,Integer idUser);
 }

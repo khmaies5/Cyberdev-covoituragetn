@@ -40,7 +40,7 @@ public class AlerteService implements IAlerteService {
      
     public void add(Alerte alerte) 
      {
-     String req = "insert into alerte (lieu_depart,lieu_arrivee,date,heure,id_user) values (?,?,?,?,?)";
+     String req = "insert into alerte (lieudepart,lieuarrivee,date,heure,id_user) values (?,?,?,?,?)";
         try {
             ps = connection.prepareStatement(req);
             
@@ -71,8 +71,8 @@ public class AlerteService implements IAlerteService {
     @Override
     public void update(Alerte alerte) {
          try {
-            String req="UPDATE `alerte` SET `lieu_depart`=?,"
-                  + "`lieu_arrivee`=?,`date`=? ,`heure`=? WHERE id=? and id_user=?";
+            String req="UPDATE `alerte` SET `lieudepart`=?,"
+                  + "`lieuarrivee`=?,`date`=? ,`heure`=? WHERE id=? and id_user=?";
             ps=connection.prepareStatement(req);
             ps.setString(1,alerte.getLieuDepart());
             ps.setString(2,alerte.getLieuArrivee());
@@ -138,7 +138,27 @@ public class AlerteService implements IAlerteService {
         return alertes;
 
     }
+
+    @Override
+    public List<Alerte> rechercher(String recherche, Integer idUser) {
+        String req ="select * from alerte where concat(`lieudepart`,`lieuarrivee`,`date`,`heure`) like '%"+recherche+"%' and id_user=? ";  
+  
+    List<Alerte> alertes = new ArrayList<>();
+        try {
+            ps = connection.prepareStatement(req);
+            ps.setInt(1, idUser);
+            ResultSet resultSet = ps.executeQuery();
+            while (resultSet.next()) {
+                Alerte alerte = new Alerte(resultSet.getString(2), resultSet.getString(3),resultSet.getDate(4), resultSet.getInt(5));
+                alertes.add(alerte);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return alertes;
+    }
+    }
     
 
    
-}
+
