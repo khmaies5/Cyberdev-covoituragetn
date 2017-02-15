@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="900.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.esprit.pi.gui.InscriptionController">
+   <children>
+      <Button fx:id="btnadd" layoutX="240.0" layoutY="478.0" mnemonicParsing="false" onAction="#btnaddAction" prefHeight="40.0" prefWidth="122.0" text="Valider">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </Button>
+      <RadioButton fx:id="rbFemme" layoutX="178.0" layoutY="417.0" mnemonicParsing="false" text="Femme">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </RadioButton>
+      <RadioButton fx:id="rbHomme" layoutX="61.0" layoutY="417.0" mnemonicParsing="false" text="Homme">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </RadioButton>
+      <DatePicker fx:id="dpDatenais" layoutX="61.0" layoutY="349.0" promptText="Date de Naissance" />
+      <TextField fx:id="txtTelephone" layoutX="411.0" layoutY="282.0" promptText="Telephone" />
+      <TextField fx:id="txtTravail" layoutX="414.0" layoutY="221.0" promptText="Travail" />
+      <TextField fx:id="txtCin" layoutX="416.0" layoutY="164.0" promptText="Cin" />
+      <TextField fx:id="txtEmail" layoutX="413.0" layoutY="108.0" promptText="Email" />
+      <PasswordField fx:id="txtPassword" layoutX="74.0" layoutY="286.0" promptText="Password" />
+      <TextField fx:id="txtLogin" layoutX="74.0" layoutY="227.0" promptText="Login" />
+      <TextField fx:id="txtPrenom" layoutX="74.0" layoutY="169.0" promptText="Prenom" />
+      <TextField fx:id="txtNom" layoutX="74.0" layoutY="113.0" promptText="Nom" />
+      <Label alignment="CENTER" layoutX="255.0" layoutY="26.0" text="Inscription" textAlignment="CENTER">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </Label>
+      <ComboBox fx:id="comboGouvernorat" layoutX="416.0" layoutY="349.0" prefWidth="150.0" promptText="Gouvernorat" />
+      <Label fx:id="lblResultat" layoutX="253.0" layoutY="186.0" prefHeight="71.0" prefWidth="122.0" />
+   </children>
+</AnchorPane>
