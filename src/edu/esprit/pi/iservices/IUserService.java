@@ -15,5 +15,5 @@ import java.util.List;
 public interface IUserService extends IService<User, Integer> {
 
     User authentication(String login, String password);
-
+    public boolean RechLogin(String text);
 }
