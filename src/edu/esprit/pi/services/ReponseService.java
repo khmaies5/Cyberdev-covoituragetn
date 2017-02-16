@@ -6,11 +6,13 @@
 
 package edu.esprit.pi.services;
 
+import edu.esprit.pi.iservices.IReponseService;
 import edu.esprit.pi.iservices.IService;
 import edu.esprit.pi.models.Abonnes;
 import edu.esprit.pi.models.Groupe;
 import edu.esprit.pi.models.Reponse;
 import edu.esprit.pi.models.Sujet;
+import edu.esprit.pi.models.User;
 import edu.esprit.pi.technique.DataSource;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -23,7 +25,7 @@ import java.util.List;
  *
  * @author Sarra
  */
-public class ReponseService  implements IService<Reponse, Integer>{
+public class ReponseService  implements IReponseService{
      private Connection connection;
     private PreparedStatement ps;
       public ReponseService() {
@@ -85,7 +87,7 @@ public class ReponseService  implements IService<Reponse, Integer>{
             ResultSet resultSet = ps.executeQuery();
             
             if (resultSet.next()) {
-                reponse = new Reponse(resultSet.getInt(1), resultSet.getDate(2),new Sujet(resultSet.getInt(3)),resultSet.getString(4),new Abonnes(resultSet.getInt(5)));
+                reponse = new Reponse(resultSet.getInt(1), resultSet.getDate(2),new Sujet(resultSet.getInt(3)),resultSet.getString(4),new User(resultSet.getInt(5)));
                 
             }
            
@@ -106,7 +108,30 @@ public class ReponseService  implements IService<Reponse, Integer>{
             ResultSet resultSet = ps.executeQuery();
             while (resultSet.next()) {
                 
-                Reponse  reponse = new Reponse(resultSet.getInt(1), resultSet.getDate(2),new Sujet(resultSet.getInt(3)),resultSet.getString(4),new Abonnes(resultSet.getInt(5)));
+                Reponse  reponse = new Reponse(resultSet.getInt(1), resultSet.getDate(2),new Sujet(resultSet.getInt(3)),resultSet.getString(4),new User(resultSet.getInt(5)));
+
+                reponses.add(reponse);
+            }
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        return reponses;
+    }
+
+    @Override
+    public List<Reponse> GetReponseOfSujet(Integer idSujet) {
+ String req = "select * from reponse where id_sujet=?";
+        List<Reponse> reponses = new ArrayList<>();
+       
+        try {
+            ps = connection.prepareStatement(req);
+            ps.setInt(1, idSujet);
+            ResultSet resultSet = ps.executeQuery();
+            while (resultSet.next()) {
+                
+                Reponse  reponse = new Reponse(resultSet.getInt(1), resultSet.getDate(2),new Sujet(resultSet.getInt(3)),resultSet.getString(4),new User(resultSet.getInt(5)));
 
                 reponses.add(reponse);
             }

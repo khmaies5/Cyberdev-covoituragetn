@@ -3,19 +3,17 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package edu.esprit.pi.iservices;
 
-import edu.esprit.pi.models.Groupe;
-import edu.esprit.pi.models.Sujet;
+import edu.esprit.pi.models.Reponse;
 import java.util.List;
 
 /**
  *
  * @author Sarra
  */
-public interface ISujetService extends IService<Sujet, Integer>{
+public interface IReponseService extends IService<Reponse,Integer>{
+     
+    List<Reponse> GetReponseOfSujet(Integer idSujet);
     
-        void update(Sujet s);
-List<Sujet>getbyIdGroupe(Integer idGroupe);
 }

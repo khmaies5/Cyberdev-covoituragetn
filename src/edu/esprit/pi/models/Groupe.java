@@ -16,20 +16,58 @@ public class Groupe {
     private int id;
     private String nom;
      private String description;
-     private Date date_creation;
+     private Date dateCreation;
+     private List<Abonnes> abonnes;
      private List<Sujet> sujets;
+private int   nombre;
 
-    public Groupe(int id, String nom, String description, Date date_creation) {
+    public int getNombre() {
+        return abonnes.size();
+    }
+
+    public void setNombre(int nombre) {
+        this.nombre = nombre;
+    }
+    public Groupe(int id, String nom, String description, Date dateCreation) {
         this.id = id;
         this.nom = nom;
         this.description = description;
-        this.date_creation = date_creation;
+        this.dateCreation = dateCreation;
+    }
+
+//    public Groupe(int id, String nom, String description, Date dateCreation, List<Abonnes> abonnes) {
+//        this.id = id;
+//        this.nom = nom;
+//        this.description = description;
+//        this.dateCreation = dateCreation;
+//        this.abonnes = abonnes;
+//    }
+
+    public Groupe(int id, String nom, String description, Date dateCreation, List<Abonnes> abonnes, List<Sujet> sujets) {
+        this.id = id;
+        this.nom = nom;
+        this.description = description;
+        this.dateCreation = dateCreation;
+        this.abonnes = abonnes;
+        this.sujets = sujets;
+    }
+
+  
+
+    public Groupe(int id, String nom, String description, Date dateCreation, List<Sujet> sujets) {
+        this.id = id;
+        this.nom = nom;
+        this.description = description;
+        this.dateCreation = dateCreation;
+        this.sujets = sujets;
     }
 
     public Groupe(int id) {
         this.id = id;
     }
-
+public Groupe() {
+    
+    }
     public Groupe(int id, String nom, String description) {
         this.id = id;
         this.nom = nom;
@@ -41,10 +79,10 @@ public class Groupe {
         this.description = description;
     }
 
-    public Groupe(String nom, String description, Date date_creation) {
+    public Groupe(String nom, String description, Date dateCreation) {
         this.nom = nom;
         this.description = description;
-        this.date_creation = date_creation;
+        this.dateCreation = dateCreation;
     }
   
 
@@ -74,13 +112,7 @@ public class Groupe {
         this.description = description;
     }
 
-    public Date getDate_creation() {
-        return date_creation;
-    }
-
-    public void setDate_creation(Date date_creation) {
-        this.date_creation = date_creation;
-    }
+  
 
     public List<Sujet> getSujets() {
         return sujets;
@@ -90,9 +122,25 @@ public class Groupe {
         this.sujets = sujets;
     }
 
+    public Date getDateCreation() {
+        return dateCreation;
+    }
+
+    public void setDateCreation(Date dateCreation) {
+        this.dateCreation = dateCreation;
+    }
+
+    public List<Abonnes> getAbonnes() {
+        return abonnes;
+    }
+
+    public void setAbonnes(List<Abonnes> abonnes) {
+        this.abonnes = abonnes;
+    }
+
     @Override
     public String toString() {
-        return "Groupe{" + "id=" + id + ", nom=" + nom + ", description=" + description + ", date_creation=" + date_creation + ", sujets=" + sujets + '}';
+        return "Groupe{" + "id=" + id + ", nom=" + nom + ", description=" + description + ", dateCreation=" + dateCreation + ", abonnes=" + abonnes + ", sujets=" + sujets + '}';
     }
 
    

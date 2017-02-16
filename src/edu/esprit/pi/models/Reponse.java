@@ -17,9 +17,9 @@ public class Reponse {
     private Date date_reponse;
     private String reponse_sujet;
     private Sujet sujet;
-    private Abonnes creator;
+    private User creator;
 
-    public Reponse(int id, Date date_reponse, Sujet sujet, String reponse_sujet, Abonnes creator) {
+    public Reponse(int id, Date date_reponse, Sujet sujet, String reponse_sujet, User creator) {
         this.id = id;
         this.date_reponse = date_reponse;
         this.reponse_sujet = reponse_sujet;
@@ -28,7 +28,7 @@ public class Reponse {
     }
  
 
-    public Reponse(Date date_reponse, String reponse_sujet, Sujet sujet, Abonnes creator) {
+    public Reponse(Date date_reponse, String reponse_sujet, Sujet sujet, User creator) {
         this.date_reponse = date_reponse;
         this.reponse_sujet = reponse_sujet;
         this.sujet = sujet;
@@ -73,11 +73,11 @@ public class Reponse {
         this.sujet = sujet;
     }
 
-    public Abonnes getCreator() {
+    public User getCreator() {
         return creator;
     }
 
-    public void setCreator(Abonnes creator) {
+    public void setCreator(User creator) {
         this.creator = creator;
     }
 

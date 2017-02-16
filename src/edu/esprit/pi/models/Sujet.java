@@ -61,7 +61,15 @@ public class Sujet {
         this.creator = creator;
         this.date_publication = date_publication;
     }
-
+    
+   public Sujet(int id, String objet, String topic,  Abonnes creator, Date date_publication) {
+        this.id = id;
+        this.objet = objet;
+        this.topic = topic;
+        
+        this.creator = creator;
+        this.date_publication = date_publication;
+    }
     public void setCreator(Abonnes creator) {
         this.creator = creator;
     }
@@ -120,8 +128,11 @@ public class Sujet {
 
     @Override
     public String toString() {
-        return "Sujet{" + "id=" + id + ", objet=" + objet + ", topic=" + topic + '}';
+        return "Sujet{" + "id=" + id + ", objet=" + objet + ", topic=" + topic + ", groupe=" + groupe + ", creator=" + creator + ", reponses=" + reponses + ", date_publication=" + date_publication + '}';
     }
+
+  
+  
 
     @Override
     public int hashCode() {

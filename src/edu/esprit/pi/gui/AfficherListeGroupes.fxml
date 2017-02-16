@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXDrawer?>
+<?import com.jfoenix.controls.JFXHamburger?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane id="AnchorPane" fx:id="root" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1080.0" prefWidth="1920.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.esprit.pi.gui.AfficherListeGroupesController">
+    <children>
+      <JFXDrawer fx:id="drawer" defaultDrawerSize="200.0" layoutY="-6.0" prefHeight="1086.0" prefWidth="108.0" />
+<!--    <JFXButton fx:id="btnAnnuler" layoutX="419.0" layoutY="337.0" onAction="#annuler" text="Annuler" />-->
+      <JFXHamburger fx:id="hamburger" />
+      <TableView fx:id="TableGroupe" layoutX="154.0" layoutY="143.0" prefHeight="238.0" prefWidth="677.0">
+         <columns>
+            <TableColumn fx:id="CLNom" prefWidth="140.0" text="Nom du groupe" />
+            <TableColumn fx:id="CLDescription" prefWidth="234.0" text="Description" />
+            <TableColumn fx:id="CLDate" prefWidth="160.0" text="Date de creation" />
+            <TableColumn fx:id="CLNbAdherants" prefWidth="142.0" text="Nombre d'adherants" />
+         </columns>
+      </TableView>
+      <!--<JFXTextField fx:id="txtNomGroupe" layoutX="379.0" layoutY="435.0" />-->
+      <!--<Label layoutX="232.0" layoutY="450.0" prefHeight="21.0" prefWidth="140.0" text="Nom du Groupe" />-->
+      <!--<Label layoutX="232.0" layoutY="514.0" prefHeight="21.0" prefWidth="108.0" text="Description" />-->
+      <!--<JFXButton fx:id="btnAnnuler" layoutX="428.0" layoutY="578.0" onAction="#annuler" text="Annuler" />-->
+      <!--<JFXButton fx:id="bttnModifier" layoutX="291.0" layoutY="578.0" onAction="#modifierGroupe" text="Modifier" />-->
+      <JFXButton fx:id="btnCreerGroupe" layoutX="167.0" layoutY="69.0" onAction="#creerGroupe" text="Créer un groupe" />
+    <!--<JFXTextArea fx:id="txtDescriptionGroupe" layoutX="373.0" layoutY="485.0" prefHeight="39.0" prefWidth="182.0" />-->
+      <JFXButton layoutX="314.0" layoutY="69.0" onAction="#mesGroupe" prefHeight="31.0" prefWidth="192.0" text="Mes groupes" />
+      <Label fx:id="IDGroupe" layoutX="666.0" layoutY="414.0" prefHeight="21.0" prefWidth="90.0" text="ID" visible="false" />
+    </children>
+</AnchorPane>

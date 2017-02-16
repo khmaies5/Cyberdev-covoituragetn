@@ -21,6 +21,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import edu.esprit.pi.models.User;
+import java.util.Date;
 
 /**
  *
@@ -81,28 +83,20 @@ private Connection connection;
     @Override
     public Sujet findById(Integer idSujet) {
          String req = "select * from sujet where id = ?";
-          String req2 = "select * from reponse where id_sujet= ?";
-        Sujet sujet = null;
-        List<Reponse> reponses = new ArrayList<>();
+       //   String req2 = "select * from reponse where id_sujet= ?";
+     Sujet  sujet = null;
+   //     List<Reponse> reponses = new ArrayList<>();
         try {
             ps = connection.prepareStatement(req);
-               ps2 = connection.prepareStatement(req2);
+           
             ps.setInt(1, idSujet);
-             ps2.setInt(1, idSujet);
+          
             ResultSet resultSet = ps.executeQuery();
-            ResultSet resultSet2 = ps2.executeQuery();
+        
             if (resultSet.next()) {
-       sujet = new Sujet(resultSet.getInt(1), resultSet.getString(2),resultSet.getString(3),new Groupe(resultSet.getInt(4)),new Abonnes(resultSet.getInt(5)),resultSet.getDate(6));
+     sujet = new Sujet(resultSet.getInt(1), resultSet.getString(2),resultSet.getString(3),new Groupe(resultSet.getInt(4)),new Abonnes(resultSet.getInt(5)),resultSet.getDate(6));
             }
-            while (resultSet2.next()) {
-        Reponse reponse = new Reponse(resultSet2.getInt(1), resultSet2.getDate(2),new Sujet(resultSet2.getInt(3)), resultSet2.getString(4),new Abonnes(resultSet2.getInt(5)));
-              
-        
-        
-        
-             
-                sujet.setReponses(reponses);
-            }
+     
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -128,7 +122,7 @@ private Connection connection;
                 ResultSet resultSet2 = ps2.executeQuery();
                 while (resultSet2.next()) {
 
-        Reponse reponse = new Reponse(resultSet2.getInt(1), resultSet2.getDate(2),new Sujet(resultSet2.getInt(3)), resultSet2.getString(4),new Abonnes(resultSet2.getInt(5)));
+        Reponse reponse = new Reponse(resultSet2.getInt(1), resultSet2.getDate(2),new Sujet(resultSet2.getInt(3)), resultSet2.getString(4),new User(resultSet2.getInt(5)));
                     reponses.add(reponse);
                     sujet.setReponses(reponses);
                 }
@@ -141,7 +135,31 @@ private Connection connection;
 
         return sujets;
     }
+ @Override
+    public List<Sujet> getbyIdGroupe(Integer idGroupe) {
+       String req = "select * from sujet where id_groupe=?";
+      //  String req2 = "select * from sujet inner join reponse on sujet.id = ? and reponse.id_sujet=?";
+        List<Sujet> sujets = new ArrayList<>();
+      //  List<Reponse> reponses = new ArrayList<>();
 
+        try {
+            ps = connection.prepareStatement(req);
+            ps.setInt(1, idGroupe);
+             
+            ResultSet resultSet = ps.executeQuery();
+            while (resultSet.next()) {
+
+     Sujet  sujet = new Sujet(resultSet.getInt(1), resultSet.getString(2),resultSet.getString(3),new Groupe(resultSet.getInt(4)),new Abonnes(resultSet.getInt(5)),resultSet.getDate(6));
+       
+                sujets.add(sujet);
+            }
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        return sujets;
+    }
 
    
     

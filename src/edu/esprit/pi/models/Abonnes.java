@@ -15,8 +15,11 @@ import java.util.List;
  */
 public class Abonnes {
     int id;
-    Date date_abonnement;
-    String role_user;
+    Date dateAbonnement;
+
+
+      boolean etatAbonnement;
+    String roleUser;
    User user;
    Groupe groupe;
 private List<Reponse> reponses;
@@ -26,23 +29,38 @@ private List<Sujet> sujets;
         this.id = id;
     }
 
-    public Abonnes(int id, Date date_abonnement, String role_user, User user, Groupe groupe) {
+    public Abonnes(Groupe groupe) {
+        this.groupe = groupe;
+    }
+
+    public Abonnes(User user) {
+        this.user = user;
+    }
+
+    public Abonnes(int id, Date dateAbonnement, String role_user, User user, Groupe groupe) {
         this.id = id;
-        this.date_abonnement = date_abonnement;
-        this.role_user = role_user;
+        this.dateAbonnement = dateAbonnement;
+        this.roleUser = role_user;
+        this.user = user;
+        this.groupe = groupe;
+    }
+public Abonnes(int id, Date dateAbonnement, String roleUser, User user) {
+        this.id = id;
+        this.dateAbonnement = dateAbonnement;
+        this.roleUser = roleUser;
+        this.user = user;
+
+    }
+
+    public Abonnes(Date dateAbonnement, String roleUser, User user, Groupe groupe) {
+        this.dateAbonnement = dateAbonnement;
+        this.roleUser = roleUser;
         this.user = user;
         this.groupe = groupe;
     }
 
-    public Abonnes(Date date_abonnement, String role_user, User user, Groupe groupe) {
-        this.date_abonnement = date_abonnement;
-        this.role_user = role_user;
-        this.user = user;
-        this.groupe = groupe;
-    }
-
-    public Abonnes(String role_user, User user, Groupe groupe) {
-        this.role_user = role_user;
+    public Abonnes(String roleUser, User user, Groupe groupe) {
+        this.roleUser = roleUser;
         this.user = user;
         this.groupe = groupe;
     }
@@ -54,21 +72,27 @@ private List<Sujet> sujets;
     public void setId(int id) {
         this.id = id;
     }
-
-    public Date getDate_abonnement() {
-        return date_abonnement;
+    public boolean isEtatAbonnement() {
+        return etatAbonnement;
     }
 
-    public void setDate_abonnement(Date date_abonnement) {
-        this.date_abonnement = date_abonnement;
+    public void setEtatAbonnement(boolean etatAbonnement) {
+        this.etatAbonnement = etatAbonnement;
+    }
+    public Date getDateAbonnement() {
+        return dateAbonnement;
     }
 
-    public String getRole_user() {
-        return role_user;
+    public void setDateAbonnement(Date dateAbonnement) {
+        this.dateAbonnement = dateAbonnement;
     }
 
-    public void setRole_user(String role_user) {
-        this.role_user = role_user;
+    public String getRoleUser() {
+        return roleUser;
+    }
+
+    public void setRoleUser(String role_user) {
+        this.roleUser = role_user;
     }
 
 
@@ -126,4 +150,11 @@ private List<Sujet> sujets;
         return true;
     }
 
+    @Override
+    public String toString() {
+        return "Abonnes{" + "id=" + id + ", dateAbonnement=" + dateAbonnement + ", etatAbonnement=" + etatAbonnement + ", roleUser=" + roleUser + ", user=" + user + ", groupe=" + groupe + ", reponses=" + reponses + ", sujets=" + sujets + '}';
+    }
+
+   
+ 
 }
