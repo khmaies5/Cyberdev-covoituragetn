@@ -7,13 +7,13 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package edu.esprit.pi.gui;
 
 import com.jfoenix.controls.JFXDatePicker;
 import com.jfoenix.controls.JFXDrawer;
 import com.jfoenix.controls.JFXHamburger;
 import com.jfoenix.controls.JFXSlider;
+import com.jfoenix.controls.JFXSnackbar;
 import com.jfoenix.controls.JFXTextField;
 import com.jfoenix.transitions.hamburger.HamburgerBackArrowBasicTransition;
 import com.jfoenix.validation.RequiredFieldValidator;
@@ -38,7 +38,9 @@ import com.lynden.gmapsfx.service.directions.TravelModes;
 import com.lynden.gmapsfx.service.geocoding.GeocoderStatus;
 import com.lynden.gmapsfx.service.geocoding.GeocodingResult;
 import com.lynden.gmapsfx.service.geocoding.GeocodingService;
+import edu.esprit.pi.iservices.ControlledScreen;
 import edu.esprit.pi.iservices.IService;
+import edu.esprit.pi.mapapi.GoogleMapClass;
 import edu.esprit.pi.models.Annonce;
 import edu.esprit.pi.models.User;
 import edu.esprit.pi.services.AnonncesService;
@@ -81,114 +83,117 @@ import javafx.scene.web.WebView;
  *
  * @author khmai
  */
+public class AjouterAnnoncesController implements Initializable, MapComponentInitializedListener, DirectionsServiceCallback, ControlledScreen {
 
-
-
-
-public class AjouterAnnoncesController implements Initializable, MapComponentInitializedListener, DirectionsServiceCallback {
-    
-   
-    
     private GoogleMap map;
-    
+
     private GeocodingService geocodingService;
 
-   
-    
-     private MarkerOptions markerOptions;
-     
-     protected DirectionsService directionsService;
-     
+    ScreensController screen;
+
+    private MarkerOptions markerOptions;
+
+    protected DirectionsService directionsService;
+
     protected DirectionsPane directionsPane;
-    
-    
 
     protected StringProperty from = new SimpleStringProperty();
     protected StringProperty to = new SimpleStringProperty();
-    
+
     @FXML
     private JFXDrawer drawer;
 
     @FXML
     private JFXHamburger hamburger;
-    
+
     @FXML
     private JFXDatePicker dateAnnoncePicker;
 
     @FXML
     private JFXDatePicker timeAnnoncePicker;
-    
-    
+
     @FXML
     private DatePicker test;
-    
+
     @FXML
     private AnchorPane root;
-    
+
     @FXML
     private GoogleMapView mapview;
-    
-     @FXML
+
+    @FXML
     private GoogleMapView mapView;
-    
+
     @FXML
     private JFXTextField fromTextField;
-    
-     @FXML
+
+    @FXML
     private JFXTextField toTextField;
-     
-     @FXML
+
+    @FXML
     JFXTextField prixTextField;
-     
-      @FXML
+
+    @FXML
     JFXTextField numberTextField;
-      
-       @FXML
+
+    @FXML
     private JFXSlider numberSlider;
-       
+
     @FXML
     private JFXSlider prixSlider;
 
+    @FXML
+    private JFXSnackbar snackbar;
+
     public static AnchorPane rootP;
-    
+
     @FXML
     private void toTextFieldAction(ActionEvent event) {
-        
-        System.out.println("to text field action "+event.toString());
+
+        // System.out.println("to text field action "+event.toString());
         DirectionsRequest request = new DirectionsRequest(from.get(), to.get(), TravelModes.DRIVING);
         directionsService.getRoute(request, this, new DirectionsRenderer(true, mapView.getMap(), directionsPane));
+
+        //GoogleMapClass.getInstance().configDirections(from.get(), to.get(), mapView, directionsPane);
     }
-    
+
     @FXML
     private void submitAnnonceButtonAction(ActionEvent event) {
-        
-        String s = dateAnnoncePicker.getValue().toString()+" "+timeAnnoncePicker.getTime().toString();
-        String from = fromTextField.getText();
-        String to = toTextField.getText();
-        float prix = (float)  prixSlider.getValue() ;
-        int number =(int) numberSlider.getValue();
+        if ((fromTextField.getText() == null || toTextField.getText().trim().isEmpty()) || (toTextField.getText() == null || toTextField.getText().trim().isEmpty())) {
 
-    
-        Date d = null;
-        
-        try {
-             d = new SimpleDateFormat("yyyy-MM-dd hh:mm").parse(s);
-            
-        } catch (ParseException ex) {
-            Logger.getLogger(AjouterAnnoncesController.class.getName()).log(Level.SEVERE, null, ex);
+            snackbar.fireEvent(new JFXSnackbar.SnackbarEvent("you must write something!! ", "CLOSE", 3000, true, (b) -> {
+                snackbar.close();
+            }));
+
+            System.out.println("empty ");
+
+        } else {
+            String s = dateAnnoncePicker.getValue().toString() + " " + timeAnnoncePicker.getTime().toString();
+            String from = fromTextField.getText();
+            String to = toTextField.getText();
+            float prix = (float) prixSlider.getValue();
+            int number = (int) numberSlider.getValue();
+
+            Date d = null;
+
+            try {
+                d = new SimpleDateFormat("yyyy-MM-dd hh:mm").parse(s);
+
+            } catch (ParseException ex) {
+                Logger.getLogger(AjouterAnnoncesController.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            Annonce ann = new Annonce(6, d, null, from, to, "test", number, prix, "test", new User(4));
+
+            IService service = new AnonncesService();
+            service.add(ann);
+
+            System.out.println("to text field action " + event.toString());
+
+            System.out.println("date and time " + d);
         }
-        Annonce ann = new Annonce(6, d,null, from, to,"test", number, prix, "test", new User(4));
-       
-         IService service = new AnonncesService();
-        service.add(ann);
-        
-               System.out.println("to text field action "+event.toString());
-               
-               System.out.println("date and time "+ d);
- 
     }
-    
-  /*  public Date dateTime(Date date, Date time) {
+
+    /*  public Date dateTime(Date date, Date time) {
 
     Calendar aDate = Calendar.getInstance();
     aDate.setTime(date);
@@ -205,27 +210,29 @@ public class AjouterAnnoncesController implements Initializable, MapComponentIni
 
     return aDateTime.getTime();
 }   */
-    
-    public void setDirection(){
+    public void setDirection() {
         DirectionsRequest request = new DirectionsRequest(from.get(), to.get(), TravelModes.DRIVING);
         directionsService.getRoute(request, this, new DirectionsRenderer(true, mapView.getMap(), directionsPane));
+
     }
 
     @Override
     public void directionsReceived(DirectionsResult results, DirectionStatus status) {
     }
-    
+
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-         rootP = root;
+        rootP = root;
+        snackbar.registerSnackbarContainer(root);
+
         RequiredFieldValidator validator = new RequiredFieldValidator();
         validator.setMessage("ce champ est obligatoire");
         toTextField.getValidators().add(validator);
         fromTextField.getValidators().add(validator);
-       
+
         dateAnnoncePicker.setValue(LocalDate.now());
         timeAnnoncePicker.setTime(LocalTime.now());
 
@@ -235,66 +242,55 @@ public class AjouterAnnoncesController implements Initializable, MapComponentIni
         } catch (IOException ex) {
             Logger.getLogger(AjouterAnnoncesController.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
-      mapView.addMapInializedListener(this);
+
+        mapView.addMapInializedListener(this);
+
         to.bindBidirectional(toTextField.textProperty());
         from.bindBidirectional(fromTextField.textProperty());
-        
-   toTextField.focusedProperty().addListener(new ChangeListener<Boolean>()
-{
-    @Override
-    public void changed(ObservableValue<? extends Boolean> arg0, Boolean oldPropertyValue, Boolean newPropertyValue)
-    {
-        if (newPropertyValue)
-        {
-            System.out.println("Textfield on focus");
-        }
-        else
-        {
-            System.out.println("Textfield out focus");
-            if(toTextField.getText()!= ""){
-            setDirection();
+
+        toTextField.focusedProperty().addListener(new ChangeListener<Boolean>() {
+            @Override
+            public void changed(ObservableValue<? extends Boolean> arg0, Boolean oldPropertyValue, Boolean newPropertyValue) {
+                if (newPropertyValue) {
+                    System.out.println("Textfield on focus");
+                } else {
+                    System.out.println("Textfield out focus");
+                    if (toTextField.getText() != "") {
+                        setDirection();
+                    }
+                    toTextField.validate();
+                }
             }
-            toTextField.validate();
-        }
-    }
-});
-      fromTextField.focusedProperty().addListener(new ChangeListener<Boolean>()
-{
-    @Override
-    public void changed(ObservableValue<? extends Boolean> arg0, Boolean oldPropertyValue, Boolean newPropertyValue)
-    {
-        if (!newPropertyValue)
-        {
-            fromTextField.validate();
-        }
-    }
-});
-         
-           
-      
-        
+        });
+        fromTextField.focusedProperty().addListener(new ChangeListener<Boolean>() {
+            @Override
+            public void changed(ObservableValue<? extends Boolean> arg0, Boolean oldPropertyValue, Boolean newPropertyValue) {
+                if (!newPropertyValue) {
+                    fromTextField.validate();
+                }
+            }
+        });
+
         HamburgerBackArrowBasicTransition transition = new HamburgerBackArrowBasicTransition(hamburger);
         transition.setRate(-1);
-        hamburger.addEventHandler(MouseEvent.MOUSE_PRESSED,(e)->{
-            transition.setRate(transition.getRate()*-1);
+        hamburger.addEventHandler(MouseEvent.MOUSE_PRESSED, (e) -> {
+            transition.setRate(transition.getRate() * -1);
             transition.play();
-            
-            if(drawer.isShown())
-            {
+
+            if (drawer.isShown()) {
                 drawer.close();
-            }else
+            } else {
                 drawer.open();
+            }
         });
-        
-        
+
     }
-    
-     @Override
+
+    @Override
     public void mapInitialized() {
         MapOptions options = new MapOptions();
 
-        options.center(new LatLong(34.3055732,11.255412))
+        options.center(new LatLong(34.3055732, 11.255412))
                 .zoomControl(true)
                 .zoom(6)
                 .overviewMapControl(false)
@@ -302,9 +298,9 @@ public class AjouterAnnoncesController implements Initializable, MapComponentIni
         GoogleMap map = mapView.createMap(options);
         directionsService = new DirectionsService();
         directionsPane = mapView.getDirec();
-        
+
     }
-    
+
     /*    @FXML
     public void addressTextFieldAction(ActionEvent event) {
         geocodingService.geocode(address.get(), (GeocodingResult[] results, GeocoderStatus status) -> {
@@ -331,12 +327,10 @@ AddMarker(latLong,address.get());
 
         });
     }*/
-    
-    private void AddMarker(LatLong l,String address){
-        
-                   
-	 Marker myMarker = null;
-           markerOptions = new MarkerOptions();
+    private void AddMarker(LatLong l, String address) {
+
+        Marker myMarker = null;
+        markerOptions = new MarkerOptions();
         markerOptions.position(l)
                 .title("My new Marker")
                 .visible(true);
@@ -348,8 +342,13 @@ AddMarker(latLong,address.get());
 
         InfoWindow window = new InfoWindow(infoOptions);
         window.open(map, myMarker);
-                map.addMarker(myMarker);
-        
+        map.addMarker(myMarker);
+
     }
-    
+
+    @Override
+    public void setScreenParent(ScreensController screenPage) {
+        screen = screenPage;
+    }
+
 }

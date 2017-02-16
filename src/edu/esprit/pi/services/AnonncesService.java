@@ -13,10 +13,13 @@ import edu.esprit.pi.technique.DataSource;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 
 /**
@@ -60,6 +63,30 @@ public class AnonncesService implements IAnnonceService{
         } catch (Exception e) {
             e.printStackTrace();
         }
+    }
+    
+    
+    @Override
+    public void Update(Annonce annonce) {
+     try {
+            String req="UPDATE annonce SET trip_date=?,lieu_depart=?,lieu_arrive=?,type=?,nbr_personne=?,prix=?,critere=?,id_user=? WHERE id_annonce=?";
+      ps = connection.prepareStatement(req);
+      ps.setTimestamp(1,  new java.sql.Timestamp(annonce.getTripDate().getTime()));
+      ps.setString(2, annonce.getLieuDepart());
+            ps.setString(3, annonce.getLieuArriver());
+            ps.setString(4, annonce.getTypeAnnonce());
+            ps.setInt(5, annonce.getNbrPersonne());
+            ps.setFloat(6, annonce.getPrix());
+            ps.setString(7, annonce.getCritere());
+            ps.setInt(8, annonce.getCreator().getId());
+            ps.setInt(9, annonce.getIdAnnonce());
+     
+            ps.executeUpdate();
+           
+        } catch (SQLException ex) {
+            System.out.println(ps);
+  Logger.getLogger(SujetService.class.getName()).log(Level.SEVERE, null, ex);
+        } 
     }
 
     @Override

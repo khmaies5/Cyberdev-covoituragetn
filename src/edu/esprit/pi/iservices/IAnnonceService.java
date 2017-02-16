@@ -16,5 +16,6 @@ import java.util.List;
  */
 public interface IAnnonceService extends IService<Annonce, Integer> {
     List<Annonce> rechercherannonceselontrajet(String depart,String arrivee,String date);
+   void Update (Annonce annonce);
     
 }

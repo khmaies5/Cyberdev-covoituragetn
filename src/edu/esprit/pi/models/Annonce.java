@@ -36,6 +36,41 @@ public class Annonce {
         this.idAnnonce = idAnnonce;
     }
 
+    public Annonce(int idAnnonce, Date tripDate, Date annonceDate, String lieuDepart, String lieuArriver, String typeAnnonce, int nbrPersonne, float prix, String critere) {
+        this.idAnnonce = idAnnonce;
+        this.tripDate = tripDate;
+        this.annonceDate = annonceDate;
+        this.lieuDepart = lieuDepart;
+        this.lieuArriver = lieuArriver;
+        this.typeAnnonce = typeAnnonce;
+        this.nbrPersonne = nbrPersonne;
+        this.prix = prix;
+        this.critere = critere;
+    }
+
+    public Annonce(Date tripDate, Date annonceDate, String lieuDepart, String lieuArriver, String typeAnnonce, int nbrPersonne, float prix, String critere) {
+        this.tripDate = tripDate;
+        this.annonceDate = annonceDate;
+        this.lieuDepart = lieuDepart;
+        this.lieuArriver = lieuArriver;
+        this.typeAnnonce = typeAnnonce;
+        this.nbrPersonne = nbrPersonne;
+        this.prix = prix;
+        this.critere = critere;
+    }
+
+    public Annonce(Date tripDate, Date annonceDate, String lieuDepart, String lieuArriver, String typeAnnonce, int nbrPersonne, float prix, String critere, User creator) {
+        this.tripDate = tripDate;
+        this.annonceDate = annonceDate;
+        this.lieuDepart = lieuDepart;
+        this.lieuArriver = lieuArriver;
+        this.typeAnnonce = typeAnnonce;
+        this.nbrPersonne = nbrPersonne;
+        this.prix = prix;
+        this.critere = critere;
+        this.creator = creator;
+    }
+
     public Annonce(int idAnnonce, Date tripDate, Date annonceDate, String lieuDepart, String lieuArriver, String typeAnnonce, int nbrPersonne, float prix, String critere, User creator) {
         this.idAnnonce = idAnnonce;
         this.tripDate = tripDate;

@@ -9,31 +9,50 @@
 <?import com.lynden.gmapsfx.GoogleMapView?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.Tooltip?>
+<?import javafx.scene.effect.DropShadow?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import com.jfoenix.controls.JFXSnackbar?>
+<?import java.net.URL?>
+
+
 
 <AnchorPane id="AnchorPane" cacheShape="false" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1080.0" prefWidth="1920.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.esprit.pi.gui.AjouterAnnoncesController">
     
     
     <children>
-      <GoogleMapView fx:id="mapView" layoutX="153.0" layoutY="241.0" prefHeight="351.0" prefWidth="594.0" AnchorPane.bottomAnchor="8.0" AnchorPane.leftAnchor="153.0" AnchorPane.rightAnchor="153.0" AnchorPane.topAnchor="241.0" />
-      <JFXTextField fx:id="fromTextField" labelFloat="true" layoutX="153.0" layoutY="53.0" promptText="From">
+      <GoogleMapView fx:id="mapView" layoutX="153.0" layoutY="265.0" prefHeight="630.0" prefWidth="1614.0" AnchorPane.bottomAnchor="185.0" AnchorPane.leftAnchor="153.0" AnchorPane.rightAnchor="153.0" AnchorPane.topAnchor="265.0">
+         <effect>
+            <DropShadow blurType="GAUSSIAN" />
+         </effect></GoogleMapView>
+      <JFXTextField fx:id="fromTextField" labelFloat="true" layoutX="294.0" layoutY="60.0" prefHeight="29.0" prefWidth="254.0" promptText="From">
          <tooltip>
             <Tooltip text="from where you will start&#10;exemple : Restaurant Tijani Ezzont, P1, Grombalia, Nabeul" textAlignment="CENTER" />
          </tooltip></JFXTextField>
-      <JFXTextField fx:id="toTextField" labelFloat="true" layoutX="238.0" layoutY="96.0" onMouseExited="#toTextFieldAction" promptText="To">
+      <JFXTextField fx:id="toTextField" labelFloat="true" layoutX="294.0" layoutY="146.0" onMouseExited="#toTextFieldAction" prefHeight="29.0" prefWidth="254.0" promptText="To">
          <tooltip>
             <Tooltip text="where you are going &#10;example : Esprit Incubator, tunis" textAlignment="CENTER" />
          </tooltip></JFXTextField>
 
       <JFXDrawer fx:id="drawer" defaultDrawerSize="200.0" prefHeight="600.0" prefWidth="116.0" />
       <JFXHamburger fx:id="hamburger" prefHeight="30.0" prefWidth="45.0" />
-      <JFXButton fx:id="submitAnnonceButton" buttonType="RAISED" layoutX="635.0" layoutY="210.0" onAction="#submitAnnonceButtonAction" text="OK" />
-      <JFXDatePicker fx:id="dateAnnoncePicker" layoutX="341.0" layoutY="152.0" promptText="select trip date" showWeekNumbers="true" />
-      <JFXDatePicker fx:id="timeAnnoncePicker" layoutX="341.0" layoutY="195.0" promptText="select trip time" showTime="true" />
-      <JFXSlider fx:id="numberSlider" layoutX="593.0" layoutY="60.0" majorTickUnit="1.0" max="4.0" minorTickCount="0" showTickLabels="true" showTickMarks="true" snapToTicks="true" />
-      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="607.0" layoutY="30.0" text="Nbr Personnes" />
-      <JFXSlider fx:id="prixSlider" layoutX="500.0" layoutY="111.0" minorTickCount="1" prefHeight="45.0" prefWidth="169.0" showTickLabels="true" showTickMarks="true" />
-
+      <JFXDatePicker fx:id="dateAnnoncePicker" layoutX="775.0" layoutY="121.0" promptText="select trip date" showWeekNumbers="true" />
+      <JFXDatePicker fx:id="timeAnnoncePicker" layoutX="775.0" layoutY="196.0" promptText="select trip time" showTime="true" />
+      <JFXSlider fx:id="numberSlider" layoutX="1240.0" layoutY="74.0" majorTickUnit="1.0" max="4.0" minorTickCount="0" prefHeight="45.0" prefWidth="254.0" showTickLabels="true" showTickMarks="true" snapToTicks="true" />
+      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="1254.0" layoutY="44.0" prefHeight="21.0" prefWidth="220.0" text="Nbr Personnes" />
+      <JFXSlider fx:id="prixSlider" layoutX="1240.0" layoutY="160.0" minorTickCount="1" prefHeight="45.0" prefWidth="254.0" showTickLabels="true" showTickMarks="true" />
+      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="1254.0" layoutY="125.0" prefHeight="21.0" prefWidth="220.0" text="Prix/Personne" />
+      <JFXButton fx:id="submitAnnonceButton" buttonType="RAISED" layoutX="859.0" layoutY="910.0" onAction="#submitAnnonceButtonAction" prefHeight="45.0" prefWidth="135.0" ripplerFill="WHITE" style="-fx-background-color: #2196f3;" text="OK" textFill="WHITE">
+         <effect>
+            <DropShadow blurType="GAUSSIAN" />
+         </effect>
+      </JFXButton>
+<JFXSnackbar fx:id="snackbar" layoutX="256.0" layoutY="256.0" prefWidth="300">
+      <stylesheets>
+                                    <URL value="@../resources/css/jfoenix-main-demo.css" />
+                                    <URL value="@../resources/css/jfoenix-components.css" />
+                                 </stylesheets>
+                                 
+                              </JFXSnackbar>
       
     </children>
     
