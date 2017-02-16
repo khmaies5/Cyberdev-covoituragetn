@@ -34,12 +34,15 @@ private Connection connection;
 
     @Override
     public void add(Demande t) {
- String req = "insert into demande (id_annonce,id_user,etat_approbation) values (?,?,?)";
+ String req = "insert into demande (id_annonce,id_user,etat_approbation,nbr_places,id_conducteur) values (?,?,?,?,?)";
         try {
             ps = connection.prepareStatement(req);
             ps.setInt(1,t.getAnnonce().getIdAnnonce());
            ps.setInt(2, t.getUser().getId());
             ps.setString(3, t.getEtat());
+            ps.setInt(4, t.getNbrPlaces());
+            ps.setInt(5, t.getConducteur().getId());
+            
            
             
             
@@ -69,7 +72,7 @@ String req = "select * from demande where id_demande = ?";
             ps.setInt(1, r);
             ResultSet resultSet = ps.executeQuery();
             if (resultSet.next()) {
-                demande = new Demande(resultSet.getInt(1),resultSet.getString(3),new Annonce(resultSet.getInt(2)),new User(resultSet.getInt(3)));
+                demande = new Demande(resultSet.getInt(1),resultSet.getString(4),new Annonce(resultSet.getInt(2)),new User(resultSet.getInt(3)),resultSet.getInt(5),new User(resultSet.getInt(6)));
             }
         } catch (Exception e) {
             e.printStackTrace();
@@ -86,7 +89,7 @@ String req = "select * from demande";
             ps = connection.prepareStatement(req);
             ResultSet resultSet = ps.executeQuery();
             while (resultSet.next()) {
-               Demande product = new Demande(resultSet.getInt(1), resultSet.getString(4),new AnonncesService().findById(resultSet.getInt(2)),new UserService().findById(resultSet.getInt(3)) );
+               Demande product = new Demande(resultSet.getInt(1), resultSet.getString(4),new AnonncesService().findById(resultSet.getInt(2)),new UserService().findById(resultSet.getInt(3)),resultSet.getInt(5),new UserService().findById(resultSet.getInt(6)) );
         //Reservation(resultSet.getInt(1), resultSet.getString(2), new UserService().findById(resultSet.getInt(3)));
                 demandes.add(product);
             }
@@ -102,7 +105,7 @@ try {
             
             ps = connection.prepareStatement(req1);
               demande =new Demande("accepte");
-            ps.setString(1,demande.getEtat());//1 est le premier parametre ? 
+            ps.setString(1,"accepte");//1 est le premier parametre ? 
             ps.setInt(2,id);
             ps.executeUpdate() ;//insert update delete 
             // executeQuery pour insert
@@ -119,7 +122,7 @@ try {
             
             ps = connection.prepareStatement(req1);
               demande =new Demande("refuse");
-            ps.setString(1,demande.getEtat());//1 est le premier parametre ? 
+            ps.setString(1,"refuse");//1 est le premier parametre ? 
             ps.setInt(2,id);
             ps.executeUpdate() ;//insert update delete 
             // executeQuery pour insert
@@ -153,7 +156,26 @@ String req = "select * from demande WHERE id_demande =?";
             e.printStackTrace();
         }   
     return demandes ;     }
-
+    
+    
+ public Demande finddemandebyuser(int r)
+    {
+         String req = "select * from demande where id_user = ?";
+      Demande demande =null ;
+        try {
+            ps = connection.prepareStatement(req);
+            ps.setInt(1, r);
+            ResultSet resultSet = ps.executeQuery();
+            if (resultSet.next()) {
+ demande = new Demande(resultSet.getInt(6));           
+            
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return demande ;
+        
+    }
     
     
 }

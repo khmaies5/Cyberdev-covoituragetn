@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.gluonhq.charm.glisten.control.AutoCompleteTextField?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+
+
+<AnchorPane id="AnchorPane" prefHeight="200.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.111" fx:controller="edu.esprit.pi.gui.RechercheAvanceeReservationController">
+   <children>
+      <AutoCompleteTextField layoutX="29.0" layoutY="34.0" />
+      <AutoCompleteTextField layoutX="226.0" layoutY="34.0" />
+      <DatePicker layoutX="398.0" layoutY="34.0" />
+      <TextField layoutX="29.0" layoutY="118.0" />
+      <ChoiceBox layoutX="225.0" layoutY="118.0" prefWidth="150.0" />
+      <ChoiceBox layoutX="398.0" layoutY="118.0" prefHeight="25.0" prefWidth="174.0" />
+      <Button layoutX="152.0" layoutY="161.0" mnemonicParsing="false" text="rechercher" />
+      <Button layoutX="337.0" layoutY="161.0" mnemonicParsing="false" text="retour" />
+      <Label layoutX="53.0" layoutY="14.0" text="lieu de depart" />
+      <Label layoutX="266.0" layoutY="14.0" text="lieu d'arrivée" />
+      <Label layoutX="445.0" layoutY="14.0" text="Date de depart" />
+      <Label layoutX="90.0" layoutY="92.0" text="prix" />
+      <Label layoutX="287.0" layoutY="93.0" text="type:" />
+      <Label layoutX="477.0" layoutY="93.0" text="sex" />
+   </children>
+</AnchorPane>

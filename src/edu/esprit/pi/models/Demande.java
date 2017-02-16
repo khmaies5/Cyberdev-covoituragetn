@@ -5,6 +5,7 @@
  */
 package edu.esprit.pi.models;
 
+import java.util.Date;
 import java.util.Objects;
 
 /**
@@ -12,38 +13,35 @@ import java.util.Objects;
  * @author amrouche
  */
 public class Demande {
-    private int id_demande ;
-    private int id_annonce ;
-    private int id_user ;
+    private int idDemande ;
+    //private int idannonce ;
+   // private int id_user ;
     private String etat ;
+    Date date;
     Annonce annonce ;
     User user ;
-
+    private int NbrPlaces ;
+    User conducteur ;
+//private String nomuse=user.getNom();
     public Demande() {
     }
 
-    public Demande(int id_annonce, int id_user, String etat) {
-        this.id_annonce = id_annonce;
-        this.id_user = id_user;
-        this.etat = etat;
-    }
+   
 
-    public Demande(String etat, Annonce annonce, User user) {
+  /* public Demande(String etat, Annonce annonce, User user) {
         this.etat = etat;
         this.annonce = annonce;
         this.user = user;
-    }
+    }*/
 
-    public Demande(int id_annonce, int id_user, String etat, Annonce annonce, User user) {
-        this.id_annonce = id_annonce;
-        this.id_user = id_user;
-        this.etat = etat;
-        this.annonce = annonce;
-        this.user = user;
+  
+
+    public Demande(int idDemande) {
+        this.idDemande = idDemande;
     }
 
     public Demande(int id_demande, String etat, Annonce annonce, User user) {
-        this.id_demande = id_demande;
+        this.idDemande = id_demande;
         this.etat = etat;
         this.annonce = annonce;
         this.user = user;
@@ -52,51 +50,65 @@ public class Demande {
     public Demande(String etat) {
         this.etat = etat;
     }
-    
 
-    public Demande(int id_demande, int id_annonce, int id_user, String etat, Annonce annonce, User user) {
-        this.id_demande = id_demande;
-        this.id_annonce = id_annonce;
-        this.id_user = id_user;
+    public Demande(int idDemande, String etat, Annonce annonce, User user, int NbrPlaces) {
+        this.idDemande = idDemande;
+        this.etat = etat;
+        this.annonce = annonce;
+        this.user = user;
+        this.NbrPlaces = NbrPlaces;
+    }
+
+    public Demande(String etat, Annonce annonce, User user, int NbrPlaces, User conducteur) {
+        this.etat = etat;
+        this.annonce = annonce;
+        this.user = user;
+        this.NbrPlaces = NbrPlaces;
+        this.conducteur = conducteur;
+    }
+
+    public Demande(int idDemande, String etat, Annonce annonce, User user, int NbrPlaces, User conducteur) {
+        this.idDemande = idDemande;
+        this.etat = etat;
+        this.annonce = annonce;
+        this.user = user;
+        this.NbrPlaces = NbrPlaces;
+        this.conducteur = conducteur;
+    }
+
+    public Demande(String etat, Annonce annonce, User user, int NbrPlaces) {
+        this.etat = etat;
+        this.annonce = annonce;
+        this.user = user;
+        this.NbrPlaces = NbrPlaces;
+    }
+
+    public Demande(String etat, Annonce annonce, User user) {
         this.etat = etat;
         this.annonce = annonce;
         this.user = user;
     }
+    
 
-    public Demande(int id_demande, int id_annonce, int id_user, String etat) {
-        this.id_demande = id_demande;
-        this.id_annonce = id_annonce;
-        this.id_user = id_user;
-        this.etat = etat;
-    }
+   
+
+   
 
     public int getId_demande() {
-        return id_demande;
+        return idDemande;
     }
 
-    public int getId_annonce() {
-        return id_annonce;
-    }
-
-    public int getId_user() {
-        return id_user;
-    }
+  
 
     public String getEtat() {
         return etat;
     }
 
     public void setId_demande(int id_demande) {
-        this.id_demande = id_demande;
+        this.idDemande = id_demande;
     }
 
-    public void setId_annonce(int id_annonce) {
-        this.id_annonce = id_annonce;
-    }
-
-    public void setId_user(int id_user) {
-        this.id_user = id_user;
-    }
+ 
 
     public void setEtat(String etat) {
         this.etat = etat;
@@ -121,11 +133,26 @@ public class Demande {
     @Override
     public int hashCode() {
         int hash = 3;
-        hash = 23 * hash + this.id_demande;
-        hash = 23 * hash + this.id_annonce;
-        hash = 23 * hash + this.id_user;
+        hash = 23 * hash + this.idDemande;
+       
         hash = 23 * hash + Objects.hashCode(this.etat);
         return hash;
+    }
+
+    public int getNbrPlaces() {
+        return NbrPlaces;
+    }
+
+    public void setNbrPlaces(int NbrPlaces) {
+        this.NbrPlaces = NbrPlaces;
+    }
+
+    public User getConducteur() {
+        return conducteur;
+    }
+
+    public void setConducteur(User conducteur) {
+        this.conducteur = conducteur;
     }
 
     @Override
@@ -140,15 +167,10 @@ public class Demande {
             return false;
         }
         final Demande other = (Demande) obj;
-        if (this.id_demande != other.id_demande) {
+        if (this.idDemande != other.idDemande) {
             return false;
         }
-        if (this.id_annonce != other.id_annonce) {
-            return false;
-        }
-        if (this.id_user != other.id_user) {
-            return false;
-        }
+     
         if (!Objects.equals(this.etat, other.etat)) {
             return false;
         }
@@ -157,7 +179,7 @@ public class Demande {
 
     @Override
     public String toString() {
-        return "Demande{" + "id_demande=" + id_demande + ", id_annonce=" + id_annonce + ", id_user=" + id_user + ", etat=" + etat + '}';
+        return "Demande{" + "id_demande=" + idDemande +  ", etat=" + etat + '}';
     }
     
     

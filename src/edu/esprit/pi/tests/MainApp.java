@@ -5,7 +5,7 @@
  */
 package edu.esprit.pi.tests;
 
-
+import static com.sun.org.apache.xalan.internal.lib.ExsltDatetime.date;
 import edu.esprit.pi.iservices.IAnnonceService;
 import edu.esprit.pi.iservices.IDemandeService;
 import edu.esprit.pi.iservices.IReservationService;
@@ -19,6 +19,9 @@ import edu.esprit.pi.services.DemandeService;
 import edu.esprit.pi.services.ReservationService;
 import java.util.Date;
 import edu.esprit.pi.technique.DataSource;
+import java.util.ArrayList;
+import static java.util.Collections.list;
+import java.util.List;
 
 /**
  *
@@ -31,7 +34,7 @@ public class MainApp {
          // userService.add(user);
          //userService.delete(3);
          userService.getAll().forEach(System.out::println);*/
-String date1 = "23/06/2006";
+String date1 = "24/06/2006";
 
         //Product product = new Product("TV", new User(1));
        // IService service = new ProductService();
@@ -42,15 +45,25 @@ String date1 = "23/06/2006";
       Date date =new Date();
        //  IDemandeService service =new DemandeService();
        
-        Reservation reservation =new Reservation(date1,"reservés",6,"cartecredits",new User(1),3, new Annonce(1));
-       IReservationService service = new ReservationService();
+        Reservation reservation =new Reservation(date1,"reservésdd",7,"cartecredissts",new User(1),8, new Annonce(1));
+      
+        IReservationService service = new ReservationService();
          IAnnonceService serv1=new AnonncesService();
      // Reservation res = new Reservation(date, date1, 0, date1, creator)
         Demande demande =new Demande("", new Annonce(1),new User(1));
        //  System.out.println(service.getAll());
-         serv1.rechercherannonceselontrajet("fnfgngfn","nfgngfnfgngf",date1);
-      // service.add(reservation);
+       List<Annonce> lst =new ArrayList();
+       // lst= serv1.rechercherannonceselontrajet("fnfgngfn","nfgngfnfgngf",date1);
+      //   System.out.println(lst);      
+//service.add(reservation);
      //service.delete(2);
+     List<Reservation> res =new ArrayList();
+     ReservationService e =new ReservationService();
+     res=e.findallreservationsbyid(1);
+         for (Reservation re : res) {
+             System.out.println(re);
+         }
+     
      
      }
     

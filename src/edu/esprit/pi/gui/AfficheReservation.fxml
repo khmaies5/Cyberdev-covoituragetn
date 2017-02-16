@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXDrawer?>
+<?import com.jfoenix.controls.JFXHamburger?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane id="AnchorPane" prefHeight="600.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.esprit.pi.gui.AnnoncesController">
+    
+    
+    <children>
+         <Label layoutX="400.0" layoutY="10.0" prefHeight="40.0" prefWidth="262.0" style="-fx-background-color: light-blue;" text="                               demandes" />
+      <TableView layoutX="219.0" layoutY="54.0" prefHeight="185.0" prefWidth="563.0">
+        <columns>
+          <TableColumn prefWidth="75.0" text="id_annonce" />
+          <TableColumn prefWidth="112.0" text="date de depart" />
+            <TableColumn prefWidth="113.0" text="date d'arrivée" />
+            <TableColumn minWidth="0.0" prefWidth="114.0" text="nom personne" />
+            <TableColumn prefWidth="148.0" text="nbr de place " />
+        </columns>
+      </TableView>
+      
+      <Button layoutX="583.0" layoutY="250.0" mnemonicParsing="false" text="accept" />
+      <Button layoutX="696.0" layoutY="250.0" mnemonicParsing="false" text="deny" />
+      <Label layoutX="253.0" layoutY="245.0" prefHeight="17.0" prefWidth="107.0" text="date de depart :" />
+      <Label layoutX="422.0" layoutY="245.0" text="date d'arrivée:" />
+      <Label layoutX="406.0" layoutY="294.0" text="nom personne :" />
+      <Label layoutX="253.0" layoutY="296.0" prefHeight="17.0" prefWidth="141.0" text="nbr de place :" />
+      <JFXDrawer fx:id="drawer" defaultDrawerSize="200.0" layoutY="4.0" prefHeight="600.0" prefWidth="108.0" />
+      <JFXHamburger fx:id="hamburger" />
+      <TextField layoutX="219.0" layoutY="263.0" />
+      <TextField layoutX="394.0" layoutY="263.0" />
+      <TextField layoutX="219.0" layoutY="313.0" />
+      <TextField layoutX="394.0" layoutY="313.0" />
+    </children>
+    
+</AnchorPane>

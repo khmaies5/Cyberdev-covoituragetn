@@ -3,21 +3,13 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ChoiceBox?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.Spinner?>
-<?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane id="AnchorPane" prefHeight="477.0" prefWidth="304.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.esprit.pi.gui.AjoutReservationController">
+<AnchorPane id="AnchorPane" prefHeight="311.0" prefWidth="304.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.esprit.pi.gui.AjoutReservationController">
    <children>
       <Label layoutX="68.0" layoutY="31.0" prefHeight="37.0" prefWidth="167.0" text="      voulez-vous Reserver" />
-      <Spinner layoutX="68.0" layoutY="128.0" />
       <Label layoutX="68.0" layoutY="78.0" prefHeight="37.0" prefWidth="137.0" text="      nombre de place" />
-      <ChoiceBox layoutX="68.0" layoutY="188.0" prefWidth="150.0" />
-      <ChoiceBox layoutX="69.0" layoutY="264.0" prefWidth="150.0" />
-      <TextField layoutX="70.0" layoutY="347.0" />
-      <Label layoutX="100.0" layoutY="162.0" prefHeight="17.0" prefWidth="86.0" text=" lieu de depart" />
-      <Label layoutX="88.0" layoutY="230.0" prefHeight="17.0" prefWidth="107.0" text="     lieu d'arrivée" />
-      <Label layoutX="86.0" layoutY="305.0" prefHeight="37.0" prefWidth="125.0" text="   montant à payer" />
-      <Button layoutX="86.0" layoutY="399.0" mnemonicParsing="false" text="envoyer demande" />
+      <Button fx:id="btnDemande" layoutX="87.0" layoutY="205.0" mnemonicParsing="false" onAction="#envoyerDemandeAction" text="envoyer demande" />
+      <ChoiceBox fx:id="cbplaces" layoutX="68.0" layoutY="131.0" prefWidth="150.0" />
    </children>
 </AnchorPane>

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+
+<AnchorPane id="AnchorPane" prefHeight="507.0" prefWidth="707.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.111" fx:controller="edu.esprit.pi.gui.PayementFxmlController">
+   <children>
+      <TableView fx:id="restab" layoutX="75.0" layoutY="85.0" prefHeight="214.0" prefWidth="548.0">
+        <columns>
+          <TableColumn fx:id="cldate" prefWidth="100.0" text="date reservation" />
+          <TableColumn fx:id="clmontant" prefWidth="74.0" text="montant" />
+            <TableColumn fx:id="clnbreplace" prefWidth="101.0" text="nbre place" />
+            <TableColumn fx:id="cldepart" prefWidth="133.0" text="lieu de depart" />
+            <TableColumn fx:id="clarrivee" prefWidth="139.0" text="lieu d'arrivée" />
+        </columns>
+      </TableView>
+      <Label layoutX="206.0" layoutY="47.0" prefHeight="24.0" prefWidth="189.0" text="liste de reservation" textFill="#b8e1a8">
+         <font>
+            <Font name="Times New Roman Bold Italic" size="21.0" />
+         </font>
+      </Label>
+      <JFXButton fx:id="btnpayer" buttonType="RAISED" layoutX="431.0" layoutY="322.0" onAction="#PayerAction" ripplerFill="WHITE" style="-fx-background-color: grey;" text="payer" textFill="WHITE" />
+   </children>
+</AnchorPane>

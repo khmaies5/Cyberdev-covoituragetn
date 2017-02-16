@@ -10,19 +10,18 @@
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
-
-<AnchorPane id="AnchorPane" prefHeight="447.0" prefWidth="693.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.111" fx:controller="edu.esprit.pi.gui.DefaultInterfaceController">
+<AnchorPane id="AnchorPane" prefHeight="447.0" prefWidth="693.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.esprit.pi.gui.DefaultInterfaceController">
    <children>
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#1fbadd94" height="53.0" layoutY="257.0" stroke="TRANSPARENT" strokeType="INSIDE" width="693.0" />
       <Button layoutX="580.0" layoutY="26.0" mnemonicParsing="false" text="connexion" />
       <Button layoutX="358.0" layoutY="26.0" mnemonicParsing="false" text="proposer un trajet" />
-      <TextField layoutX="41.0" layoutY="359.0" />
-      <TextField layoutX="212.0" layoutY="359.0" />
-      <DatePicker layoutX="381.0" layoutY="359.0" />
+      <TextField fx:id="txdepart" layoutX="41.0" layoutY="359.0" />
+      <TextField fx:id="txdestination" layoutX="212.0" layoutY="359.0" />
+      <DatePicker fx:id="txdate" layoutX="381.0" layoutY="359.0" />
       <Label layoutX="41.0" layoutY="340.0" text="Lien Depart" />
       <Label layoutX="212.0" layoutY="340.0" text="Lieu Destination" />
       <Label layoutX="381.0" layoutY="340.0" text="Date Depart" />
-      <Button layoutX="577.0" layoutY="359.0" mnemonicParsing="false" text="Rechercher" />
+      <Button fx:id="btnrechercher" layoutX="577.0" layoutY="359.0" mnemonicParsing="false" onAction="#rechercherannonce" text="Rechercher" />
       <ImageView fitHeight="127.0" fitWidth="384.0" layoutX="173.0" layoutY="97.0" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="173.0" AnchorPane.rightAnchor="173.8406982421875">
          <image>
             <Image url="@../../../../../../Desktop/25290_une.jpg" />
