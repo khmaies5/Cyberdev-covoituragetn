@@ -26,6 +26,16 @@ public class Alerte {
     public Alerte() {
     }
 
+    public Alerte(int id) {
+        this.id = id;
+    }
+
+    public Alerte(String lieuDepart, String lieuArrivee, Date date) {
+        this.lieuDepart = lieuDepart;
+        this.lieuArrivee = lieuArrivee;
+        this.date = date;
+    }
+
     public Alerte(String lieuDepart, String lieuArrivee, Date date, int heure, User creator) {
         this.lieuDepart = lieuDepart;
         this.lieuArrivee = lieuArrivee;
@@ -33,12 +43,14 @@ public class Alerte {
         this.heure = heure;
         this.creator = creator;
     }
-        public Alerte(String lieuDepart, String lieuArrivee, Date date, int heure) {
+
+    public Alerte(String lieuDepart, String lieuArrivee, Date date, int heure) {
         this.lieuDepart = lieuDepart;
         this.lieuArrivee = lieuArrivee;
         this.date = date;
         this.heure = heure;
     }
+
 
 
     public Alerte(int id, String lieuDepart, String lieuArrivee, Date date, int heure, User creator) {
@@ -131,9 +143,11 @@ public class Alerte {
         return true;
     }
 
+
+
     @Override
     public String toString() {
-        return "Alerte{" + "id=" + id + ", lieu_depart=" + lieuDepart + ", lieu_arrivee=" + lieuArrivee + ", date=" + date + ", creator=" + creator + '}';
+        return "Alerte{" + "id=" + id + ", lieuDepart=" + lieuDepart + ", lieuArrivee=" + lieuArrivee + ", date=" + date + ", heure=" + heure + ", creator=" + creator + '}';
     }
 
  
@@ -144,3 +158,4 @@ public class Alerte {
       
   
 }
+

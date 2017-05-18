@@ -6,7 +6,9 @@
 package edu.esprit.pi.services;
 
 import edu.esprit.pi.iservices.IAbonnesService;
+import edu.esprit.pi.iservices.IGroupeService;
 import edu.esprit.pi.iservices.IService;
+import edu.esprit.pi.iservices.IUserService;
 import edu.esprit.pi.models.Abonnes;
 import edu.esprit.pi.models.Groupe;
 import edu.esprit.pi.models.Sujet;
@@ -17,7 +19,10 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.Date;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -48,7 +53,38 @@ public class AbonnesService implements IAbonnesService {
             e.printStackTrace();
         }
     }
+    
+   
+    public boolean addAbonnes(Abonnes A) {
+        String req = "insert into abonnees (id_groupe,id_user,role_user) values (?,?,?)";
+int i=-1;
+        try {
+            ps = connection.prepareStatement(req);
+            ps.setInt(1, A.getGroupe().getId());
+            ps.setInt(2, A.getUser().getId());
+            ps.setString(3, A.getRoleUser());
+           i= ps.executeUpdate();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+         if(i==1) return true; else return false;
+    }
 
+        
+           public boolean ReAbonnes(Abonnes A) {
+   String req="UPDATE `abonnees` SET `etat_abonnement`=? WHERE id=? ";
+int i=-1;
+        try {
+            ps = connection.prepareStatement(req);
+               ps.setInt(1,1);
+            ps.setInt(2, A.getId());
+         
+           i= ps.executeUpdate();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+         if(i==1) return true; else return false;
+    }
     @Override
     public List<Abonnes> getAll() {
         String req = "select * from abonnees";
@@ -60,7 +96,7 @@ public class AbonnesService implements IAbonnesService {
             ResultSet resultSet = ps.executeQuery();
             while (resultSet.next()) {
 
-                Abonnes abonnes = new Abonnes(resultSet.getInt(1), resultSet.getDate(2), resultSet.getString(3), new User(resultSet.getInt(4)),  new Groupe(resultSet.getInt(5)));
+Abonnes  abonnes = new Abonnes(resultSet.getInt(1), resultSet.getDate(4), resultSet.getString(5), new User(resultSet.getInt(3)), new Groupe(resultSet.getInt(2)));
 
                 abonnees.add(abonnes);
             }
@@ -98,7 +134,8 @@ public class AbonnesService implements IAbonnesService {
             ResultSet resultSet = ps.executeQuery();
 
             if (resultSet.next()) {
-                abonne = new Abonnes(resultSet.getInt(1), resultSet.getDate(2), resultSet.getString(3), new User(resultSet.getInt(4)), new Groupe(resultSet.getInt(5)));
+  abonne = new Abonnes(resultSet.getInt(1), resultSet.getDate(4), resultSet.getString(5), new User(resultSet.getInt(3)), new Groupe(resultSet.getInt(2)));
+                System.out.println("fefefefe  "+abonne);
             }
 
         } catch (Exception e) {
@@ -117,7 +154,7 @@ public class AbonnesService implements IAbonnesService {
 
     @Override
     public List<Abonnes> findByIdGroupe(Integer IGroupe) {
-String req = "select * from abonnees where id_groupe = ?";
+String req = "select * from abonnees where id_groupe = ? and etat_abonnement=?";
 
         Abonnes abonne = null;
   List<Abonnes> abonnees = new ArrayList<>();
@@ -126,21 +163,50 @@ String req = "select * from abonnees where id_groupe = ?";
             ps = connection.prepareStatement(req);
 
             ps.setInt(1, IGroupe);
-
+   ps.setInt(2, 1);
             ResultSet resultSet = ps.executeQuery();
 
             while (resultSet.next()) {
-                
-                abonne = new Abonnes(resultSet.getInt(1), resultSet.getDate(2), resultSet.getString(3), new User(resultSet.getInt(4)));
+
+                abonne = new Abonnes(resultSet.getInt(1), resultSet.getDate(4), resultSet.getString(5), new User(resultSet.getInt(3)));
             abonnees.add(abonne);
                
             }
-  //System.out.println(abonnees); 
+ 
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+   
+        return abonnees;
+    }
+      
+    public Abonnes findByIdGroupeAndIdUser(int iGroupe, int idUser) {
+    
+String req = "select * from abonnees where id_groupe =? and id_user=?";
+
+        Abonnes abonne = null;
+ 
+        try {
+            ps = connection.prepareStatement(req);
+
+            ps.setInt(1, iGroupe);
+
+    ps.setInt(2, idUser);
+            ResultSet resultSet = ps.executeQuery();
+
+            if (resultSet.next()) {
+          // abonne=new Abonnes
+  abonne = new Abonnes(resultSet.getInt(1), resultSet.getDate(4), resultSet.getString(5), new User(resultSet.getInt(3)), new Groupe(resultSet.getInt(2)));
+     
+      
+    }
+    
+           
         } catch (Exception e) {
             e.printStackTrace();
         }
 
-        return abonnees;
+        return abonne;
     }
 
     @Override
@@ -175,7 +241,7 @@ String req = "select * from abonnees where id_groupe = ?";
 
             while (resultSet.next()) {
                 
-                abonne = new Abonnes(resultSet.getInt(1), resultSet.getDate(2), resultSet.getString(3), new User(resultSet.getInt(4)),new Groupe(resultSet.getInt(5)));
+  abonne = new Abonnes(resultSet.getInt(1), resultSet.getDate(4), resultSet.getString(5), new User(resultSet.getInt(3)), new Groupe(resultSet.getInt(2)));
             abonnees.add(abonne);
             
             }
@@ -185,5 +251,37 @@ String req = "select * from abonnees where id_groupe = ?";
         }
 
         return abonnees;    }
+   public List<User>  GetUsersNonAbonnesAuGroupe(int idGroupe)
+    {    
+IUserService userService = new UserService(); 
+     IGroupeService groupeService = new GroupeService();
+    List<User> listeSource= new ArrayList<>();
+  List<User> users = userService.getAll();
+  List<User> inviterMembre= new ArrayList<>();
+     List<Abonnes> abonnements=findByIdGroupe(idGroupe);
+    
+   for(Abonnes abonnes:abonnements)
+   {
+   listeSource.add(abonnes.getUser());
+   }
+     for (User user:users)
+     {
+         for(Abonnes abonnes:abonnements)
+         {
+         
+         if(user.getId()!=abonnes.getUser().getId())
+             inviterMembre.add(user);
+             
+         }
+     }
+     
+     inviterMembre.removeAll(listeSource);
+        Set set = new HashSet();
+            set.addAll(inviterMembre);
+            ArrayList distinctList = new ArrayList(set);
+     return distinctList;
+ }
 
+  
+      
 }

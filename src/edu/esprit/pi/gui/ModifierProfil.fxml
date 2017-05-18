@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXComboBox?>
+<?import com.jfoenix.controls.JFXDatePicker?>
+<?import com.jfoenix.controls.JFXRadioButton?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="581.0" prefWidth="779.0" xmlns="http://javafx.com/javafx/8.0.102" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.esprit.pi.gui.ModifierProfilController">
+   <children>
+      <Pane layoutX="26.0" layoutY="14.0" prefHeight="89.0" prefWidth="727.0" style="-fx-background-color: white;">
+         <children>
+            <Label alignment="CENTER" layoutX="99.0" layoutY="45.0" prefHeight="17.0" prefWidth="159.0" style="-fx-background-color: #143946;" text="Modifier Mon profil" textFill="WHITE" underline="true">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            <ImageView fitHeight="81.0" fitWidth="60.0" layoutX="28.0" layoutY="15.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@images/edit-male-user-28435.jpg" />
+               </image>
+            </ImageView>
+         </children>
+      </Pane>
+      <Pane layoutX="64.0" layoutY="121.0" prefHeight="372.0" prefWidth="623.0" style="-fx-background-color: white;">
+         <children>
+            <JFXDatePicker fx:id="dpDatenais" layoutX="20.0" layoutY="132.0" prefHeight="28.0" prefWidth="183.0" promptText="Date de Naissance*" />
+            <JFXTextField fx:id="txtCin" labelFloat="true" layoutX="20.0" layoutY="183.0" prefHeight="25.0" prefWidth="183.0" promptText="Cin*" />
+            <JFXTextField fx:id="txtEmail" labelFloat="true" layoutX="20.0" layoutY="231.0" prefHeight="25.0" prefWidth="183.0" promptText="Email*" />
+            <JFXTextField fx:id="txtTravail" labelFloat="true" layoutX="20.0" layoutY="285.0" prefHeight="25.0" prefWidth="183.0" promptText="Travail" />
+            <JFXTextField fx:id="txtTelephone" layoutX="20.0" layoutY="91.0" prefHeight="25.0" prefWidth="183.0" promptText="Telephone*" />
+            <JFXTextField fx:id="txtPrenom" labelFloat="true" layoutX="20.0" layoutY="54.0" prefHeight="25.0" prefWidth="183.0" promptText="Prenom*" />
+            <JFXTextField fx:id="txtNom" labelFloat="true" layoutX="20.0" layoutY="14.0" prefHeight="25.0" prefWidth="183.0" promptText="Nom*" />
+            <ImageView fx:id="imgview" fitHeight="98.0" fitWidth="103.0" layoutX="418.0" layoutY="182.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@images/photoprof.png" />
+               </image>
+            </ImageView>
+            <JFXComboBox fx:id="comboGouvernorat" editable="true" layoutX="378.0" layoutY="120.0" promptText="Gouvernorat*">
+               <cursor>
+                  <Cursor fx:constant="DEFAULT" />
+               </cursor>
+            </JFXComboBox>
+            <JFXRadioButton fx:id="rbFemme" layoutX="486.0" layoutY="71.0" text="femme" />
+            <JFXRadioButton fx:id="rbHomme" layoutX="349.0" layoutY="71.0" text="Homme" />
+            <Label layoutX="326.0" layoutY="31.0" text="Sexe*" />
+            <JFXButton fx:id="photoProfil" layoutX="378.0" layoutY="310.0" onAction="#photoProfilAction" prefHeight="25.0" prefWidth="159.0" style="-fx-background-color: #143946;" text="photo de profil" textFill="WHITE" />
+         </children></Pane>
+      <Pane layoutX="27.0" layoutY="507.0" prefHeight="60.0" prefWidth="727.0" style="-fx-background-color: white;">
+         <children>
+            <JFXButton fx:id="btnback" layoutX="127.0" layoutY="23.0" onAction="#btnbackAction" prefHeight="20.0" prefWidth="114.0" ripplerFill="#ffffff3b" style="-fx-background-color: #143946;" text="back" textFill="WHITE" />
+            <JFXButton fx:id="btnok" layoutX="438.0" layoutY="23.0" onAction="#btnokAction" prefHeight="7.0" prefWidth="114.0" ripplerFill="#1439463b" style="-fx-background-color: #143946;" text="Ok" textFill="WHITE" />
+         </children>
+      </Pane>
+   </children>
+</AnchorPane>

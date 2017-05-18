@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.text.*?>
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.esprit.pi.gui.LoginController">
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.esprit.pi.gui.LoginController">
    <children>
       <Label layoutX="220.0" layoutY="22.0" text="Connexion">
          <font>
@@ -22,5 +22,6 @@
          </font>
       </Button>
       <Label fx:id="lblerror" layoutX="176.0" layoutY="345.0" prefHeight="35.0" prefWidth="247.0" />
+      <Button layoutX="223.0" layoutY="306.0" mnemonicParsing="false" onAction="#sincrireAction" prefHeight="25.0" prefWidth="113.0" text="s'inscrire" />
    </children>
 </AnchorPane>

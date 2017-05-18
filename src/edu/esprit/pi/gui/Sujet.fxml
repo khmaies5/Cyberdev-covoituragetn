@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXDrawer?>
+<?import com.jfoenix.controls.JFXHamburger?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="1062.0" prefWidth="1252.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.esprit.pi.gui.SujetController">
+   <children>
+      <ScrollPane fx:id="ScrollPaneSujet" layoutX="10.0" layoutY="9.0" prefHeight="1090.0" prefWidth="1268.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <content>
+            <AnchorPane prefHeight="1082.0" prefWidth="1258.0">
+               <children>
+                  <VBox fx:id="VBoxAllPage" layoutX="174.0" layoutY="80.0" prefHeight="584.0" prefWidth="836.0" spacing="10.0">
+                     <children>
+                        <AnchorPane fx:id="AnchorePaneRèponses" prefHeight="228.0" prefWidth="791.0">
+                           <children>
+                              <VBox fx:id="VBoxreponses" prefHeight="228.0" prefWidth="660.0" spacing="10.0">
+                                 <children>
+                                    <AnchorPane fx:id="AnchorPaneReponse" disable="true" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="0.0" prefHeight="214.0" prefWidth="648.0" style="-fx-background-color: #ffffff;" visible="false">
+                                       <padding>
+                                          <Insets bottom="10.0" left="100.0" right="100.0" top="20.0" />
+                                       </padding>
+                                       <effect>
+                                          <DropShadow blurType="GAUSSIAN" />
+                                       </effect>
+                                       <children>
+                                          <ImageView fx:id="userImageView" fitHeight="110.0" fitWidth="86.0" layoutX="23.0" layoutY="35.0" pickOnBounds="true" preserveRatio="true">
+                                             <image>
+                                                <Image url="@../img/profil.png" />
+                                             </image>
+                                          </ImageView>
+                                          <Label fx:id="LBReponse" layoutX="147.0" layoutY="37.0" prefHeight="152.0" prefWidth="345.0" text="Rèponse">
+                                             <font>
+                                                <Font name="Roboto" size="20.0" />
+                                             </font>
+                                          </Label>
+                                          <Label fx:id="LBUserCeateur" alignment="CENTER" layoutX="14.0" layoutY="139.0" prefHeight="20.0" prefWidth="92.0" text="user">
+                                             <font>
+                                                <Font name="Roboto" size="16.0" />
+                                             </font>
+                                          </Label>
+                                          <Label fx:id="LBDate" layoutX="509.0" layoutY="30.0" prefHeight="21.0" prefWidth="95.0" text="Date" />
+                                          <Separator fx:id="separator" layoutX="128.0" layoutY="39.0" orientation="VERTICAL" prefHeight="142.0" prefWidth="6.0" />
+                                          <Button fx:id="btnSupp" layoutX="517.0" layoutY="138.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="92.0" style="-fx-background-color: #5fc2ff;" text="Supprimer">
+                                             <font>
+                                                <Font size="14.0" />
+                                             </font>
+                                          </Button>
+                                          <Button fx:id="btnModif" layoutX="517.0" layoutY="75.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="92.0" style="-fx-background-color: #5fc2ff;" text="Modifier">
+                                             <font>
+                                                <Font size="14.0" />
+                                             </font>
+                                          </Button>
+                                       </children>
+                                    </AnchorPane>
+                                 </children>
+                              </VBox>
+                           </children>
+                        </AnchorPane>
+                        <AnchorPane fx:id="AnchorPaneRepondre" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="0.0" prefHeight="214.0" prefWidth="651.0" style="-fx-background-color: #ffffff;">
+                           <padding>
+                              <Insets bottom="10.0" left="100.0" right="100.0" top="20.0" />
+                           </padding>
+                           <effect>
+                              <DropShadow blurType="GAUSSIAN" />
+                           </effect>
+                           <children>
+                              <ImageView fx:id="ImageViewUserConn" fitHeight="110.0" fitWidth="86.0" layoutX="18.0" layoutY="49.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../img/profil.png" />
+                                 </image>
+                              </ImageView>
+                              <Label fx:id="LBUserConn" alignment="CENTER" layoutX="12.0" layoutY="155.0" prefHeight="20.0" prefWidth="92.0" text="userConn">
+                                 <font>
+                                    <Font name="Roboto" size="16.0" />
+                                 </font>
+                              </Label>
+                              <Separator fx:id="separator1" layoutX="128.0" layoutY="41.0" orientation="VERTICAL" prefHeight="142.0" prefWidth="6.0" />
+                              <Button fx:id="btnRepondreSujet" layoutX="516.0" layoutY="90.0" mnemonicParsing="false" onAction="#repondrebuton" prefHeight="35.0" prefWidth="92.0" style="-fx-background-color: #5fc2ff;" text="rèpondre">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </Button>
+                              <TextField fx:id="TXTRepondre" layoutX="150.0" layoutY="40.0" onKeyPressed="#repondrekey" onMouseClicked="#repondre" prefHeight="144.0" prefWidth="350.0" />
+                           </children>
+                        </AnchorPane>
+                     </children>
+                  </VBox>
+                  <AnchorPane fx:id="AnchorePaneSujet" layoutX="137.0" prefHeight="238.0" prefWidth="699.0">
+                     <children>
+                        <Label fx:id="LBDatePubSujet" layoutX="495.0" layoutY="182.0" prefHeight="21.0" prefWidth="290.0" text="Label" />
+                        <Label fx:id="LBTitre" layoutX="208.0" layoutY="7.0" prefHeight="55.0" prefWidth="578.0" text="TitreSujet">
+                           <font>
+                              <Font name="System Bold" size="18.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="LBSujet" layoutX="206.0" layoutY="72.0" prefHeight="93.0" prefWidth="580.0" text="Contenu" />
+                        <ImageView fx:id="ImageViewCreatorSujet" fitHeight="110.0" fitWidth="86.0" layoutX="48.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../img/profil.png" />
+                           </image>
+                        </ImageView>
+                        <Label fx:id="LBUserCeateurSujet" alignment="CENTER" layoutX="45.0" layoutY="117.0" prefHeight="20.0" prefWidth="92.0" text="user">
+                           <font>
+                              <Font name="Roboto" size="16.0" />
+                           </font>
+                        </Label>
+                        <Separator fx:id="separator2" layoutX="163.0" layoutY="21.0" orientation="VERTICAL" prefHeight="142.0" prefWidth="6.0" />
+                     </children>
+                  </AnchorPane>
+                  <Button fx:id="btnRetourGroupe" layoutX="932.0" layoutY="205.0" onAction="#retournerGroupe" prefHeight="31.0" prefWidth="176.0" text="Retourner au groupe" />
+                  <ScrollPane fx:id="ScrollPaneMembres" layoutX="915.0" layoutY="313.0" prefHeight="372.0" prefWidth="223.0">
+                     <content>
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="38.0" prefWidth="218.0">
+                           <children>
+                              <VBox fx:id="VBoxMembre" prefHeight="404.0" prefWidth="216.0" />
+                              <AnchorPane fx:id="membresAnchorPane" disable="true" prefHeight="43.0" prefWidth="200.0" visible="false">
+                                 <children>
+                                    <Label fx:id="LBMembre" layoutX="61.0" layoutY="6.0" prefHeight="31.0" prefWidth="136.0" text="Nom User">
+                                       <font>
+                                          <Font size="13.0" />
+                                       </font>
+                                    </Label>
+                                    <ImageView fx:id="membreImageView" fitHeight="31.0" fitWidth="64.0" layoutY="7.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../img/profil.png" />
+                                       </image>
+                                    </ImageView>
+                                 </children>
+                              </AnchorPane>
+                           </children>
+                        </AnchorPane>
+                     </content>
+                  </ScrollPane>
+               </children>
+            </AnchorPane>
+         </content>
+      </ScrollPane>
+      <JFXDrawer fx:id="drawer" defaultDrawerSize="200.0" layoutX="10.0" layoutY="4.0" prefHeight="1086.0" prefWidth="108.0" />
+      <JFXHamburger fx:id="hamburger" layoutX="10.0" layoutY="10.0" />
+      <Label fx:id="LBAucunSujet" layoutX="297.0" layoutY="200.0" prefHeight="100.0" prefWidth="500.0" text="AucunSujet" textAlignment="CENTER" textFill="#464646" visible="false">
+         <font>
+            <Font size="24.0" />
+         </font></Label>
+   </children>
+</AnchorPane>

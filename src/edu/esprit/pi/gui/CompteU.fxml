@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXDrawer?>
+<?import com.jfoenix.controls.JFXHamburger?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="581.0" prefWidth="779.0" style="-fx-background-color: #e7e4e4;" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.esprit.pi.gui.CompteUController">
+   <children>
+      <Label layoutX="191.0" layoutY="239.0">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <JFXButton fx:id="btnDesactiver" layoutX="510.0" layoutY="290.0" onAction="#btnDesactiverAction" prefHeight="31.0" prefWidth="152.0" style="-fx-background-color: #143946;" text="Désactiver mon compte" textFill="WHITE" />
+      <JFXButton fx:id="btnModifier" layoutX="510.0" layoutY="214.0" onAction="#btnModifierAction" prefHeight="35.0" prefWidth="152.0" style="-fx-background-color: #143946;" text="Modifier mon compte" textFill="WHITE" />
+      <Pane layoutY="-1.0" prefHeight="581.0" prefWidth="461.0">
+         <children>
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#1f93ff29" height="366.0" layoutX="29.0" layoutY="192.0" stroke="BLACK" strokeType="INSIDE" width="390.0" />
+            <Label layoutX="122.0" layoutY="242.0" prefHeight="20.0" prefWidth="58.0" text="Né le ">
+               <font>
+                  <Font name="System Bold" size="13.0" />
+               </font>
+            </Label>
+            <Label layoutX="119.0" layoutY="486.0" text="Téléphone">
+               <font>
+                  <Font name="System Bold" size="13.0" />
+               </font>
+            </Label>
+            <Label layoutX="120.0" layoutY="298.0" prefHeight="30.0" prefWidth="120.0" text="Email">
+               <font>
+                  <Font name="System Bold" size="13.0" />
+               </font>
+            </Label>
+            <Label fx:id="lblEmail" layoutX="204.0" layoutY="295.0" prefHeight="35.0" prefWidth="204.0" text="Label" textFill="#10222b">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            <Label layoutX="120.0" layoutY="366.0" text="Adresse">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Label>
+            <Label fx:id="lbladress" layoutX="204.0" layoutY="360.0" prefHeight="28.0" prefWidth="204.0" text="Label" textFill="#10222b" />
+            <Label fx:id="lbltel" layoutX="204.0" layoutY="478.0" prefHeight="35.0" prefWidth="204.0" text="Label" textFill="#10222b" />
+            <Label fx:id="lbltravail" layoutX="204.0" layoutY="408.0" prefHeight="35.0" prefWidth="204.0" text="Label" textFill="#10222b" />
+            <Label fx:id="lbldp" layoutX="204.0" layoutY="234.0" prefHeight="35.0" prefWidth="204.0" text="Label" textFill="#10222b" />
+            <Label layoutX="122.0" layoutY="425.0" text="Travail">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Label>
+            <ImageView fx:id="photoProfil" fitHeight="116.0" fitWidth="152.0" layoutX="148.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true" />
+            <Label fx:id="LblNomPrenom" alignment="CENTER" layoutX="102.0" layoutY="143.0" prefHeight="35.0" prefWidth="204.0" style="-fx-background-color: #143946;" text="label" textFill="#ffffffc9">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <ImageView fitHeight="35.0" fitWidth="35.0" layoutX="44.0" layoutY="234.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@images/calendar.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="35.0" fitWidth="35.0" layoutX="44.0" layoutY="295.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@images/email.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="35.0" fitWidth="38.0" layoutX="44.0" layoutY="415.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@images/reunion.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="28.0" fitWidth="38.0" layoutX="36.0" layoutY="466.0" pickOnBounds="true" preserveRatio="true" />
+            <ImageView fitHeight="35.0" fitWidth="44.0" layoutX="40.0" layoutY="356.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@images/world-location.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="35.0" fitWidth="44.0" layoutX="40.0" layoutY="477.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@images/phone-receiver.png" />
+               </image>
+            </ImageView>
+         </children>
+      </Pane>
+      <Label layoutX="586.0" layoutY="446.0" prefHeight="17.0" prefWidth="74.0" text="Label" textFill="#e7e4e4" />
+      <JFXHamburger fx:id="hamburger" />
+      <JFXDrawer fx:id="drawer" prefHeight="581.0" prefWidth="140.0" />
+   </children>
+</AnchorPane>

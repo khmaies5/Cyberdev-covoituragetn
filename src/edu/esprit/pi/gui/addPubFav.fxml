@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXDrawer?>
+<?import com.jfoenix.controls.JFXHamburger?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.esprit.pi.gui.addPubFavController">
+     <children>
+      <ScrollPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1280.0">
+         <content>
+            <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1280.0">
+               <children>
+                  <VBox fx:id="annoncesVBox" alignment="CENTER" layoutX="275.0" layoutY="82.0" minWidth="0.0" prefHeight="70.0" prefWidth="788.0" spacing="20.0">
+                     <children>
+                        <HBox minHeight="70.0" prefHeight="70.0" prefWidth="921.0" spacing="600.0">
+                           <children>
+                              <ImageView fx:id="backImg" fitHeight="50.0" fitWidth="53.0" onMouseClicked="#retour" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../img/send_left-512.png" />
+                                 </image>
+                              </ImageView>
+                           </children>
+                           <padding>
+                              <Insets top="10.0" />
+                           </padding>
+                        </HBox>
+                     </children></VBox>
+                  <AnchorPane fx:id="annoncesAnchorPane" disable="true" layoutX="277.0" layoutY="110.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="0.0" prefHeight="139.0" prefWidth="784.0" style="-fx-background-color: #ffffff;" visible="false">
+                     <padding>
+                        <Insets bottom="10.0" left="100.0" right="100.0" top="20.0" />
+                     </padding>
+                     <effect>
+                        <DropShadow blurType="GAUSSIAN" />
+                     </effect>
+                     <children>
+                        <Label fx:id="fromToLabel" layoutX="175.0" layoutY="57.0" prefHeight="43.0" prefWidth="300.0" text="Tunis -&gt; Sfax">
+                           <font>
+                              <Font name="Roboto" size="20.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="prixLabel" alignment="CENTER" layoutX="662.0" layoutY="14.0" prefHeight="43.0" prefWidth="61.0" text="10dt">
+                           <font>
+                              <Font name="Roboto Bold" size="26.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="dateDepartLabel" layoutX="175.0" layoutY="14.0" prefHeight="43.0" prefWidth="389.0" text="Date Depart : 10-05-2017" textOverrun="CLIP">
+                           <font>
+                              <Font name="Roboto Bold" size="22.0" />
+                           </font>
+                        </Label>
+                        <Separator fx:id="separator" layoutX="143.0" layoutY="1.0" orientation="VERTICAL" prefHeight="139.0" prefWidth="4.0" />
+                        <Label fx:id="prixLabel1" layoutX="643.0" layoutY="48.0" prefHeight="43.0" prefWidth="147.0" text="Prix/Personne">
+                           <font>
+                              <Font name="Roboto Bold" size="22.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="placesLabel" layoutX="595.0" layoutY="91.0" prefHeight="43.0" prefWidth="216.0" text="Places Disponible :">
+                           <font>
+                              <Font name="Roboto" size="20.0" />
+                           </font>
+                        </Label>
+                        <ImageView fx:id="likeImage" fitHeight="53.0" fitWidth="58.0" layoutX="41.0" layoutY="52.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../img/256x256-valentine-red-heart.png" />
+                           </image>
+                        </ImageView>
+                     </children>
+                  </AnchorPane>
+               </children>
+            </AnchorPane>
+         </content>
+      </ScrollPane>
+      <JFXDrawer fx:id="drawer" defaultDrawerSize="200.0" prefHeight="800.0" prefWidth="192.0" />
+      <JFXHamburger fx:id="hamburger" />
+   </children>
+</AnchorPane>

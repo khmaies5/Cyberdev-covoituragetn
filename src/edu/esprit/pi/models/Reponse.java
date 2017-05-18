@@ -14,29 +14,36 @@ import java.util.Date;
  */
 public class Reponse {
     private int id;
-    private Date date_reponse;
-    private String reponse_sujet;
+    private Date dateReponse;
+    private String reponseSujet;
     private Sujet sujet;
-    private User creator;
+    private Abonnes creator;
+private int etatSupp;
 
-    public Reponse(int id, Date date_reponse, Sujet sujet, String reponse_sujet, User creator) {
+    public Reponse(int id, Date dateReponse, String reponseSujet, Sujet sujet, Abonnes creator, int etatSupp) {
         this.id = id;
-        this.date_reponse = date_reponse;
-        this.reponse_sujet = reponse_sujet;
+        this.dateReponse = dateReponse;
+        this.reponseSujet = reponseSujet;
+        this.sujet = sujet;
+        this.creator = creator;
+        this.etatSupp = etatSupp;
+    }
+
+    public Reponse(int id, Date dateReponse, String reponseSujet, Sujet sujet, Abonnes creator) {
+        this.id = id;
+        this.dateReponse = dateReponse;
+        this.reponseSujet = reponseSujet;
         this.sujet = sujet;
         this.creator = creator;
     }
- 
 
-    public Reponse(Date date_reponse, String reponse_sujet, Sujet sujet, User creator) {
-        this.date_reponse = date_reponse;
-        this.reponse_sujet = reponse_sujet;
-        this.sujet = sujet;
-        this.creator = creator;
+    public Reponse(int id, String reponseSujet) {
+        this.id = id;
+        this.reponseSujet = reponseSujet;
     }
 
-    public Reponse(String reponse_sujet, Sujet sujet, User Abonnes) {
-        this.reponse_sujet = reponse_sujet;
+    public Reponse(String reponseSujet, Sujet sujet, Abonnes creator) {
+        this.reponseSujet = reponseSujet;
         this.sujet = sujet;
         this.creator = creator;
     }
@@ -49,20 +56,20 @@ public class Reponse {
         this.id = id;
     }
 
-    public Date getDate_reponse() {
-        return date_reponse;
+    public Date getDateReponse() {
+        return dateReponse;
     }
 
-    public void setDate_reponse(Date date_reponse) {
-        this.date_reponse = date_reponse;
+    public void setDateReponse(Date dateReponse) {
+        this.dateReponse = dateReponse;
     }
 
-    public String getReponse_sujet() {
-        return reponse_sujet;
+    public String getReponseSujet() {
+        return reponseSujet;
     }
 
-    public void setReponse_sujet(String reponse_sujet) {
-        this.reponse_sujet = reponse_sujet;
+    public void setReponseSujet(String reponseSujet) {
+        this.reponseSujet = reponseSujet;
     }
 
     public Sujet getSujet() {
@@ -73,28 +80,26 @@ public class Reponse {
         this.sujet = sujet;
     }
 
-    public User getCreator() {
+    public Abonnes getCreator() {
         return creator;
     }
 
-    public void setCreator(User creator) {
+    public void setCreator(Abonnes creator) {
         this.creator = creator;
-    }
-
-    @Override
-    public String toString() {
-        return "Reponse{" + "id=" + id + ", date_reponse=" + date_reponse + ", reponse_sujet=" + reponse_sujet + ", sujet=" + sujet + ", creator=" + creator + '}';
     }
 
     @Override
     public int hashCode() {
         int hash = 7;
-        hash = 79 * hash + this.id;
+        hash = 37 * hash + this.id;
         return hash;
     }
 
     @Override
     public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
         if (obj == null) {
             return false;
         }
@@ -107,5 +112,11 @@ public class Reponse {
         }
         return true;
     }
+
+    @Override
+    public String toString() {
+        return "Reponse{" + "id=" + id + ", dateReponse=" + dateReponse + ", reponseSujet=" + reponseSujet + ", sujet=" + sujet + ", creator=" + creator + '}';
+    }
     
+
 }

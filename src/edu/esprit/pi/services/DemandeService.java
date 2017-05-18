@@ -72,7 +72,7 @@ String req = "select * from demande where id_demande = ?";
             ps.setInt(1, r);
             ResultSet resultSet = ps.executeQuery();
             if (resultSet.next()) {
-                demande = new Demande(resultSet.getInt(1),resultSet.getString(4),new Annonce(resultSet.getInt(2)),new User(resultSet.getInt(3)),resultSet.getInt(5),new User(resultSet.getInt(6)));
+                demande = new Demande(resultSet.getInt(1),resultSet.getString(5),new Annonce(resultSet.getInt(4)),new User(resultSet.getInt(2)),resultSet.getInt(6),new User(resultSet.getInt(3)));
             }
         } catch (Exception e) {
             e.printStackTrace();
@@ -89,7 +89,7 @@ String req = "select * from demande";
             ps = connection.prepareStatement(req);
             ResultSet resultSet = ps.executeQuery();
             while (resultSet.next()) {
-               Demande product = new Demande(resultSet.getInt(1), resultSet.getString(4),new AnonncesService().findById(resultSet.getInt(2)),new UserService().findById(resultSet.getInt(3)),resultSet.getInt(5),new UserService().findById(resultSet.getInt(6)) );
+               Demande product = new Demande(resultSet.getInt(1), resultSet.getString(5),new AnonncesService().findById(resultSet.getInt(4)),new UserService().findById(resultSet.getInt(2)),resultSet.getInt(6),new UserService().findById(resultSet.getInt(3)) );
         //Reservation(resultSet.getInt(1), resultSet.getString(2), new UserService().findById(resultSet.getInt(3)));
                 demandes.add(product);
             }
@@ -141,16 +141,18 @@ try {
 
     @Override
     public List<Demande> afficher(User user) {
-String req = "select * from demande WHERE id_demande =?";
+String req = "select * from demande WHERE id_conducteur =?";
         List<Demande> demandes = new ArrayList<>();
         try {
             ps = connection.prepareStatement(req);
             ps.setInt(1, user.getId());
             ResultSet resultSet = ps.executeQuery();
             while (resultSet.next()) {
-               Demande product = new Demande(resultSet.getInt(1), resultSet.getString(4),new AnonncesService().findById(resultSet.getInt(2)),new UserService().findById(resultSet.getInt(3)) );
+             //  Demande product = new Demande(resultSet.getInt(1), resultSet.getString(4),new AnonncesService().findById(resultSet.getInt(2)),new UserService().findById(resultSet.getInt(3)) );
         //Reservation(resultSet.getInt(1), resultSet.getString(2), new UserService().findById(resultSet.getInt(3)));
-                demandes.add(product);
+               Demande product = new Demande(resultSet.getInt(1), resultSet.getString(5),new AnonncesService().findById(resultSet.getInt(4)),new UserService().findById(resultSet.getInt(2)),resultSet.getInt(6),new UserService().findById(resultSet.getInt(3)) );
+        
+        demandes.add(product);
             }
         } catch (Exception e) {
             e.printStackTrace();

@@ -6,6 +6,7 @@
 package edu.esprit.pi.iservices;
 
 import edu.esprit.pi.models.Alerte;
+import edu.esprit.pi.models.Annonce;
 import java.util.List;
 
 /**
@@ -13,12 +14,9 @@ import java.util.List;
  * @author Nacef Fethi
  */
 public interface IAlerteService {
-       void add(Alerte alerte);
-     void delete(Integer idAlerte);
-     
-      List<Alerte> getAll();
-      Alerte findById(Integer idAlerte);
-    void  update (Alerte alerte);
+     void  update (Alerte alerte);
     List<Alerte> getAll(Integer idUser);
-     List<Alerte> rechercher(String recherche,Integer idUser);
+    List<Alerte> getAll();
+      List<Alerte> rechercher(String recherche,Integer idUser);
+   List <Annonce>comparerPublicationAlerte(List<Alerte> alerte);
 }

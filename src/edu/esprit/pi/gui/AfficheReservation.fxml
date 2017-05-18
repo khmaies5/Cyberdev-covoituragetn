@@ -30,12 +30,12 @@
       <Label layoutX="422.0" layoutY="245.0" text="date d'arrivée:" />
       <Label layoutX="406.0" layoutY="294.0" text="nom personne :" />
       <Label layoutX="253.0" layoutY="296.0" prefHeight="17.0" prefWidth="141.0" text="nbr de place :" />
-      <JFXDrawer fx:id="drawer" defaultDrawerSize="200.0" layoutY="4.0" prefHeight="600.0" prefWidth="108.0" />
-      <JFXHamburger fx:id="hamburger" />
       <TextField layoutX="219.0" layoutY="263.0" />
       <TextField layoutX="394.0" layoutY="263.0" />
       <TextField layoutX="219.0" layoutY="313.0" />
       <TextField layoutX="394.0" layoutY="313.0" />
+      <JFXDrawer fx:id="drawer" defaultDrawerSize="200.0" layoutY="4.0" prefHeight="600.0" prefWidth="108.0" />
+      <JFXHamburger fx:id="hamburger" />
     </children>
     
 </AnchorPane>

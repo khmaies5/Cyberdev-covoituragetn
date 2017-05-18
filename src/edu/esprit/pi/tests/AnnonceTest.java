@@ -37,7 +37,7 @@ public class AnnonceTest extends Application {
     public static int annonceId;
     @Override
     public void start(Stage stage) throws Exception {
-        Parent root = FXMLLoader.load(getClass().getResource("../gui/AjouterAnnonces.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("../gui/InterfaceAnnonce.fxml"));
         Scene scene = new Scene(root);
        scene.getStylesheets().add(getClass().getResource("/resources/css/jfoenix-fonts.css").toExternalForm());
 		//scene.getStylesheets().add(getClass().getResource("../resources/css/jfoenix-design.css").toExternalForm());

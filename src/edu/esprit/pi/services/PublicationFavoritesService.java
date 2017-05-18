@@ -94,7 +94,8 @@ String req = "select * from publication_enregistree  where id_user = ?";
 
     @Override
     public List<PublicationFavorite> getAll(Integer idUser) {
-String req = "select * from publication_enregistree  where id_user = ?";
+
+String req = "select p.id ,p.date_enregistrement , s.id_annonce  from publication_enregistree p inner join annonce s on p.id_annonce=s.id_annonce  and p.id_user = ?";
 List<PublicationFavorite> listPubFav = new ArrayList<>();        
 PublicationFavorite pub ;
         try {
@@ -102,7 +103,8 @@ PublicationFavorite pub ;
             ps.setInt(1, idUser);
             ResultSet resultSet = ps.executeQuery();
               while (resultSet.next()) {
-                pub = new PublicationFavorite(resultSet.getDate(2), new UserService().findById (resultSet.getInt(3)),new Annonce(resultSet.getInt(4)));
+pub = new PublicationFavorite(resultSet.getInt(1),resultSet.getDate(2),new AnonncesService().findById(resultSet.getInt(3)));
+              
            listPubFav.add(pub);
               }
         } catch (Exception e) {
@@ -111,5 +113,35 @@ PublicationFavorite pub ;
         return listPubFav;     
     }
 
+    @Override
+    public List<Annonce> findByIduserconnecte(Integer idUserConnect) {
+String req = "select * from publication_enregistree  where id_user = ?";
+           PublicationFavorite annonceFavorite = null;
+        List  <PublicationFavorite>pubs= new ArrayList<>();
+         List  <Annonce>pubs2= new ArrayList<>();
+        try {
+            ps = connection.prepareStatement(req);
+         
+            ps.setInt(1, idUserConnect);
+            ResultSet resultSet = ps.executeQuery();
+            while (resultSet.next()) {
+           
+                annonceFavorite = new PublicationFavorite(resultSet.getInt(1),resultSet.getDate(2),new UserService().findById(resultSet.getInt(3)),new AnonncesService().findById(resultSet.getInt(4)));
+      pubs.add(annonceFavorite);
+            } 
+            }    
+ 
+        catch (Exception e) {
+        }
+        for (PublicationFavorite ps : pubs)
+       {
+      pubs2.add(new AnonncesService().findById(ps.getAcreator().getIdAnnonce()));
+        }
+         System.out.println(pubs2);
+        return pubs2;  
+    }   
+
+    }
+
    
-}
+

@@ -17,23 +17,28 @@ public class UserFavoris {
         private Date dateEnregistrement;
            private User userRecommendes;
       private User userConnect;
-      private int nbrRecommendation;
+
+    public int getId() {
+        return id;
+    }
+
+
 
  
 
-    public UserFavoris(int id, User userRecommendes, User userConnect, int nbrRecommendation) {
+    public UserFavoris(int id, User userRecommendes, User userConnect) {
         this.id = id;
         this.userRecommendes = userRecommendes;
         this.userConnect = userConnect;
-        this.nbrRecommendation = nbrRecommendation;
+       
     }
 
-    public UserFavoris(int id, Date dateEnregistrement, User userRecommendes, User userConnect, int nbrRecommendation) {
+    public UserFavoris(int id, Date dateEnregistrement, User userRecommendes, User userConnect) {
         this.id = id;
         this.dateEnregistrement = dateEnregistrement;
         this.userRecommendes = userRecommendes;
         this.userConnect = userConnect;
-        this.nbrRecommendation = nbrRecommendation;
+   
     }
 
     public UserFavoris( User userRecommendes, User userConnect ) {
@@ -73,14 +78,14 @@ public class UserFavoris {
         this.userConnect = userConnect;
     }
 
-    public int getNbrRecommendation() {
-       nbrRecommendation++;
-        return nbrRecommendation;
-    }
-
-    public void setNbrRecommendation(int nbrRecommendation) {
-        this.nbrRecommendation = nbrRecommendation;
-    }
+//    public int getNbrRecommendation() {
+//       nbrRecommendation++;
+//        return nbrRecommendation;
+//    }
+//
+//    public void setNbrRecommendation(int nbrRecommendation) {
+//        this.nbrRecommendation = nbrRecommendation;
+//    }
 
   
 
@@ -116,7 +121,7 @@ public class UserFavoris {
 
     @Override
     public String toString() {
-        return "UserRecommendes{" + "id=" + id + ", user_recommendes=" + userRecommendes + ", user_connect=" + userConnect + ", nbr_recommendation=" + nbrRecommendation + '}';
+        return "UserRecommendes{" + "id=" + id + ", user_recommendes=" + userRecommendes + ", user_connect=" + userConnect + '}';
     }
 
 

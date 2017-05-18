@@ -16,4 +16,10 @@ public interface IUserService extends IService<User, Integer> {
 
     User authentication(String login, String password);
     public boolean RechLogin(String text);
+    
+   // public boolean RechLogin(String text);
+    User Search(int n);
+    void Update(User i1);
+    void Desactiver(User u);
+
 }

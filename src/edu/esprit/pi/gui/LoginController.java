@@ -7,6 +7,7 @@ package edu.esprit.pi.gui;
 
 
 
+import edu.esprit.pi.iservices.ControlledScreen;
 import edu.esprit.pi.iservices.IUserService;
 import edu.esprit.pi.models.User;
 import edu.esprit.pi.services.UserService;
@@ -19,6 +20,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -33,7 +35,8 @@ import javafx.stage.Stage;
  *
  * @author Rania
  */
-public class LoginController implements Initializable {
+public class LoginController implements Initializable ,ControlledScreen{
+   public static ScreensController screen;
 
     @FXML
     private TextField txtUsername;
@@ -53,19 +56,15 @@ public class LoginController implements Initializable {
             lblerror.setText("Login ou Password invalide !!!");
         } else {
             if (user.getRole() == 1) {
-                Stage stage = new Stage();
-                Parent root = FXMLLoader.load(getClass().getResource("Accueil.fxml"));
-                Scene scene = new Scene(root);
-                stage.setScene(scene);
-                stage.show();
+                ((Node) (event.getSource())).getScene().getWindow().setHeight(800);
+                ((Node) (event.getSource())).getScene().getWindow().setWidth(1280);
+                screen.loadScreen(ScreensFramework.screen5ID, ScreensFramework.screen5File);
+                    screen.setScreen(ScreensFramework.screen5ID);
                 
 
             } else {
-                Stage stage = new Stage();
-                Parent root = FXMLLoader.load(getClass().getResource("Admin.fxml"));
-                Scene scene = new Scene(root);
-                stage.setScene(scene);
-                stage.show();
+              screen.loadScreen(ScreensFramework.screen5ID, ScreensFramework.screen5File);
+                    screen.setScreen(ScreensFramework.screen5ID);
             }
         }
         User.setEtat_compte(1);
@@ -76,10 +75,22 @@ public class LoginController implements Initializable {
     /**
      * Initializes the controller class.
      */
+      @FXML
+    void sincrireAction(ActionEvent event) throws IOException {
+       RechercheListeAnnonceController.screen.loadScreen(ScreensFramework.screen19ID, ScreensFramework.screen19File);
+           RechercheListeAnnonceController.screen.setScreen(ScreensFramework.screen19ID);
+    }
     @Override
     public void initialize(URL url, ResourceBundle rb) {
 
         // TODO
+    }
+
+    @Override
+    public void setScreenParent(ScreensController screenPage) {
+     
+            screen=screenPage;
+
     }
 
 }

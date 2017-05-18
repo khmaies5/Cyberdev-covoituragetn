@@ -13,7 +13,7 @@ import java.util.List;
  * @author Sarra
  */
 public interface IReponseService extends IService<Reponse,Integer>{
-     
+       void update(Reponse R);
     List<Reponse> GetReponseOfSujet(Integer idSujet);
-    
+    boolean addReponse(Reponse reponse);
 }

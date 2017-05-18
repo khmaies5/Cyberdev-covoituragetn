@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXDrawer?>
+<?import com.jfoenix.controls.JFXHamburger?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.esprit.pi.gui.UserFavorisController">
+   <children>
+      <ScrollPane layoutX="-1.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1280.0">
+         <content>
+            <AnchorPane prefHeight="165.0" prefWidth="1244.0">
+               <children>
+                  <AnchorPane layoutX="315.0" layoutY="117.0" prefHeight="48.0" prefWidth="777.0">
+                     <children>
+                        <VBox fx:id="userVBox" alignment="CENTER" layoutX="-3.0" layoutY="-107.0" prefHeight="137.0" prefWidth="613.0" spacing="10.0">
+                           <children>
+                              <AnchorPane fx:id="userAnchorPane" disable="true" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="0.0" prefHeight="118.0" prefWidth="565.0" style="-fx-background-color: #ffffff;" visible="false">
+                                 <padding>
+                                    <Insets bottom="10.0" left="100.0" right="100.0" top="20.0" />
+                                 </padding>
+                                 <effect>
+                                    <DropShadow blurType="GAUSSIAN" />
+                                 </effect>
+                                 <children>
+                                    <Label fx:id="nomLabel" layoutX="188.0" layoutY="25.0" prefHeight="43.0" prefWidth="389.0" textOverrun="CLIP">
+                                       <font>
+                                          <Font size="20.0" />
+                                       </font>
+                                    </Label>
+                                    <ImageView fx:id="suppImage" fitHeight="35.0" fitWidth="47.0" layoutX="63.0" layoutY="52.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../img/remove-icon-png-26.png" />
+                                       </image>
+                                    </ImageView>
+                                    <Separator fx:id="separator" layoutX="163.0" layoutY="-2.0" orientation="VERTICAL" prefHeight="160.0" prefWidth="2.0" />
+                                    <Label fx:id="gouverneratLabel" layoutX="175.0" layoutY="70.0" prefHeight="43.0" prefWidth="270.0" text="Gouvernerat:">
+                                       <font>
+                                          <Font size="20.0" />
+                                       </font>
+                                    </Label>
+                                    <ImageView fx:id="sexeImage" fitHeight="54.0" fitWidth="54.0" layoutX="707.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true" />
+                                    <Button fx:id="pubUser" layoutX="594.0" layoutY="95.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="153.0" style="-fx-background-color: #2196f3;" text="Voir ses publications ">
+                                       <font>
+                                          <Font size="14.0" />
+                                       </font>
+                                    </Button>
+                                    <Label fx:id="dateEnregistrement" layoutX="176.0" layoutY="119.0" prefHeight="28.0" prefWidth="373.0" text="Date  d'enregistrement">
+                                       <font>
+                                          <Font size="15.0" />
+                                       </font>
+                                    </Label>
+                                 </children>
+                              </AnchorPane>
+                           </children>
+                        </VBox>
+                     </children>
+                  </AnchorPane>
+                  <JFXButton fx:id="addUFav" layoutX="314.0" layoutY="81.0" onAction="#addUserFav" style="-fx-background-color: #2196f3;" text="Ajouter user fav">
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                  </JFXButton>
+               </children>
+            </AnchorPane>
+         </content>
+      </ScrollPane>
+      <JFXDrawer fx:id="drawer" defaultDrawerSize="200.0" prefHeight="800.0" prefWidth="192.0" />
+      <Label fx:id="Labelvide" layoutX="480.0" layoutY="300.0" prefHeight="35.0" prefWidth="502.0" textFill="#2196f3" visible="false">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Label>
+      <Label fx:id="nomUserConect" layoutX="1083.0" layoutY="20.0" prefHeight="28.0" prefWidth="167.0" />
+      <JFXHamburger fx:id="hamburger" />
+   </children>
+</AnchorPane>

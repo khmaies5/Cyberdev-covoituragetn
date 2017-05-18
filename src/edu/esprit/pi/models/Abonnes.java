@@ -18,7 +18,7 @@ public class Abonnes {
     Date dateAbonnement;
 
 
-      boolean etatAbonnement;
+      int etatAbonnement;
     String roleUser;
    User user;
    Groupe groupe;
@@ -35,6 +35,15 @@ private List<Sujet> sujets;
 
     public Abonnes(User user) {
         this.user = user;
+    }
+
+    public Abonnes(int id, Date dateAbonnement, int etatAbonnement, String roleUser, User user, Groupe groupe) {
+        this.id = id;
+        this.dateAbonnement = dateAbonnement;
+        this.etatAbonnement = etatAbonnement;
+        this.roleUser = roleUser;
+        this.user = user;
+        this.groupe = groupe;
     }
 
     public Abonnes(int id, Date dateAbonnement, String role_user, User user, Groupe groupe) {
@@ -72,11 +81,11 @@ public Abonnes(int id, Date dateAbonnement, String roleUser, User user) {
     public void setId(int id) {
         this.id = id;
     }
-    public boolean isEtatAbonnement() {
+    public int isEtatAbonnement() {
         return etatAbonnement;
     }
 
-    public void setEtatAbonnement(boolean etatAbonnement) {
+    public void setEtatAbonnement(int etatAbonnement) {
         this.etatAbonnement = etatAbonnement;
     }
     public Date getDateAbonnement() {

@@ -13,9 +13,24 @@ import java.util.Date;
  */
 public class PublicationFavorite {
       private int id;
-  private Date date_enregistrement;
+  private Date dateEnregistrement;
      private User creator;
       private Annonce acreator;
+
+    public PublicationFavorite(int id) {
+        this.id = id;
+    }
+
+    public PublicationFavorite() {
+    }
+
+    public PublicationFavorite(int id, Date dateEnregistrement, Annonce acreator) {
+        this.id = id;
+        this.dateEnregistrement = dateEnregistrement;
+        this.acreator = acreator;
+    }
+
+
 
     public PublicationFavorite(int id, User creator, Annonce acreator) {
         this.id = id;
@@ -23,15 +38,20 @@ public class PublicationFavorite {
         this.acreator = acreator;
     }
 
+    public PublicationFavorite(Date date_enregistrement, Annonce acreator) {
+        this.dateEnregistrement = date_enregistrement;
+        this.acreator = acreator;
+    }
+
     public PublicationFavorite(int id, Date date_enregistrement, User creator, Annonce acreator) {
         this.id = id;
-        this.date_enregistrement = date_enregistrement;
+        this.dateEnregistrement = date_enregistrement;
         this.creator = creator;
         this.acreator = acreator;
     }
 
     public PublicationFavorite(Date date_enregistrement, User creator, Annonce acreator) {
-        this.date_enregistrement = date_enregistrement;
+        this.dateEnregistrement = date_enregistrement;
         this.creator = creator;
         this.acreator = acreator;
     }
@@ -42,12 +62,12 @@ public class PublicationFavorite {
         this.acreator = acreator;
     }
 
-    public Date getDate_enregistrement() {
-        return date_enregistrement;
+    public Date getDateEnregistrement() {
+        return dateEnregistrement;
     }
 
-    public void setDate_enregistrement(Date date_enregistrement) {
-        this.date_enregistrement = date_enregistrement;
+    public void setDateEnregistrement(Date dateEnregistrement) {
+        this.dateEnregistrement = dateEnregistrement;
     }
 
     public int getId() {
@@ -76,9 +96,11 @@ public class PublicationFavorite {
 
     @Override
     public String toString() {
-        return "PublicationFavorite{" + "date_enregistrement=" + date_enregistrement + ", creator=" + creator + ", acreator=" + acreator + '}';
+        return "PublicationFavorite{" + "id=" + id + ", date_enregistrement=" + dateEnregistrement + ", creator=" + creator + ", acreator=" + acreator + '}';
     }
 
+
+ 
 
 
     

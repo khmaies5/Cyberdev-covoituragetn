@@ -6,6 +6,7 @@
 
 package edu.esprit.pi.gui;
 
+import com.jfoenix.controls.JFXComboBox;
 import com.jfoenix.controls.JFXDrawer;
 import com.jfoenix.controls.JFXHamburger;
 import com.jfoenix.transitions.hamburger.HamburgerBackArrowBasicTransition;
@@ -20,6 +21,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -59,6 +61,9 @@ public class AnnoncesController extends Application implements Initializable  {
     
     @FXML 
     private Button btnshowreservation;
+    
+      //  @FXML
+    //private JFXComboBox<?> cbplaces;
     
     int param=1 ;
     int param1=1 ;
@@ -108,7 +113,8 @@ public class AnnoncesController extends Application implements Initializable  {
     }
     
     @FXML private void showreservation(ActionEvent event) throws IOException
-    {AjoutReservationController controller =new AjoutReservationController();
+    {
+        AjoutReservationController controller =new AjoutReservationController();
    // controller.initVariable(param,param1,param2);
     
     Stage stage ;
@@ -130,6 +136,26 @@ public class AnnoncesController extends Application implements Initializable  {
         }
     
     
+    }
+     @FXML
+    void getlistedemandeAction(ActionEvent event) throws IOException {
+  Stage stage = new Stage();
+                ((Node) (event.getSource())).getScene().getWindow().hide();
+                Parent root = FXMLLoader.load(getClass().getResource("GestionReservation.fxml"));
+                Scene scene = new Scene(root);
+                stage.setScene(scene);
+                stage.show();
+    }
+    
+        @FXML
+    void getListeReservationApprouver(ActionEvent event) throws IOException {
+        Stage stage = new Stage();
+                ((Node) (event.getSource())).getScene().getWindow().hide();
+                Parent root = FXMLLoader.load(getClass().getResource("PayementFxml.fxml"));
+                Scene scene = new Scene(root);
+                stage.setScene(scene);
+                stage.show(); 
+
     }
     void initVariable(int i,int j,int k)
 {

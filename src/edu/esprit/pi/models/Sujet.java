@@ -20,10 +20,17 @@ public class Sujet {
     private Groupe groupe;
      private Abonnes creator;
      private List<Reponse> reponses;
-     private Date date_publication;
-
+     private Date datePublication;
+private String pathFiles;
     public Sujet(int id) {
         this.id = id;
+    }
+
+    public Sujet(String objet, String topic, Groupe groupe, Abonnes creator) {
+        this.objet = objet;
+        this.topic = topic;
+        this.groupe = groupe;
+        this.creator = creator;
     }
 
      
@@ -40,6 +47,16 @@ public class Sujet {
         this.groupe = groupe;
     }
 
+    public Sujet(int id, String objet, String topic, Groupe groupe, Abonnes creator, Date datePublication, String pathFiles) {
+        this.id = id;
+        this.objet = objet;
+        this.topic = topic;
+        this.groupe = groupe;
+        this.creator = creator;
+        this.datePublication = datePublication;
+        this.pathFiles = pathFiles;
+    }
+
     public Sujet(int id, String objet, String topic) {
         this.id = id;
         this.objet = objet;
@@ -53,25 +70,41 @@ public class Sujet {
         return creator;
     }
 
-    public Sujet(int id, String objet, String topic, Groupe groupe, Abonnes creator, Date date_publication) {
+    public Sujet(int id, String objet, String topic, Groupe groupe, Abonnes creator, Date datePublication) {
         this.id = id;
         this.objet = objet;
         this.topic = topic;
         this.groupe = groupe;
         this.creator = creator;
-        this.date_publication = date_publication;
+        this.datePublication = datePublication;
     }
     
-   public Sujet(int id, String objet, String topic,  Abonnes creator, Date date_publication) {
+   public Sujet(int id, String objet, String topic,  Abonnes creator, Date datePublication) {
         this.id = id;
         this.objet = objet;
         this.topic = topic;
         
         this.creator = creator;
-        this.date_publication = date_publication;
+        this.datePublication = datePublication;
     }
     public void setCreator(Abonnes creator) {
         this.creator = creator;
+    }
+
+    public Date getDatePublication() {
+        return datePublication;
+    }
+
+    public void setDatePublication(Date datePublication) {
+        this.datePublication = datePublication;
+    }
+
+    public  String getPathFiles() {
+        return pathFiles;
+    }
+
+    public void setPathFiles(String pathFiles) {
+        this.pathFiles = pathFiles;
     }
 
    
@@ -118,18 +151,35 @@ public class Sujet {
         this.reponses = reponses;
     }
 
-    public Date getDate_publication() {
-        return date_publication;
+    public Sujet(int id, String objet, String topic, Groupe groupe, Abonnes creator, List<Reponse> reponses, Date datePublication, String pathFiles) {
+        this.id = id;
+        this.objet = objet;
+        this.topic = topic;
+        this.groupe = groupe;
+        this.creator = creator;
+        this.reponses = reponses;
+        this.datePublication = datePublication;
+        this.pathFiles = pathFiles;
     }
 
-    public void setDate_publication(Date date_publication) {
-        this.date_publication = date_publication;
+
+
+
+
+    public Sujet(String objet, String topic, Groupe groupe, Abonnes creator, String pathFiles) {
+        this.objet = objet;
+        this.topic = topic;
+        this.groupe = groupe;
+        this.creator = creator;
+        this.pathFiles = pathFiles;
     }
 
     @Override
     public String toString() {
-        return "Sujet{" + "id=" + id + ", objet=" + objet + ", topic=" + topic + ", groupe=" + groupe + ", creator=" + creator + ", reponses=" + reponses + ", date_publication=" + date_publication + '}';
+        return "Sujet{" + "id=" + id + ", objet=" + objet + ", topic=" + topic + ", groupe=" + groupe + ", creator=" + creator + ", reponses=" + reponses + ", datePublication=" + datePublication + ", pathFiles=" + pathFiles + '}';
     }
+
+   
 
   
   

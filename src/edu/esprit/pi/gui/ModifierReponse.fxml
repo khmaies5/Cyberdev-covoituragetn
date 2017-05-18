@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.layout.AnchorPane?>
+
+
+<AnchorPane id="AnchorPane" prefHeight="313.0" prefWidth="414.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.111" fx:controller="edu.esprit.pi.gui.ModifierReponseController">
+   <children>
+      <JFXButton fx:id="btnEnregistrer" layoutX="84.0" layoutY="219.0" onAction="#modifierGroupe" text="Modifier" />
+      <JFXButton fx:id="btnAnnuler" layoutX="234.0" layoutY="219.0" onAction="#annuler" text="Annuler" />
+      <TextArea fx:id="txtReponse" layoutX="53.0" layoutY="86.0" prefHeight="90.0" prefWidth="308.0" />
+      <Label layoutX="72.0" layoutY="33.0" prefHeight="37.0" prefWidth="269.0" text="voulez-vous modifier votre rèponse" />
+   </children>
+</AnchorPane>

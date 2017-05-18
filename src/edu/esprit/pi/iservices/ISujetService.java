@@ -18,4 +18,9 @@ public interface ISujetService extends IService<Sujet, Integer>{
     
         void update(Sujet s);
 List<Sujet>getbyIdGroupe(Integer idGroupe);
+ int LastInseredId();
+      
+boolean addSujet(Sujet sujet);
+   boolean updatePath(String path ,int id );
+     List<Sujet> rechercherMessujets(String recherche,Groupe gr); 
 }

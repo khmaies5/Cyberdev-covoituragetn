@@ -19,10 +19,60 @@ public class Groupe {
      private Date dateCreation;
      private List<Abonnes> abonnes;
      private List<Sujet> sujets;
+     private List<Invitation> invitations;
+     String pathImage;
 private int   nombre;
+
+    public String getPathImage() {
+        return pathImage;
+    }
+
+    public void setPathImage(String pathImage) {
+        this.pathImage = pathImage;
+    }
+
+    public Groupe(String nom, String description, String pathImage) {
+        this.nom = nom;
+        this.description = description;
+        this.pathImage = pathImage;
+    }
 
     public int getNombre() {
         return abonnes.size();
+    }
+
+    public Groupe(int id, String nom, String description, String pathImage) {
+        this.id = id;
+        this.nom = nom;
+        this.description = description;
+        this.pathImage = pathImage;
+    }
+
+    public Groupe(int id, String nom, String description, Date dateCreation, List<Abonnes> abonnes, List<Sujet> sujets, String pathImage) {
+        this.id = id;
+        this.nom = nom;
+        this.description = description;
+        this.dateCreation = dateCreation;
+        this.abonnes = abonnes;
+        this.sujets = sujets;
+        this.pathImage = pathImage;
+    }
+
+    public Groupe(int id, String nom, String description, Date dateCreation, List<Sujet> sujets, String pathImage) {
+        this.id = id;
+        this.nom = nom;
+        this.description = description;
+        this.dateCreation = dateCreation;
+        this.sujets = sujets;
+        this.pathImage = pathImage;
+    }
+
+    public Groupe(int id, String nom, String description, Date dateCreation, String pathImage) {
+        this.id = id;
+        this.nom = nom;
+        this.description = description;
+        this.dateCreation = dateCreation;
+        this.pathImage = pathImage;
     }
 
     public void setNombre(int nombre) {
@@ -140,8 +190,10 @@ public Groupe() {
 
     @Override
     public String toString() {
-        return "Groupe{" + "id=" + id + ", nom=" + nom + ", description=" + description + ", dateCreation=" + dateCreation + ", abonnes=" + abonnes + ", sujets=" + sujets + '}';
+        return "Groupe{" + "id=" + id + ", nom=" + nom + ", description=" + description + ", dateCreation=" + dateCreation + ", abonnes=" + abonnes + ", sujets=" + sujets + ", invitations=" + invitations + ", pathImage=" + pathImage + ", nombre=" + nombre + '}';
     }
+
+
 
    
 

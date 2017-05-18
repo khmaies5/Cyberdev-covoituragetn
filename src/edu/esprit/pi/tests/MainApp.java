@@ -53,18 +53,19 @@ String date1 = "24/06/2006";
         Demande demande =new Demande("", new Annonce(1),new User(1));
        //  System.out.println(service.getAll());
        List<Annonce> lst =new ArrayList();
-       // lst= serv1.rechercherannonceselontrajet("fnfgngfn","nfgngfnfgngf",date1);
-      //   System.out.println(lst);      
+      // lst= serv1.rechercherannonceselontrajet("tunis","bizerte",date1);
+      //  System.out.println(lst);      
 //service.add(reservation);
      //service.delete(2);
-     List<Reservation> res =new ArrayList();
+    /* List<Reservation> res =new ArrayList();
      ReservationService e =new ReservationService();
      res=e.findallreservationsbyid(1);
          for (Reservation re : res) {
              System.out.println(re);
-         }
-     
-     
+         }*/
+     AnonncesService arbi =new AnonncesService();
+     lst=arbi.rechercheavancee("tunis", "bizerte", date1, 500, "voiture", "adzadaz");
+         System.out.println(lst);
      }
     
 }

@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXDrawer?>
+<?import com.jfoenix.controls.JFXHamburger?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.esprit.pi.gui.InterfaceAdminController">
+   <children>
+      <ScrollPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1280.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <content>
+            <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="165.0" prefWidth="1244.0">
+               <children>
+                  <AnchorPane layoutX="315.0" layoutY="117.0" prefHeight="15.0" prefWidth="777.0">
+                     <children>
+                        <VBox fx:id="adminVBox" alignment="CENTER" prefHeight="137.0" prefWidth="613.0" spacing="20.0" />
+                     </children>
+                  </AnchorPane>
+                  <AnchorPane fx:id="adminAnchorPane" layoutY="7.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="0.0" prefHeight="80.0" prefWidth="565.0" style="-fx-background-color: #ffffff;">
+                     <padding>
+                        <Insets bottom="10.0" left="100.0" right="100.0" top="20.0" />
+                     </padding>
+                     <effect>
+                        <DropShadow blurType="GAUSSIAN" />
+                     </effect>
+                     <children>
+                        <Label fx:id="UserLabel" layoutX="188.0" layoutY="105.0" prefHeight="39.0" prefWidth="206.0" text="Heure" textOverrun="CLIP">
+                           <font>
+                              <Font size="22.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="annonceLabel" layoutX="188.0" layoutY="68.0" prefHeight="38.0" prefWidth="300.0">
+                           <font>
+                              <Font name="Roboto" size="20.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="dateLabel" layoutX="188.0" layoutY="25.0" prefHeight="43.0" prefWidth="389.0" text="Date depart" textOverrun="CLIP">
+                           <font>
+                              <Font name="Roboto Bold" size="22.0" />
+                           </font>
+                        </Label>
+                        <Separator fx:id="separator" layoutX="163.0" layoutY="10.0" orientation="VERTICAL" prefHeight="133.0" prefWidth="7.0" />
+                     </children>
+                  </AnchorPane>
+               </children>
+            </AnchorPane>
+         </content>
+      </ScrollPane>
+      <JFXDrawer fx:id="drawer" defaultDrawerSize="200.0" prefHeight="800.0" prefWidth="192.0" />
+      <JFXHamburger fx:id="hamburger" />
+   </children>
+</AnchorPane>

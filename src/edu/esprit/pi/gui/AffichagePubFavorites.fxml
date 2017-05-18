@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.*?>
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXDrawer?>
+<?import com.jfoenix.controls.JFXHamburger?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane id="AnchorPane" fx:id="root" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1080.0" prefWidth="1920.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.esprit.pi.gui.AffichagePubFavoritesController">
+    <children>
+      <JFXDrawer fx:id="drawer" defaultDrawerSize="200.0" layoutY="-6.0" prefHeight="1086.0" prefWidth="108.0" />
+      <JFXHamburger fx:id="hamburger" />
+      <Label fx:id="LId" layoutX="623.0" layoutY="266.0" prefHeight="17.0" prefWidth="0.0" />
+      <TableView fx:id="TablePubFav" layoutX="130.0" layoutY="222.0" prefHeight="262.0" prefWidth="550.0">
+         <columns>
+            <TableColumn fx:id="CLDateEnregistrement" prefWidth="154.0" text="Date Enregistrement " />
+            <TableColumn fx:id="clDateV" prefWidth="122.0" text="date Voyage" />
+            <TableColumn fx:id="CLLieuDepart" prefWidth="118.0" text="Lieu depart" />
+            <TableColumn fx:id="CLLieuArrivee" prefWidth="143.0" text="Lieu Arrivee" />
+         </columns>
+      </TableView>
+      <JFXButton fx:id="txtPubfav" layoutX="412.0" layoutY="138.0" onAction="#ajouterPubFavorites" text="Ajouter au favoris" />
+    
+     
+    </children>
+</AnchorPane>

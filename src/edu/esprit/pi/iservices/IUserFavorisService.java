@@ -7,6 +7,7 @@ package edu.esprit.pi.iservices;
 
 import edu.esprit.pi.models.UserFavoris;
 import java.util.List;
+import edu.esprit.pi.models.User;
 
 /**
  *
@@ -17,6 +18,7 @@ public interface IUserFavorisService {
      void delete(Integer idUserFavoris);
      
       List<UserFavoris> getAll();
-      //T findById(R r);
-    List<UserFavoris>findByIduserconnecter(Integer i);
+   
+   List<UserFavoris>findByIduserconnecter(Integer i);
+    List<User> findByIduserconnecte(Integer idUserConnect);
 }

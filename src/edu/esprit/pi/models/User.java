@@ -5,7 +5,7 @@
  */
 package edu.esprit.pi.models;
 
-import java.util.Date;
+import java.sql.Date;
 import java.util.List;
 
 /**
@@ -52,11 +52,22 @@ public class User {
     private String telephone;
     private String gouvernorat;
     private int role;
-   // private List<Annonce> annonces;
+    private int actif ;
+    
+
+// private List<Annonce> annonces;
     // private List<Vehicule> vehiculess;
     // private List<Reservation> reservations;
     // private List<Sujet> sujets;
       // private List<Avis> avis;
+
+    public int getActif() {
+        return actif;
+    }
+
+    public void setActif(int actif) {
+        this.actif = actif;
+    }
     
     
 

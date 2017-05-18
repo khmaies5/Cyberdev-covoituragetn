@@ -12,8 +12,10 @@
     <children>
       <JFXHamburger fx:id="hamburger" />
       <JFXDrawer fx:id="drawer" defaultDrawerSize="200.0" prefHeight="368.0" prefWidth="108.0" />
-      <WebView fx:id="mapview" prefHeight="400.0" prefWidth="600.0" />
-      <Button fx:id="btnshowreservation" layoutX="264.0" layoutY="200.0" mnemonicParsing="false" onAction="#showreservation" text="reserver" />
+      <WebView fx:id="mapview" layoutX="-85.0" prefHeight="400.0" prefWidth="600.0" />
+      <Button fx:id="btnshowreservation" layoutX="196.0" layoutY="41.0" mnemonicParsing="false" onAction="#showreservation" text="reserver" />
+      <Button layoutX="354.0" layoutY="41.0" mnemonicParsing="false" onAction="#getlistedemandeAction" text="liste demande" />
+      <Button layoutX="226.0" layoutY="130.0" mnemonicParsing="false" onAction="#getListeReservationApprouver" prefHeight="25.0" prefWidth="187.0" text="liste reservation approuver" />
     </children>
     
 </AnchorPane>

@@ -150,7 +150,24 @@ public class ReservationService implements IReservationService {
         return reservation ;
         
     }
-    
+      public Reservation findreservationbyannonce(int r)
+    {
+         String req = "select * from reservation where id_annonce = ?";
+     Reservation reservation = null ;
+        try {
+            ps = connection.prepareStatement(req);
+            ps.setInt(1, r);
+            ResultSet resultSet = ps.executeQuery();
+            if (resultSet.next()) {
+              reservation   = new Reservation(resultSet.getInt(1), resultSet.getString(2), resultSet.getString(3), resultSet.getDouble(4), resultSet.getString(5), new User(resultSet.getInt(6)), resultSet.getInt(6), new Annonce(resultSet.getInt(7)));
+            
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return reservation ;
+        
+    }
       public Demande findreservationbydemande(int r)
     {
          String req = "select * from demande where id_demande = ?";
@@ -179,7 +196,7 @@ public class ReservationService implements IReservationService {
             ResultSet resultSet = ps.executeQuery();
             while (resultSet.next()) {
 
-                Reservation product = new Reservation(resultSet.getInt(1), resultSet.getString(2), resultSet.getString(3), resultSet.getDouble(4), resultSet.getString(5), new UserService().findById(resultSet.getInt(6)), resultSet.getInt(7), new AnonncesService().findById(resultSet.getInt(8)));
+                Reservation product = new Reservation(resultSet.getInt(1), resultSet.getString(4), resultSet.getString(5), resultSet.getDouble(6), resultSet.getString(7), new UserService().findById(resultSet.getInt(2)), resultSet.getInt(8), new AnonncesService().findById(resultSet.getInt(3)));
                 //Reservation(resultSet.getInt(1), resultSet.getString(2), new UserService().findById(resultSet.getInt(3)));
                 reservations.add(product);
             }
@@ -188,4 +205,5 @@ public class ReservationService implements IReservationService {
         }
         return reservations;
     }
+        
 }

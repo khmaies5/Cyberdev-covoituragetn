@@ -29,14 +29,14 @@ public class UserFavorisService implements IUserFavorisService  {
 
     @Override
     public void add(UserFavoris userFavoris) {
- String req = "insert into user_favoris (iduser_recommendes,id_userconnect,nbr_recommendation) values (?,?,?)";
+ String req = "insert into user_favoris (iduser_recommendes,id_userconnect) values (?,?)";
         try {
             ps = connection.prepareStatement(req);
             
             
               ps.setInt(1, userFavoris.getUserRecommendes().getId());
                ps.setInt(2,userFavoris.getUserConnect().getId());
-               ps.setInt(3,userFavoris.getNbrRecommendation());
+          //    ps.setInt(3,userFavoris.getNbrRecommendation());
             
             ps.executeUpdate();
         } catch (Exception e) {
@@ -66,8 +66,8 @@ public class UserFavorisService implements IUserFavorisService  {
             ps = connection.prepareStatement(req);
             ResultSet resultSet = ps.executeQuery();
             while (resultSet.next()) {
-                UserFavoris user_favoris = new UserFavoris(resultSet.getInt(1),resultSet.getDate(2), new UserService().findById(resultSet.getInt(3)), new UserService().findById(resultSet.getInt(4)),resultSet.getInt(5));
-                listpub_f.add(user_favoris);
+ UserFavoris userFavoris = new UserFavoris(resultSet.getInt(1),resultSet.getDate(2),new UserService().findById(resultSet.getInt(3)),new UserService().findById(resultSet.getInt(4)));
+                listpub_f.add(userFavoris);
             }
         } catch (Exception e) {
             e.printStackTrace();
@@ -112,14 +112,43 @@ public class UserFavorisService implements IUserFavorisService  {
             ResultSet resultSet = ps.executeQuery();
             while (resultSet.next()) {
            
-                user_favoris = new UserFavoris(resultSet.getInt(1),resultSet.getDate(2),new User(resultSet.getInt(3)),new User(resultSet.getInt(4)),resultSet.getInt(5));
-      users.add(user_favoris);
+               UserFavoris userFavoris = new UserFavoris(resultSet.getInt(1),resultSet.getDate(2),new UserService().findById(resultSet.getInt(3)),new UserService().findById(resultSet.getInt(4)));
+               // user_favoris=new UserFavoris(resultSet.getInt(1), resultSet.getDate(2), new User(resultSet.getInt(3)), userConnect);
+      users.add(userFavoris);
             }    
  
         } catch (Exception e) {
             e.printStackTrace();
         }
         return users;      }
+
+    @Override
+    public List<User> findByIduserconnecte(Integer idUserConnect) {
+ String req = "select * from user_favoris  where id_userconnect = ?";
+           UserFavoris userFavoris = null;
+        List  <UserFavoris>users= new ArrayList<>();
+         List  <User>users2= new ArrayList<>();
+        try {
+            ps = connection.prepareStatement(req);
+         
+            ps.setInt(1, idUserConnect);
+            ResultSet resultSet = ps.executeQuery();
+            while (resultSet.next()) {
+           
+                userFavoris = new UserFavoris(resultSet.getInt(1),resultSet.getDate(2),new UserService().findById(resultSet.getInt(3)),new UserService().findById(resultSet.getInt(4)));
+      users.add(userFavoris);
+            } 
+         
+      
+            }    
+ 
+        catch (Exception e) {
+        }
+        for (UserFavoris us : users)
+        {
+        users2.add(new UserService().findById(us.getUserRecommendes().getId()));
+        }
+        return users2;    }
     }
 
     

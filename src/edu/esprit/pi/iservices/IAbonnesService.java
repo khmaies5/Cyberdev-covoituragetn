@@ -17,4 +17,9 @@ public interface IAbonnesService extends IService<Abonnes, Integer>{
        List<Abonnes>  findByIdGroupe(Integer I);
         List<Abonnes>  findByIdUser(Integer I);
 void desabonner(Groupe g,User u);
+List<User>  GetUsersNonAbonnesAuGroupe(int idGroupe);
+Abonnes findByIdGroupeAndIdUser(int iGroupe,int idUser);
+boolean addAbonnes(Abonnes A);
+boolean ReAbonnes(Abonnes A);
+
 }

@@ -100,7 +100,7 @@ public class Reservation {
     }
 
     public String getDate_reservation() {
-        return typePayement;
+        return dateReservation;
     }
 
     public String getEtat_reservation() {

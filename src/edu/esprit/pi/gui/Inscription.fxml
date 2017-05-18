@@ -1,44 +1,81 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.text.*?>
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXComboBox?>
+<?import com.jfoenix.controls.JFXDatePicker?>
+<?import com.jfoenix.controls.JFXPasswordField?>
+<?import com.jfoenix.controls.JFXRadioButton?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="900.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.esprit.pi.gui.InscriptionController">
+<AnchorPane id="AnchorPane" prefHeight="585.0" prefWidth="768.0" xmlns="http://javafx.com/javafx/8.0.102" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.esprit.pi.gui.InscriptionController">
    <children>
-      <Button fx:id="btnadd" layoutX="240.0" layoutY="478.0" mnemonicParsing="false" onAction="#btnaddAction" prefHeight="40.0" prefWidth="122.0" text="Valider">
-         <font>
-            <Font name="System Bold" size="18.0" />
-         </font>
-      </Button>
-      <RadioButton fx:id="rbFemme" layoutX="178.0" layoutY="417.0" mnemonicParsing="false" text="Femme">
-         <font>
-            <Font name="System Bold" size="12.0" />
-         </font>
-      </RadioButton>
-      <RadioButton fx:id="rbHomme" layoutX="61.0" layoutY="417.0" mnemonicParsing="false" text="Homme">
-         <font>
-            <Font name="System Bold" size="12.0" />
-         </font>
-      </RadioButton>
-      <DatePicker fx:id="dpDatenais" layoutX="61.0" layoutY="349.0" promptText="Date de Naissance" />
-      <TextField fx:id="txtTelephone" layoutX="411.0" layoutY="282.0" promptText="Telephone" />
-      <TextField fx:id="txtTravail" layoutX="414.0" layoutY="221.0" promptText="Travail" />
-      <TextField fx:id="txtCin" layoutX="416.0" layoutY="164.0" promptText="Cin" />
-      <TextField fx:id="txtEmail" layoutX="413.0" layoutY="108.0" promptText="Email" />
-      <PasswordField fx:id="txtPassword" layoutX="74.0" layoutY="286.0" promptText="Password" />
-      <TextField fx:id="txtLogin" layoutX="74.0" layoutY="227.0" promptText="Login" />
-      <TextField fx:id="txtPrenom" layoutX="74.0" layoutY="169.0" promptText="Prenom" />
-      <TextField fx:id="txtNom" layoutX="74.0" layoutY="113.0" promptText="Nom" />
-      <Label alignment="CENTER" layoutX="255.0" layoutY="26.0" text="Inscription" textAlignment="CENTER">
-         <font>
-            <Font name="System Bold" size="18.0" />
-         </font>
-      </Label>
-      <ComboBox fx:id="comboGouvernorat" layoutX="416.0" layoutY="349.0" prefWidth="150.0" promptText="Gouvernorat" />
-      <Label fx:id="lblResultat" layoutX="253.0" layoutY="186.0" prefHeight="71.0" prefWidth="122.0" />
+      <ImageView fitHeight="700.0" fitWidth="1000.0" layoutX="-4.0" layoutY="-7.0" opacity="0.74" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@images/covo.jpg" />
+         </image>
+      </ImageView>
+      <Pane layoutX="21.0" layoutY="14.0" prefHeight="89.0" prefWidth="727.0">
+         <children>
+            <Label alignment="CENTER" layoutX="96.0" layoutY="45.0" prefHeight="17.0" prefWidth="159.0" style="-fx-background-color: #143946;" text="Inscription" textFill="WHITE" underline="true">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            <ImageView fitHeight="71.0" fitWidth="65.0" layoutX="14.0" layoutY="13.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@images/Inscription-CERCO.png" />
+               </image>
+            </ImageView>
+         </children>
+      </Pane>
+      <Pane layoutX="32.0" layoutY="500.0" prefHeight="65.0" prefWidth="706.0">
+         <children>
+            <JFXButton fx:id="btnRetour" layoutX="94.0" layoutY="18.0" onAction="#btnRetourAction" style="-fx-background-color: #143946;" text="&lt;&lt;&lt; Retour à Login" textFill="WHITE">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </JFXButton>
+            <JFXButton fx:id="btnadd" alignment="TOP_LEFT" layoutX="440.0" layoutY="17.0" onAction="#btnaddAction" prefHeight="32.0" prefWidth="144.0" style="-fx-background-color: #143946;" text="S'inscrire &gt;&gt;&gt;" textFill="WHITE">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </JFXButton>
+         </children>
+      </Pane>
+      <Pane layoutX="60.0" layoutY="116.0" prefHeight="384.0" prefWidth="651.0">
+         <children>
+            <Button fx:id="photoProfil" layoutX="365.0" layoutY="335.0" mnemonicParsing="false" onAction="#photoProfilAction" prefHeight="25.0" prefWidth="160.0" text="Photo de profil" />
+            <ImageView fx:id="imgview" fitHeight="98.0" fitWidth="103.0" layoutX="406.0" layoutY="216.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@images/photoprof.png" />
+               </image>
+            </ImageView>
+            <JFXTextField fx:id="txtPrenom" labelFloat="true" layoutX="34.0" layoutY="60.0" prefHeight="25.0" prefWidth="183.0" promptText="Prenom*" />
+            <JFXTextField fx:id="txtLogin" labelFloat="true" layoutX="34.0" layoutY="105.0" prefHeight="25.0" prefWidth="183.0" promptText="Login*" />
+            <JFXPasswordField fx:id="txtPassword" labelFloat="true" layoutX="34.0" layoutY="143.0" prefHeight="25.0" prefWidth="183.0" promptText="Password*" />
+            <JFXTextField fx:id="txtCin" labelFloat="true" layoutX="34.0" layoutY="226.0" prefHeight="25.0" prefWidth="183.0" promptText="Cin*" />
+            <JFXTextField fx:id="txtEmail" labelFloat="true" layoutX="34.0" layoutY="181.0" prefHeight="25.0" prefWidth="183.0" promptText="Email*" />
+            <JFXTextField fx:id="txtTravail" labelFloat="true" layoutX="34.0" layoutY="322.0" prefHeight="25.0" prefWidth="183.0" promptText="Travail" />
+            <JFXTextField fx:id="txtTelephone" layoutX="34.0" layoutY="275.0" prefHeight="25.0" prefWidth="183.0" promptText="Telephone*" />
+            <JFXDatePicker fx:id="dpDatenais" layoutX="359.0" layoutY="91.0" prefHeight="28.0" prefWidth="183.0" promptText="Date de Naissance*" />
+            <JFXComboBox fx:id="comboGouvernorat" editable="true" layoutX="366.0" layoutY="156.0" promptText="Gouvernorat*">
+               <cursor>
+                  <Cursor fx:constant="DEFAULT" />
+               </cursor>
+            </JFXComboBox>
+            <JFXRadioButton fx:id="rbFemme" layoutX="475.0" layoutY="52.0" text="femme" />
+            <JFXRadioButton fx:id="rbHomme" layoutX="326.0" layoutY="52.0" prefHeight="17.0" prefWidth="124.0" text="Homme" />
+            <JFXTextField fx:id="txtNom" labelFloat="true" layoutX="34.0" layoutY="15.0" prefHeight="25.0" prefWidth="183.0" promptText="Nom*" />
+            <Label layoutX="326.0" layoutY="19.0" text="Sexe*" />
+         </children>
+      </Pane>
    </children>
 </AnchorPane>
